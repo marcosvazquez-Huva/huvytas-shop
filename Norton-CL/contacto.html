@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KDG8R8RN');</script>
+<!-- End Google Tag Manager -->
+
+    <title>Contacto</title>
+    <link rel="icon" type="image/x-icon" href="/favicon-lp-Norton-AR.png">
+    <!-- Tailwind CSS para diseño responsivo rápido -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons para iconos limpios y modernos -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Inter para legibilidad premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            base: '#ffffff',
+                            dark: '#242424',
+                            accent: '#feeb29',
+                            accentHover: '#e6d41e',
+                            bgOuter: '#f4f6fa'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f6fa;
+        }
+    </style>
+</head>
+<body class="bg-brand-bgOuter text-brand-dark antialiased">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDG8R8RN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    <!-- CONTENEDOR PRINCIPAL: Formato de tarjeta vertical idéntico a smartphone -->
+    <div class="max-w-md mx-auto bg-white min-h-screen shadow-2xl overflow-hidden flex flex-col justify-between border-x border-slate-100">
+        
+        <!-- CONTENIDO DE LA PÁGINA -->
+        <main class="flex-grow flex flex-col justify-between">
+            
+            <div>
+                <!-- ENCABEZADO IDÉNTICO -->
+                <header class="bg-white/90 backdrop-blur-md border-b border-slate-100 sticky top-0 z-40">
+                    <div class="px-6 h-16 flex items-center justify-start">
+                        <!-- Enlace para volver a la tienda -->
+                        <a href="/cl" class="text-xs font-bold text-slate-600 hover:text-brand-dark flex items-center gap-1">
+                            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Volver
+                        </a>
+                    </div>
+                </header>
+
+                <!-- CONTENIDO FORMULARIO -->
+                <div class="px-6 py-8 space-y-6">
+                    
+                    <!-- Título y Descripción -->
+                    <div class="space-y-2 border-b border-slate-100 pb-5">
+                        <h1 class="text-2xl font-black tracking-tight text-slate-900 uppercase">
+                            Contacto
+                        </h1>
+                        <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                            Completa los siguientes datos para ponerte en contacto con nuestro equipo.
+                        </p>
+                    </div>
+
+                    <!-- ESTADO / FORMULARIO -->
+                    <div id="form-container">
+                        <form id="contact-form" class="space-y-5">
+                            
+                            <!-- Campo Nombre (Obligatorio) -->
+                            <div class="space-y-1.5">
+                                <div class="flex justify-between items-center">
+                                    <label for="name" class="text-xs font-bold text-slate-700 uppercase tracking-wide">
+                                        Nombre Completo
+                                    </label>
+                                    <span class="text-[10px] text-red-500 font-extrabold uppercase">
+                                        * Obligatorio
+                                    </span>
+                                </div>
+                                <div class="relative rounded-2xl shadow-sm">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                                        <i data-lucide="user" class="w-4 h-4"></i>
+                                    </div>
+                                    <input 
+                                        type="text" 
+                                        id="name" 
+                                        name="name" 
+                                        required
+                                        placeholder="Ej. Juan Pérez" 
+                                        class="block w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 focus:border-brand-dark focus:bg-white rounded-2xl text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:ring-4 focus:ring-brand-accent/20 outline-none transition duration-150"
+                                    />
+                                </div>
+                            </div>
+
+                            <!-- Campo Correo (Obligatorio) -->
+                            <div class="space-y-1.5">
+                                <div class="flex justify-between items-center">
+                                    <label for="email" class="text-xs font-bold text-slate-700 uppercase tracking-wide">
+                                        Correo Electrónico
+                                    </label>
+                                    <span class="text-[10px] text-red-500 font-extrabold uppercase">
+                                        * Obligatorio
+                                    </span>
+                                </div>
+                                <div class="relative rounded-2xl shadow-sm">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                                        <i data-lucide="mail" class="w-4 h-4"></i>
+                                    </div>
+                                    <input 
+                                        type="email" 
+                                        id="email" 
+                                        name="email" 
+                                        required
+                                        placeholder="ejemplo@correo.com" 
+                                        class="block w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 focus:border-brand-dark focus:bg-white rounded-2xl text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:ring-4 focus:ring-brand-accent/20 outline-none transition duration-150"
+                                    />
+                                </div>
+                            </div>
+
+                            <!-- Campo Empresa (Opcional) -->
+                            <div class="space-y-1.5">
+                                <div class="flex justify-between items-center">
+                                    <label for="company" class="text-xs font-bold text-slate-700 uppercase tracking-wide">
+                                        Empresa
+                                    </label>
+                                    <span class="text-[10px] text-slate-400 font-bold uppercase">
+                                        Opcional
+                                    </span>
+                                </div>
+                                <div class="relative rounded-2xl shadow-sm">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                                        <i data-lucide="briefcase" class="w-4 h-4"></i>
+                                    </div>
+                                    <input 
+                                        type="text" 
+                                        id="company" 
+                                        name="company" 
+                                        placeholder="Ej. Mi Empresa S.A." 
+                                        class="block w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 focus:border-brand-dark focus:bg-white rounded-2xl text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:ring-4 focus:ring-brand-accent/20 outline-none transition duration-150"
+                                    />
+                                </div>
+                            </div>
+                          
+                            <!-- Botón de Envío -->
+                            <div class="pt-4">
+                                <button 
+                                    type="submit" 
+                                    class="w-full px-8 py-3.5 bg-brand-accent hover:bg-brand-accentHover text-brand-dark font-extrabold rounded-full border-2 border-brand-dark transition duration-150 shadow-md active:scale-[0.98] text-xs uppercase tracking-wide flex items-center justify-center gap-2"
+                                >
+                                    Enviar
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Botón inferior para volver a la tienda -->
+            <div class="px-6 pb-8 text-center mt-auto">
+                <a href="/cl" class="inline-flex items-center justify-center w-full px-8 py-3 bg-brand-base hover:bg-slate-50 text-brand-dark font-extrabold rounded-full border-2 border-brand-dark shadow-sm transition duration-150 text-xs uppercase tracking-wide">
+                    Atrás
+                </a>
+            </div>
+
+        </main>
+
+        <!-- PIE DE PÁGINA IDÉNTICO (Negro Absoluto) -->
+        <footer class="bg-black text-slate-400 py-8 px-6 text-xs border-t border-slate-950">
+            <div class="space-y-6">
+                <!-- Enlaces Legales -->
+                <div class="flex items-center justify-center gap-4 text-slate-200 font-semibold border-b border-neutral-900 pb-5">
+                    <a href="/cl/politica.html" class="hover:text-white transition">Política de Privacidad</a>
+                    <a href="/cl/terminos.html" class="hover:text-white transition">Terminos y condiciones</a>
+                    <a href="/cl/contacto.html" class="hover:text-white transition">Contacto</a>
+                </div>
+
+                <!-- Textos de Disclaimer de Responsabilidad -->
+                <div class="space-y-4 text-slate-400 text-[10px] leading-relaxed text-center sm:text-left">
+                    <p class="">
+                        
+                    </p>
+                    <p class="">
+                         Huvytas Advertising Somos una agencia digital autorizada para la promoción de Ciberseguridad, no somos el soporte técnico oficial.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+   <!-- SCRIPT DE INTERACCIÓN -->
+<script>
+    // Inicialización de iconos Lucide
+    lucide.createIcons();
+
+    // Abrir Gmail al enviar el formulario
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        window.open(
+            'https://mail.google.com/mail/?view=cm&fs=1&to=publicidad@huvytas.com',
+            '_blank'
+        );
+    });
+</script>
+</body>
+</html>
