@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En Mantenimiento</title>
+    <!-- Tailwind CSS para estilos rápidos y limpios -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome para íconos simples -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            // Colores neutrales y profesionales para la agencia
+                            bg: '#0a0a0a',        // Fondo casi negro
+                            text: '#f3f4f6',      // Texto principal (gris muy claro)
+                            muted: '#9ca3af',     // Texto secundario
+                            accent: '#22c55e',    // Verde vibrante (Tailwind green-500) similar al estilo Huvytas
+                            accentHover: '#16a34a'// Verde ligeramente más oscuro para el hover (Tailwind green-600)
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-bg text-brand-text font-sans h-screen flex flex-col justify-between selection:bg-brand-accent selection:text-white">
+
+    <!-- Header super simple -->
+    <header class="w-full p-6 sm:p-10 flex justify-center sm:justify-start">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded bg-brand-accent flex items-center justify-center">
+                <i class="fa-solid fa-chart-simple text-white text-sm"></i>
+            </div>
+            <span class="text-xl font-bold tracking-tight">Huvytas <span class="font-light text-brand-muted">Advertising</span></span>
+        </div>
+    </header>
+
+    <!-- Contenido Central Minimalista -->
+    <main class="flex-grow flex flex-col items-center justify-center px-6 text-center max-w-3xl mx-auto">
+        
+        <!-- Etiqueta de estado -->
+        <div class="mb-6 px-4 py-1.5 rounded-full border border-brand-accent/30 bg-brand-accent/10 text-brand-accent text-sm font-semibold tracking-wide uppercase">
+            <i class="fa-solid fa-wrench mr-2"></i> Sitio en mantenimiento
+        </div>
+
+        <!-- Mensaje principal -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            Volveremos <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">muy pronto.</span>
+        </h1>
+        
+        <p class="text-brand-muted text-lg md:text-xl mb-10 max-w-xl">
+            Estamos simplificando y mejorando nuestra plataforma web para ofrecerte las mejores soluciones en publicidad digital y marketing.
+        </p>
+    </main>
+
+    <!-- Footer sencillo -->
+    <footer class="w-full p-6 sm:p-10 flex flex-col sm:flex-row justify-center items-center gap-4 text-sm text-brand-muted">
+        <p>&copy; <span id="year"></span> Huvytas Advertising.</p>
+    </footer>
+
+    <script>
+        // Actualizar el año automáticamente
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
