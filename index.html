@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>En Mantenimiento</title>
-    <!-- Tailwind CSS para estilos rápidos y limpios -->
+    <title>Huvytas Shop - Soluciones digitales, en un solo lugar</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome para íconos simples -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -20,57 +18,485 @@
                     },
                     colors: {
                         brand: {
-                            // Colores neutrales y profesionales para la agencia
-                            bg: '#0a0a0a',        // Fondo casi negro
-                            text: '#f3f4f6',      // Texto principal (gris muy claro)
-                            muted: '#9ca3af',     // Texto secundario
-                            accent: '#22c55e',    // Verde vibrante (Tailwind green-500) similar al estilo Huvytas
-                            accentHover: '#16a34a'// Verde ligeramente más oscuro para el hover (Tailwind green-600)
+                            50: '#f5f7fa',
+                            100: '#eaedf3',
+                            200: '#d5dae6',
+                            300: '#b4bdd1',
+                            400: '#8c9bb7',
+                            500: '#6f7e9f',
+                            600: '#586483',
+                            700: '#48516b',
+                            800: '#3d4458',
+                            900: '#1a1f2e',
+                            950: '#11141e',
+                        },
+                        accent: {
+                            DEFAULT: '#7ed321', // The lime green from the image
+                            hover: '#66ab1a',
+                            glow: 'rgba(126, 211, 33, 0.4)'
+                        },
+                        dark: {
+                            bg: '#000000',
+                            surface: '#0a0a0a',
+                            border: '#222222',
+                            text: '#f3f4f6',
+                            muted: '#9ca3af'
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px rgba(126, 211, 33, 0.2)' },
+                            '100%': { boxShadow: '0 0 20px rgba(126, 211, 33, 0.6)' },
                         }
                     }
                 }
             }
         }
     </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        .glass-nav {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #222222;
+        }
+
+        .hero-bg {
+            background-color: #000000;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(126, 211, 33, 0.03), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(126, 211, 33, 0.04), transparent 25%);
+            position: relative;
+        }
+
+        .content-relative {
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn-primary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background-color: transparent;
+            color: #7ed321;
+            border: 1px solid #7ed321;
+            transition: all 0.3s ease;
+        }
+
+        .btn-accent:hover {
+            background-color: rgba(126, 211, 33, 0.1);
+            box-shadow: 0 0 15px rgba(126, 211, 33, 0.4);
+        }
+
+        .card-dark {
+            background-color: #0a0a0a;
+            border: 1px solid #222222;
+            transition: all 0.4s ease;
+        }
+
+        .card-dark:hover {
+            border-color: #7ed321;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(126, 211, 33, 0.15);
+        }
+
+        .text-accent {
+            color: #7ed321;
+        }
+
+        .border-accent {
+            border-color: #7ed321;
+        }
+
+        .section-padding {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            border-bottom: 1px solid #111;
+        }
+
+        @media (min-width: 768px) {
+            .section-padding {
+                padding-top: 8rem;
+                padding-bottom: 8rem;
+            }
+        }
+        
+        /* Custom scrollbar for dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7ed321;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
-<body class="bg-brand-bg text-brand-text font-sans h-screen flex flex-col justify-between selection:bg-brand-accent selection:text-white">
+<body class="antialiased font-sans text-dark-text bg-dark-bg">
 
-    <!-- Header super simple -->
-    <header class="w-full p-6 sm:p-10 flex justify-center sm:justify-start">
-        <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded bg-brand-accent flex items-center justify-center">
-                <i class="fa-solid fa-chart-simple text-white text-sm"></i>
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center sm:justify-start items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer">
+                    <span class="font-bold text-2xl tracking-tight text-white">
+                        Huvytas<span class="text-accent font-normal">.shop</span>
+                    </span>
+                </div>
             </div>
-            <span class="text-xl font-bold tracking-tight">Huvytas <span class="font-light text-brand-muted">Advertising</span></span>
         </div>
-    </header>
+    </nav>
 
-    <!-- Contenido Central Minimalista -->
-    <main class="flex-grow flex flex-col items-center justify-center px-6 text-center max-w-3xl mx-auto">
-        
-        <!-- Etiqueta de estado -->
-        <div class="mb-6 px-4 py-1.5 rounded-full border border-brand-accent/30 bg-brand-accent/10 text-brand-accent text-sm font-semibold tracking-wide uppercase">
-            <i class="fa-solid fa-wrench mr-2"></i> Sitio en mantenimiento
+    <section id="about" class="section-padding bg-black relative pt-32 md:pt-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                
+                <!-- Right side: Content (Reordered for visual balance) -->
+                <div class="order-1 space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-2">
+                        ¿Qué es Huvytas Shop?
+                    </h2>
+                    <div class="w-16 h-1 bg-accent mb-6"></div>
+                    <p class="text-lg text-dark-muted leading-relaxed">
+                        Huvytas Shop es una unidad de <strong class="text-white font-medium">Huvytas Advertising</strong> dedicada a la comercialización digital de productos y servicios de marcas afiliadas.
+                    </p>
+                    <p class="text-lg text-dark-muted leading-relaxed">
+                        Trabajamos con marcas nacionales e internacionales para acercar sus soluciones a nuevos usuarios a través de canales digitales, simplificando el proceso de descubrimiento y conexión en un entorno unificado.
+                    </p>
+                </div>
+
+                <!-- Left side: Graphic/Image -->
+                <div class="order-2 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-accent/30 to-black rounded-xl blur-lg opacity-50 group-hover:opacity-70 transition duration-700"></div>
+                    <div class="relative rounded-xl overflow-hidden border border-dark-border group-hover:border-accent/50 transition-colors duration-500 aspect-[4/3] shadow-2xl">
+                        <img src="/home/img/img-home-hs.png" 
+                             alt="Equipo colaborando y conectando marcas" 
+                             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                             onerror="this.src='https://placehold.co/800x600/111/7ed321?text=Huvytas+Shop'">
+                        
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+                        
+                        <!-- Overlay accent line -->
+                        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-transparent"></div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-        <!-- Mensaje principal -->
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Volveremos <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">muy pronto.</span>
-        </h1>
-        
-        <p class="text-brand-muted text-lg md:text-xl mb-10 max-w-xl">
-            Estamos simplificando y mejorando nuestra plataforma web para ofrecerte las mejores soluciones en publicidad digital y marketing.
-        </p>
-    </main>
+    <section id="products" class="section-padding bg-black relative border-t border-dark-border overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+                    Productos
+                </h2>
+                <div class="w-16 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-dark-muted">Desliza para descubrir nuestras soluciones digitales.</p>
+            </div>
 
-    <!-- Footer sencillo -->
-    <footer class="w-full p-6 sm:p-10 flex flex-col sm:flex-row justify-center items-center gap-4 text-sm text-brand-muted">
-        <p>&copy; <span id="year"></span> Huvytas Advertising.</p>
+            <!-- Contenedor relativo para las flechas y el carrusel -->
+            <div class="relative group/carousel">
+                
+                <!-- Flecha Izquierda (Visible en Desktop) -->
+                <button id="btn-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-12 h-12 bg-black border border-accent rounded-full hidden md:flex items-center justify-center text-accent transition-all duration-300 shadow-[0_0_15px_rgba(126,211,33,0.3)] hover:bg-accent hover:text-black focus:outline-none" aria-label="Anterior">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+
+                <!-- Horizontal Scrollable Carousel -->
+                <div id="products-carousel" class="flex gap-6 overflow-x-auto pb-8 pt-4 snap-x snap-mandatory hide-scrollbar scroll-smooth">
+                    
+                    <!-- ==================== TARJETA 1: VAMBE ==================== -->
+                    <div class="card-dark rounded-xl flex-none w-[85vw] sm:w-80 snap-center flex flex-col overflow-hidden relative group">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-accent z-10"></div>
+                        <div class="h-48 relative overflow-hidden bg-[#111]">
+                            <!-- 1. REEMPLAZAR IMAGEN DE FONDO (src) -->
+                            <img src="/vambe/img/img-vambe-huvytas-ai-chatbots.png" 
+                                 alt="Fondo Tarjeta" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow relative z-10 -mt-8">
+                            <div class="w-12 h-12 bg-black border border-accent rounded-lg flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(126,211,33,0.3)] p-1.5 overflow-hidden">
+                                <!-- 2. REEMPLAZAR LOGO (src) -->
+                                <img src="/vambe/img/logo-vambe.png" 
+                                     alt="Logo Tarjeta" 
+                                     class="w-full h-full object-contain">
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Vambe</h3>
+                            <p class="text-dark-muted text-sm leading-relaxed mb-8 flex-grow">
+                                Plataforma integral diseñada para optimizar y escalar tus procesos digitales con tecnología de vanguardia.
+                            </p>
+                            <a href="#" class="btn-accent w-full py-3 rounded-lg text-sm font-semibold text-center tracking-wide flex justify-center items-center gap-2">
+                                Conoce más
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- ==================== TARJETA 2: PRÓXIMAMENTE ==================== -->
+                    <div class="card-dark rounded-xl flex-none w-[85vw] sm:w-80 snap-center flex flex-col overflow-hidden relative group opacity-80 hover:opacity-100 transition-opacity">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-dark-border z-10 group-hover:bg-accent transition-colors"></div>
+                        <div class="h-48 relative overflow-hidden bg-[#111]">
+                            <!-- 1. REEMPLAZAR IMAGEN DE FONDO (src) -->
+                            <img src="https://placehold.co/600x400/111/333?text=Próximamente" 
+                                 alt="Fondo Tarjeta" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow relative z-10 -mt-8">
+                            <div class="w-12 h-12 bg-black border border-dark-border group-hover:border-accent transition-colors rounded-lg flex items-center justify-center mb-4 p-1.5 overflow-hidden">
+                                <!-- 2. REEMPLAZAR LOGO (src) -->
+                                <img src="https://placehold.co/100x100/000/333?text=..." 
+                                     alt="Logo Tarjeta" 
+                                     class="w-full h-full object-contain">
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Próximamente</h3>
+                            <p class="text-dark-muted text-sm leading-relaxed mb-8 flex-grow">
+                                Estamos desarrollando nuevas soluciones para expandir nuestro ecosistema. Mantente al tanto.
+                            </p>
+                            <a href="#" class="btn-primary w-full py-3 rounded-lg text-sm font-semibold text-center tracking-wide flex justify-center items-center gap-2">
+                                Conoce más
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- ==================== TARJETA 3: PRÓXIMAMENTE ==================== -->
+                    <div class="card-dark rounded-xl flex-none w-[85vw] sm:w-80 snap-center flex flex-col overflow-hidden relative group opacity-80 hover:opacity-100 transition-opacity">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-dark-border z-10 group-hover:bg-accent transition-colors"></div>
+                        <div class="h-48 relative overflow-hidden bg-[#111]">
+                            <!-- 1. REEMPLAZAR IMAGEN DE FONDO (src) -->
+                            <img src="https://placehold.co/600x400/111/333?text=Próximamente" 
+                                 alt="Fondo Tarjeta" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow relative z-10 -mt-8">
+                            <div class="w-12 h-12 bg-black border border-dark-border group-hover:border-accent transition-colors rounded-lg flex items-center justify-center mb-4 p-1.5 overflow-hidden">
+                                <!-- 2. REEMPLAZAR LOGO (src) -->
+                                <img src="https://placehold.co/100x100/000/333?text=..." 
+                                     alt="Logo Tarjeta" 
+                                     class="w-full h-full object-contain">
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Próximamente</h3>
+                            <p class="text-dark-muted text-sm leading-relaxed mb-8 flex-grow">
+                                Estamos desarrollando nuevas herramientas para impulsar tu crecimiento digital.
+                            </p>
+                            <a href="#" class="btn-primary w-full py-3 rounded-lg text-sm font-semibold text-center tracking-wide flex justify-center items-center gap-2">
+                                Conoce más
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- ==================== TARJETA 4: PRÓXIMAMENTE ==================== -->
+                    <div class="card-dark rounded-xl flex-none w-[85vw] sm:w-80 snap-center flex flex-col overflow-hidden relative group opacity-80 hover:opacity-100 transition-opacity">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-dark-border z-10 group-hover:bg-accent transition-colors"></div>
+                        <div class="h-48 relative overflow-hidden bg-[#111]">
+                            <!-- 1. REEMPLAZAR IMAGEN DE FONDO (src) -->
+                            <img src="https://placehold.co/600x400/111/333?text=Próximamente" 
+                                 alt="Fondo Tarjeta" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow relative z-10 -mt-8">
+                            <div class="w-12 h-12 bg-black border border-dark-border group-hover:border-accent transition-colors rounded-lg flex items-center justify-center mb-4 p-1.5 overflow-hidden">
+                                <!-- 2. REEMPLAZAR LOGO (src) -->
+                                <img src="https://placehold.co/100x100/000/333?text=..." 
+                                     alt="Logo Tarjeta" 
+                                     class="w-full h-full object-contain">
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Próximamente</h3>
+                            <p class="text-dark-muted text-sm leading-relaxed mb-8 flex-grow">
+                                Nuevas conexiones y servicios se agregarán pronto a nuestro catálogo de marca.
+                            </p>
+                            <a href="#" class="btn-primary w-full py-3 rounded-lg text-sm font-semibold text-center tracking-wide flex justify-center items-center gap-2">
+                                Conoce más
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- ==================== TARJETA 5: PRÓXIMAMENTE ==================== -->
+                    <div class="card-dark rounded-xl flex-none w-[85vw] sm:w-80 snap-center flex flex-col overflow-hidden relative group opacity-80 hover:opacity-100 transition-opacity">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-dark-border z-10 group-hover:bg-accent transition-colors"></div>
+                        <div class="h-48 relative overflow-hidden bg-[#111]">
+                            <!-- 1. REEMPLAZAR IMAGEN DE FONDO (src) -->
+                            <img src="https://placehold.co/600x400/111/333?text=Próximamente" 
+                                 alt="Fondo Tarjeta" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow relative z-10 -mt-8">
+                            <div class="w-12 h-12 bg-black border border-dark-border group-hover:border-accent transition-colors rounded-lg flex items-center justify-center mb-4 p-1.5 overflow-hidden">
+                                <!-- 2. REEMPLAZAR LOGO (src) -->
+                                <img src="https://placehold.co/100x100/000/333?text=..." 
+                                     alt="Logo Tarjeta" 
+                                     class="w-full h-full object-contain">
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Próximamente</h3>
+                            <p class="text-dark-muted text-sm leading-relaxed mb-8 flex-grow">
+                                Preparamos integraciones exclusivas. El ecosistema digital no deja de crecer.
+                            </p>
+                            <a href="#" class="btn-primary w-full py-3 rounded-lg text-sm font-semibold text-center tracking-wide flex justify-center items-center gap-2">
+                                Conoce más
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Flecha Derecha (Visible en Desktop) -->
+                <button id="btn-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-12 h-12 bg-black border border-accent rounded-full hidden md:flex items-center justify-center text-accent transition-all duration-300 shadow-[0_0_15px_rgba(126,211,33,0.3)] hover:bg-accent hover:text-black focus:outline-none" aria-label="Siguiente">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#050505] text-white pt-20 pb-10 border-t border-dark-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16">
+                
+                <!-- Brand & Info -->
+                <div class="space-y-6">
+                    <span class="font-bold text-2xl tracking-tight text-white block mb-4">
+                        Huvytas<span class="text-accent font-normal">.shop</span>
+                    </span>
+                    <p class="text-dark-muted text-sm max-w-md leading-relaxed">
+                        Una iniciativa de Huvytas Advertising para conectar personas y empresas con productos y servicios de nuestra red de marcas afiliadas.
+                    </p>
+                
+                </div>
+            </div>
+
+            <div class="border-t border-dark-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-dark-muted text-xs">
+                    &copy; <span id="currentYear"></span> Huvytas Shop. Una unidad de Huvytas Advertising.
+                </p>
+            </div>
+        </div>
     </footer>
 
     <script>
-        // Actualizar el año automáticamente
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Navbar effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+                nav.style.borderBottom = '1px solid #333';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.8)';
+                nav.style.borderBottom = '1px solid #222';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    const navHeight = document.getElementById('navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Lógica de navegación del carrusel de productos
+        const carousel = document.getElementById('products-carousel');
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+
+        if (carousel && btnPrev && btnNext) {
+            const getScrollAmount = () => {
+                const card = carousel.querySelector('.card-dark');
+                // Ancho de la tarjeta + gap (24px = 1.5rem de tailwind gap-6)
+                return card ? card.offsetWidth + 24 : 340; 
+            };
+
+            btnNext.addEventListener('click', () => {
+                carousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+            });
+
+            btnPrev.addEventListener('click', () => {
+                carousel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+            });
+
+            // Función para ocultar/mostrar flechas en los extremos
+            const updateArrows = () => {
+                // Flecha izquierda
+                if (carousel.scrollLeft <= 5) {
+                    btnPrev.style.opacity = '0.3';
+                    btnPrev.style.pointerEvents = 'none';
+                } else {
+                    btnPrev.style.opacity = '1';
+                    btnPrev.style.pointerEvents = 'auto';
+                }
+                
+                // Flecha derecha
+                if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 5) {
+                    btnNext.style.opacity = '0.3';
+                    btnNext.style.pointerEvents = 'none';
+                } else {
+                    btnNext.style.opacity = '1';
+                    btnNext.style.pointerEvents = 'auto';
+                }
+            };
+
+            carousel.addEventListener('scroll', updateArrows);
+            window.addEventListener('resize', updateArrows);
+            updateArrows(); // Inicializar estado de las flechas
+        }
     </script>
 </body>
 </html>
