@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404 - Huvytas Advertising</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandGreen: '#88C24E',
+                        brandDark: '#050505',
+                        brandCard: '#0f0f0f'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .neon-glow {
+            text-shadow: 0 0 25px rgba(136, 194, 78, 0.4);
+        }
+        .neon-btn {
+            background: linear-gradient(135deg, #88C24E 0%, #72a63e 100%);
+            box-shadow: 0 0 20px rgba(136, 194, 78, 0.3);
+            transition: all 0.3s ease;
+        }
+        .neon-btn:hover {
+            box-shadow: 0 0 30px rgba(136, 194, 78, 0.6);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center px-6 py-12 selection:bg-[#88C24E] selection:text-black">
+
+    <main class="max-w-md w-full text-center">
+        
+        <!-- Brand Logo Image (Cambia el src por la ruta de tu logo oficial) -->
+        <div class="mb-8 flex justify-center">
+            <img src="https://placehold.co/180x45/0f0f0f/88C24E?text=Huvytas+Logo" alt="Huvytas Advertising" class="h-10 object-contain" onerror="this.src='https://placehold.co/180x45/050505/ffffff?text=Huvytas+Advertising'">
+        </div>
+
+        <!-- Big Title -->
+        <h1 class="text-7xl font-black tracking-tight mb-4 neon-glow">
+            4<span class="text-brandGreen">0</span>4
+        </h1>
+
+        <h2 class="text-xl font-semibold mb-3 text-neutral-200">
+            Página no encontrada
+        </h2>
+
+        <p class="text-neutral-400 text-sm mb-8 leading-relaxed">
+            Lo sentimos, la página que buscas no existe o ha sido movida.
+        </p>
+
+        <!-- Action Button -->
+        <div>
+            <a href="#" class="neon-btn text-black font-bold px-8 py-3.5 rounded-xl text-sm inline-flex items-center justify-center gap-2 w-full sm:w-auto">
+                <i class="fa-solid fa-house"></i> Volver al inicio
+            </a>
+        </div>
+
+    </main>
+
+</body>
+</html>
