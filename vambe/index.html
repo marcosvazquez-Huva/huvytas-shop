@@ -426,23 +426,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div id="calendar-agendar-meet" class="mb-6">
                         <p class="text-sm text-slate-600 mb-3 font-semibold">Selecciona tu disponibilidad:</p>
                         
-                        <!-- Google Calendar Appointment Scheduling begin -->
-                        <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-                        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-                        <script>
-                        (function() {
-                          var target = document.currentScript;
-                          window.addEventListener('load', function() {
-                            calendar.schedulingButton.load({
-                              url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2B8TW39y9d2Rx-lLxAdTtiHP9HY-YrqzKJxk0QFEMeeb4mhwFK8SzIkAjK-Y5w5dWyEswJ5GOJ?gv=true',
-                              color: '#039BE5',
-                              label: 'Agendar meet',
-                              target,
-                            });
-                          });
-                        })();
-                        </script>
-                        <!-- end Google Calendar Appointment Scheduling -->
+                       <!-- Google Calendar Appointment Scheduling begin -->
+
+<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+
+<script>
+(function() {
+
+  var target = document.currentScript;
+
+  window.addEventListener('load', function() {
+
+    calendar.schedulingButton.load({
+      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2B8TW39y9d2Rx-lLxAdTtiHP9HY-YrqzKJxk0QFEMeeb4mhwFK8SzIkAjK-Y5w5dWyEswJ5GOJ?gv=true',
+      color: '#039BE5',
+      label: 'Agendar meet',
+      target,
+    });
+
+    // Tracking del botón
+    setTimeout(function() {
+
+      var calendarButton = target.parentElement.querySelector('button');
+
+      if (calendarButton) {
+
+        calendarButton.addEventListener('click', function() {
+
+          window.dataLayer = window.dataLayer || [];
+
+          window.dataLayer.push({
+            event: 'click_agendar_meet'
+          });
+
+        });
+
+      }
+
+    }, 1000);
+
+  });
+
+})();
+</script>
+
+<!-- Google Calendar Appointment Scheduling end -->
                     </div>
 
                     <!-- Mensaje de confianza -->
