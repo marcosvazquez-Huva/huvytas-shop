@@ -5,10 +5,6 @@ const translations = {
     navChannels: "Canales",
     navAbout: "Nosotros",
     navContact: "Contacto",
-    navTitleBrands: "Persuadir a marcas para contratar nuestros servicios",
-    navTitleChannels: "Presentar nuestros canales y Media Kits",
-    navTitleAbout: "Contar nuestra historia y evolución",
-    navTitleContact: "Formulario ejecutivo de contacto",
     navLogoAlt: "Logo Huvytas Advertising",
     navBurgerAria: "Abrir menú",
     
@@ -130,24 +126,14 @@ const translations = {
     navChannels: "Channels",
     navAbout: "About",
     navContact: "Contact",
-    navTitleBrands: "Persuade brands to hire our services",
-    navTitleChannels: "Present our channels and Media Kits",
-    navTitleAbout: "Tell our story and evolution",
-    navTitleContact: "Executive contact form",
     navLogoAlt: "Huvytas Advertising Logo",
     navBurgerAria: "Open menu",
 
     // Home Hero
     heroKicker: "<span></span> AdTech & MarTech Ecosystem · Mexico & LATAM",
     heroTitle: "Huvytas Advertising",
-    heroSubtitle: "The smartest way to connect with the right audience.",
+    heroSubtitle: "The best way to connect with the right audience.",
     heroCta: "Start now",
-    heroM1Title: "+15 Channels",
-    heroM1Desc: "Mobile, RCS, Push, AdTech & OOH",
-    heroM2Title: "100% Measurable",
-    heroM2Desc: "Focus on ROI, conversion, and attribution",
-    heroM3Title: "Regional Reach",
-    heroM3Desc: "National coverage in Mexico & LATAM",
 
     // Section 1: Ecosistema
     s1Tag: "01 · What we do",
@@ -224,7 +210,7 @@ const translations = {
     s7Note: "⚡ Executive meeting via Google Meet · Media Kit Presentation",
 
     // Footer
-    ftDesc: "We connect great brands with strategic audiences in Mexico and Latin America through technology, data, and multiple digital channels.",
+    ftDesc: "The best way to connect with the right audience.",
     ftNav: "Navigation",
     ftLegal: "Legal",
     ftPriv: "Privacy Policy",
