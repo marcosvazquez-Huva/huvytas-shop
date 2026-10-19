@@ -1,15 +1,128 @@
 const translations = {
   es: {
     // Navbar
-    navBrands: "Brands",
-    navChannels: "Channels",
-    navAbout: "About",
+    navBrands: "Marcas",
+    navChannels: "Canales",
+    navAbout: "Nosotros",
     navContact: "Contacto",
+    navTitleBrands: "Persuadir a marcas para contratar nuestros servicios",
+    navTitleChannels: "Presentar nuestros canales y Media Kits",
+    navTitleAbout: "Contar nuestra historia y evolución",
+    navTitleContact: "Formulario ejecutivo de contacto",
+    navLogoAlt: "Logo Huvytas Advertising",
+    navBurgerAria: "Abrir menú",
     
     // Home Hero
+    heroKicker: "<span></span> Ecosistema AdTech & MarTech · México y LATAM",
     heroTitle: "Huvytas Advertising",
     heroSubtitle: "La mejor forma de conectar con la audiencia adecuada.",
-    heroCta: "Comenzar ahora"
+    heroCta: "Comenzar ahora",
+    heroM1Title: "+15 Canales",
+    heroM1Desc: "Mobile, RCS, Push, AdTech & OOH",
+    heroM2Title: "100% Medible",
+    heroM2Desc: "Enfoque en ROI, conversión y atribución",
+    heroM3Title: "Alcance Regional",
+    heroM3Desc: "Cobertura nacional en México y LATAM",
+
+    // Section 1: Ecosistema
+    s1Tag: "01 · A qué nos dedicamos",
+    s1Title: "Distribuimos y gestionamos <span class=\"editorial-highlight\">múltiples canales digitales</span> conectando a grandes marcas con audiencias a través de un ecosistema tecnológico.",
+    s1Lead: "Transformamos tensión cultural y datos de comportamiento en participación de mercado. Centraliza tu inversión de medios en una arquitectura diseñada para directores de marketing que exigen escalabilidad y resultados verificables.",
+    s1Kpi1Title: "+42% <em>ROI</em>",
+    s1Kpi1Desc: "Optimización promedio en costos de adquisición multi-canal.",
+    s1Kpi2Title: "Single <em>Partner</em>",
+    s1Kpi2Desc: "Integración tecnológica directa sin fricción operativa.",
+    s1HubBadge: "CORE ENGINE",
+    s1HubTitle: "Huvytas Hub",
+    s1HubDesc: "Data · Audiencias · Performance en tiempo real",
+
+    // Section 2: Video
+    s2Tag: "02 · Nuestro Alcance en Acción",
+    s2Title: "Llevamos las marcas de nuestros clientes a las <span class=\"editorial-highlight\">audiencias correctas</span> mediante canales digitales, Mobile Marketing y medios de alto alcance.",
+    s2VidTag: "Huvytas Showreel",
+    s2VidTitle: "GESTIONAMOS DIVERSOS CANALES DIGITALES",
+    s2VidDesc: "Visualiza cómo sincronizamos nodos de audiencia, plataformas móviles y formatos de alto impacto en México y Latinoamérica.",
+    s2VidBtn: "Reproducir Showreel (01:05)",
+    s2VidStatusText: "01:05 · HD 60FPS",
+    s2VidPlaying: "REPRODUCIENDO · 01:05",
+    s2VidPaused: "PAUSADO · 01:05",
+
+    // Section 3: About (How we work)
+    s3Tag: "03 · Cómo trabajamos",
+    s3Quote: "“Trabajamos junto a tu equipo de <span class=\"editorial-highlight\">Marketing, Medios y Publicidad</span> para diseñar y ejecutar estrategias que combinan audiencias, tecnología, datos y diferentes canales de comunicación, adaptándonos a los objetivos de tu campaña.”",
+    s3Lead: "Nos integramos de igual a igual con tu dirección de marca: sin procesos burocráticos, con transparencia de datos y foco total en mover tus indicadores de negocio.",
+    s3P1Tag: "Pilar 01",
+    s3P1Title: "Audiencias Perfiladas",
+    s3P2Tag: "Pilar 02",
+    s3P2Title: "Tecnología Propia",
+    s3P3Tag: "Pilar 03",
+    s3P3Title: "Data & Insights",
+    s3P4Tag: "Pilar 04",
+    s3P4Title: "Ejecución Multicanal",
+
+    // Section 4: Benefits
+    s4HeaderTag: "04 · Valor Ejecutivo para tu Marca",
+    s4Title: "Cómo beneficiamos a <span class=\"editorial-highlight\">nuestros clientes</span>",
+    s4Lead: "Tres pilares operativos diseñados para que los tomadores de decisiones maximicen el retorno de cada campaña.",
+    s4C1Badge: "Beneficio 01",
+    s4C1Title: "Precisión de Audiencia y Data First",
+    s4C1Desc: "Identificamos y activamos segmentos de alta intención de compra en México y LATAM, reduciendo el desperdicio publicitario.",
+    s4C1Top: "Segmentación Activa",
+    s4C1Sub: "Perfilamiento demográfico y comportamental en tiempo real.",
+    s4C2Badge: "Beneficio 02",
+    s4C2Title: "Orquestación desde un Solo Partner",
+    s4C2Desc: "Olvídate de coordinar múltiples proveedores dispersos. Centralizamos Mobile, RCS, Push, AdTech y MarTech en una sola operación.",
+    s4C2Top: "Consola Multicanal",
+    s4C2Sub: "Lanzamiento ágil de campañas nacionales y regionales.",
+    s4C3Badge: "Beneficio 03",
+    s4C3Title: "Performance y Resultados Medibles",
+    s4C3Desc: "Reportes ejecutivos transparentes enfocados en los KPIs que exige tu comité directivo: conversión, retención, tráfico y ROI.",
+    s4C3Top: "Impacto de Negocio",
+    s4C3Sub: "Atribución clara por canal, formato y audiencia.",
+
+    // Section 5: Channels CTA
+    s5Tag: "05 · Ecosistema Integral",
+    s5Title: "Ponemos a disposición de las marcas un ecosistema que incluye <span class=\"editorial-highlight\">Mobile Marketing, RCS, Push Notifications, AdTech, MarTech</span>, entre otros, para crear campañas de alcance nacional e internacional desde un solo partner.",
+    s5Chip2: "RCS Mensajería Enriquecida",
+    s5Chip5: "Soluciones MarTech",
+    s5Btn: "Conoce todos nuestros canales",
+
+    // Section 6: Partners
+    s6Title: "Nuestros Partners",
+    s6Sub: "Ecosistema tecnológico verificado · Movimiento continuo",
+
+    // Section 7: Final CTA
+    s7Tag: "07 · Diagnóstico y Media Kit",
+    s7Title: "No se trata solo de comprar medios. Se trata de encontrar la forma correcta de conectar cada marca con las personas que quiere alcanzar.",
+    s7Lead: "Agenda una sesión ejecutiva por Google Meet con nuestro equipo senior para explorar nuestro Media Kit y diseñar tu próxima estrategia en México y LATAM.",
+    s7Btn: "Conoce nuestros canales y soluciones",
+    s7Note: "⚡ Reunión ejecutiva vía Google Meet · Presentación de Media Kit",
+
+    // Footer
+    ftDesc: "Conectamos grandes marcas con audiencias estratégicas en México y Latinoamérica mediante tecnología, datos y múltiples canales digitales.",
+    ftNav: "Navegación",
+    ftLegal: "Legales",
+    ftPriv: "Política de privacidad",
+    ftTerm: "Términos y condiciones",
+    ftCook: "Política de cookies",
+    ftCopy: "© 2026 Huvytas Advertising. Todos los derechos reservados.",
+    ftLoc: "México · LATAM",
+
+    // Modal
+    modTag: "Sesión Ejecutiva · Google Meet",
+    modTitle: "Explora nuestros canales y Media Kit",
+    modDesc: "Déjanos tus datos corporativos para agendar una presentación personalizada con un especialista senior de Huvytas.",
+    modNameLbl: "Nombre y Cargo",
+    modNamePlh: "Ej. Ana Sofía Méndez · CMO / Brand Manager",
+    modEmailLbl: "Correo Corporativo",
+    modEmailPlh: "nombre@empresa.com",
+    modIntLbl: "Canales de Interés Principal",
+    modInt1: "Ecosistema Completo (Media Kit General)",
+    modInt2: "Mobile Marketing & RCS",
+    modInt3: "Push Notifications & Performance",
+    modInt4: "Soluciones AdTech / MarTech",
+    modBtn: "Agendar sesión por Google Meet",
+    modFeed: "¡Solicitud recibida! Un ejecutivo senior te enviará la invitación de Google Meet en breve."
   },
   en: {
     // Navbar
@@ -17,10 +130,123 @@ const translations = {
     navChannels: "Channels",
     navAbout: "About",
     navContact: "Contact",
-    
+    navTitleBrands: "Persuade brands to hire our services",
+    navTitleChannels: "Present our channels and Media Kits",
+    navTitleAbout: "Tell our story and evolution",
+    navTitleContact: "Executive contact form",
+    navLogoAlt: "Huvytas Advertising Logo",
+    navBurgerAria: "Open menu",
+
     // Home Hero
+    heroKicker: "<span></span> AdTech & MarTech Ecosystem · Mexico & LATAM",
     heroTitle: "Huvytas Advertising",
     heroSubtitle: "The smartest way to connect with the right audience.",
-    heroCta: "Start now"
+    heroCta: "Start now",
+    heroM1Title: "+15 Channels",
+    heroM1Desc: "Mobile, RCS, Push, AdTech & OOH",
+    heroM2Title: "100% Measurable",
+    heroM2Desc: "Focus on ROI, conversion, and attribution",
+    heroM3Title: "Regional Reach",
+    heroM3Desc: "National coverage in Mexico & LATAM",
+
+    // Section 1: Ecosistema
+    s1Tag: "01 · What we do",
+    s1Title: "We distribute and manage <span class=\"editorial-highlight\">multiple digital channels</span> connecting great brands with audiences through a technological ecosystem.",
+    s1Lead: "We transform cultural tension and behavioral data into market share. Centralize your media investment in an architecture designed for CMOs demanding scalability and verifiable results.",
+    s1Kpi1Title: "+42% <em>ROI</em>",
+    s1Kpi1Desc: "Average optimization in cross-channel acquisition costs.",
+    s1Kpi2Title: "Single <em>Partner</em>",
+    s1Kpi2Desc: "Direct technological integration with zero operational friction.",
+    s1HubBadge: "CORE ENGINE",
+    s1HubTitle: "Huvytas Hub",
+    s1HubDesc: "Data · Audiences · Real-time Performance",
+
+    // Section 2: Video
+    s2Tag: "02 · Our Reach in Action",
+    s2Title: "We bring our clients' brands to the <span class=\"editorial-highlight\">right audiences</span> through digital channels, Mobile Marketing, and high-reach media.",
+    s2VidTag: "Huvytas Showreel",
+    s2VidTitle: "WE MANAGE DIVERSE DIGITAL CHANNELS",
+    s2VidDesc: "Visualize how we synchronize audience nodes, mobile platforms, and high-impact formats across Mexico and Latin America.",
+    s2VidBtn: "Play Showreel (01:05)",
+    s2VidStatusText: "01:05 · HD 60FPS",
+    s2VidPlaying: "PLAYING · 01:05",
+    s2VidPaused: "PAUSED · 01:05",
+
+    // Section 3: About (How we work)
+    s3Tag: "03 · How we work",
+    s3Quote: "“We work alongside your <span class=\"editorial-highlight\">Marketing, Media, and Advertising</span> teams to design and execute strategies that combine audiences, technology, data, and communication channels, adapting to your campaign goals.”",
+    s3Lead: "We integrate as peers with your brand leadership: no bureaucratic processes, full data transparency, and an absolute focus on moving your business indicators.",
+    s3P1Tag: "Pillar 01",
+    s3P1Title: "Profiled Audiences",
+    s3P2Tag: "Pillar 02",
+    s3P2Title: "Proprietary Tech",
+    s3P3Tag: "Pillar 03",
+    s3P3Title: "Data & Insights",
+    s3P4Tag: "Pillar 04",
+    s3P4Title: "Multichannel Execution",
+
+    // Section 4: Benefits
+    s4HeaderTag: "04 · Executive Value for Your Brand",
+    s4Title: "How we benefit <span class=\"editorial-highlight\">our clients</span>",
+    s4Lead: "Three operational pillars designed for decision-makers to maximize the return of every campaign.",
+    s4C1Badge: "Benefit 01",
+    s4C1Title: "Audience Precision & Data First",
+    s4C1Desc: "We identify and activate high-intent segments across Mexico and LATAM, reducing ad waste.",
+    s4C1Top: "Active Targeting",
+    s4C1Sub: "Real-time demographic & behavioral profiling.",
+    s4C2Badge: "Benefit 02",
+    s4C2Title: "Single Partner Orchestration",
+    s4C2Desc: "Forget coordinating multiple scattered vendors. We centralize Mobile, RCS, Push, AdTech, and MarTech in one operation.",
+    s4C2Top: "Multichannel Console",
+    s4C2Sub: "Agile launch of national and regional campaigns.",
+    s4C3Badge: "Benefit 03",
+    s4C3Title: "Performance & Measurable Results",
+    s4C3Desc: "Transparent executive reports focused on the KPIs your board demands: conversion, retention, traffic, and ROI.",
+    s4C3Top: "Business Impact",
+    s4C3Sub: "Clear attribution by channel, format, and audience.",
+
+    // Section 5: Channels CTA
+    s5Tag: "05 · Integral Ecosystem",
+    s5Title: "We provide brands with an ecosystem that includes <span class=\"editorial-highlight\">Mobile Marketing, RCS, Push Notifications, AdTech, MarTech</span>, among others, to create national and international campaigns from a single partner.",
+    s5Chip2: "RCS Rich Messaging",
+    s5Chip5: "MarTech Solutions",
+    s5Btn: "Discover all our channels",
+
+    // Section 6: Partners
+    s6Title: "Our Partners",
+    s6Sub: "Verified technological ecosystem · Continuous movement",
+
+    // Section 7: Final CTA
+    s7Tag: "07 · Diagnostics and Media Kit",
+    s7Title: "It's not just about buying media. It's about finding the right way to connect every brand with the people they want to reach.",
+    s7Lead: "Schedule an executive session via Google Meet with our senior team to explore our Media Kit and design your next strategy in Mexico and LATAM.",
+    s7Btn: "Explore our channels and solutions",
+    s7Note: "⚡ Executive meeting via Google Meet · Media Kit Presentation",
+
+    // Footer
+    ftDesc: "We connect great brands with strategic audiences in Mexico and Latin America through technology, data, and multiple digital channels.",
+    ftNav: "Navigation",
+    ftLegal: "Legal",
+    ftPriv: "Privacy Policy",
+    ftTerm: "Terms & Conditions",
+    ftCook: "Cookies Policy",
+    ftCopy: "© 2026 Huvytas Advertising. All rights reserved.",
+    ftLoc: "Mexico · LATAM",
+
+    // Modal
+    modTag: "Executive Session · Google Meet",
+    modTitle: "Explore our channels and Media Kit",
+    modDesc: "Leave your corporate details to schedule a personalized presentation with a senior Huvytas specialist.",
+    modNameLbl: "Name and Position",
+    modNamePlh: "e.g. Ana Sofia Mendez · CMO / Brand Manager",
+    modEmailLbl: "Corporate Email",
+    modEmailPlh: "name@company.com",
+    modIntLbl: "Main Channels of Interest",
+    modInt1: "Complete Ecosystem (General Media Kit)",
+    modInt2: "Mobile Marketing & RCS",
+    modInt3: "Push Notifications & Performance",
+    modInt4: "AdTech / MarTech Solutions",
+    modBtn: "Schedule session via Google Meet",
+    modFeed: "Request received! A senior executive will send you the Google Meet invitation shortly."
   }
 };
