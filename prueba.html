@@ -183,10 +183,9 @@
           <button id="btnEn" onclick="changeLang('en')" class="lang-btn-inactive px-2.5 py-1 rounded-full transition-all">EN</button>
         </div>
 
-        <!-- Botón CTA Contacto (Oculto en móvil, visible en escritorio md+) -->
-        <button onclick="openModal()" class="hidden md:inline-flex btn-huvytas text-xs uppercase tracking-wider px-5 py-2.5 items-center gap-1.5 shadow-sm">
+        <!-- Botón CTA Contacto Desktop (Sin flecha) -->
+        <button onclick="openModal()" class="hidden md:inline-flex btn-huvytas text-xs uppercase tracking-wider px-5 py-2.5 items-center justify-center shadow-sm">
           <span id="navContactText">Contacto</span>
-          <span class="arrow-icon transition-transform">→</span>
         </button>
 
         <!-- Botón menú móvil -->
@@ -198,15 +197,14 @@
     </div>
 
     <!-- Menú desplegable Móvil -->
-    <div id="mobileMenu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white border-b border-border-tech p-6 flex flex-col gap-4 shadow-lg">
+    <div id="mobileMenu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white border-b border-border-tech p-6 flex flex-col items-start gap-4 shadow-lg">
       <a href="#brands" onclick="toggleMobileNav()" class="text-base font-semibold text-ink-black">Brands</a>
       <a href="#channels" onclick="toggleMobileNav()" class="text-base font-semibold text-ink-black">Channels</a>
       <a href="#about" onclick="toggleMobileNav()" class="text-base font-semibold text-ink-black">About</a>
       
-      <!-- Botón CTA Contacto integrado al menú móvil -->
-      <button onclick="openModal(); toggleMobileNav();" class="btn-huvytas text-sm uppercase tracking-wider px-5 py-3 mt-4 inline-flex items-center justify-center gap-2 shadow-sm w-full">
+      <!-- Botón CTA Contacto en móvil: mismo tamaño de texto, ancho automático al contenido y sin flecha -->
+      <button onclick="openModal(); toggleMobileNav();" class="btn-huvytas text-base font-semibold px-5 py-2 mt-2 inline-flex items-center justify-center shadow-sm w-fit">
         <span id="navContactTextMobile">Contacto</span>
-        <span class="arrow-icon transition-transform">→</span>
       </button>
     </div>
   </header>
