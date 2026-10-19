@@ -6,12 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
       <header id="mainNavbar" class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center border-b border-transparent nav-transparent">
         <div class="max-w-[1240px] w-full mx-auto px-6 flex items-center justify-between">
           <a href="index.html#home" class="flex items-center">
-            <img id="navbarLogo" src="https://via.placeholder.com/160x42/111315/88C24E?text=HUVYTAS" alt="Logo Huvytas Advertising" class="h-8 sm:h-9 w-auto object-contain transition-opacity duration-300 hover:opacity-90"/>
+            <img id="navbarLogo" src="/home/img/Logo_G_2.png" alt="Logo Huvytas Advertising" class="h-8 sm:h-9 w-auto object-contain transition-opacity duration-300 hover:opacity-90"/>
           </a>
           <nav class="hidden md:flex items-center gap-9">
-            <a href="index.html#brands" class="nav-link text-sm font-medium transition-colors" data-i18n="navBrands">Brands</a>
-            <a href="index.html#channels" class="nav-link text-sm font-medium transition-colors" data-i18n="navChannels">Channels</a>
-            <a href="index.html#about" class="nav-link text-sm font-medium transition-colors" data-i18n="navAbout">About</a>
+            <a href="/prueba/brands" class="nav-link text-sm font-medium transition-colors" data-i18n="navBrands">Brands</a>
+            <a href="/prueba/channels" class="nav-link text-sm font-medium transition-colors" data-i18n="navChannels">Channels</a>
+            <a href="/prueba/about" class="nav-link text-sm font-medium transition-colors" data-i18n="navAbout">About</a>
           </nav>
           <div class="flex items-center gap-4">
             <div class="lang-wrapper inline-flex items-center border rounded-full p-1 text-xs font-heading font-bold transition-all">
