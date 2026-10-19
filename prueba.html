@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Huvytas Advertising | Ecosistema Digital de Alto Impacto en México y LATAM</title>
+  <!-- Google Fonts: Plus Jakarta Sans (Headings) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       1. DESIGN SYSTEM TOKENS (Manual de Identidad - Light Mode Editorial)
+       ========================================================================== */
+    :root {
+      /* Paleta de Colores Oficial */
+      --bg-primary: #FAFAFA;       /* Blanco Galería - Lienzo Principal */
+      --bg-secondary: #F2F4F2;     /* Gris Piedra Suave - Secciones alternas y cards */
+      --surface-elevated: #FFFFFF; /* Blanco Puro - Header, tarjetas flotantes */
+      --accent-primary: #88C24E;   /* Verde Pulso - Acento obligatorio */
+      --accent-hover-bg: #EBF5DF;  /* Verde Salvia Claro - Hover suave y tags */
+      --text-primary: #111315;     /* Negro Tinta - Titulares, botones verdes y Footer */
+      --text-secondary: #525866;   /* Gris Pizarra - Párrafos descriptivos y subtítulos */
+      --border-tech: #E2E6E1;      /* Gris Técnico - Líneas divisorias finas 1px */
+
+      /* Tipografía */
+      --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Espaciado y Geometría */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-pill: 9999px;
+      --container-max: 1240px;
+      --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       2. COMPONENTES UI Y BOTONES (Regla Estricta #88C24E + #111315)
+       ========================================================================== */
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--accent-hover-bg);
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(136, 194, 78, 0.35);
+      margin-bottom: 20px;
+    }
+
+    .tag-pill::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--accent-primary);
+    }
+
+    /* Subrayado Editorial Geométrico */
+    .editorial-highlight {
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+    }
+
+    .editorial-highlight::after {
+      content: "";
+      position: absolute;
+      left: -4px;
+      right: -4px;
+      bottom: 4px;
+      height: 32%;
+      background-color: var(--accent-primary);
+      z-index: -1;
+      transition: height 0.25s ease;
+    }
+
+    /* Botón Principal (CTA) - Regla de Contraste: Fondo #88C24E + Texto #111315 */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: var(--accent-primary);
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.98rem;
+      padding: 15px 28px;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--accent-primary);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-primary .arrow {
+      display: inline-block;
+      transition: transform 0.25s ease;
+      font-weight: 800;
+    }
+
+    /* Hover obligatorio del manual: Fondo Negro Tinta #111315 + Texto Verde Pulso #88C24E */
+    .btn-primary:hover {
+      background-color: var(--text-primary);
+      color: var(--accent-primary);
+      border-color: var(--text-primary);
+    }
+
+    .btn-primary:hover .arrow {
+      transform: translateX(5px);
+    }
+
+    /* Variante en superficies oscuras para mantener borde visible en hover */
+    .btn-primary.on-dark:hover {
+      border-color: var(--accent-primary);
+    }
+
+    /* Líneas conectoras tecnológicas (presentación Home) */
+    .connector-line {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 0;
+    }
+
+    .connector-svg {
+      width: 120px;
+      height: 48px;
+      stroke: var(--accent-primary);
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    /* ==========================================================================
+       3. BARRA DE NAVEGACIÓN (Idéntica para todo el sitio web)
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-tech);
+      height: 80px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-wrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background-color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .logo-mark span {
+      width: 14px;
+      height: 14px;
+      background-color: var(--accent-primary);
+      border-radius: 3px;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: var(--accent-primary);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Selector de idioma [ES / EN] */
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-tech);
+      border-radius: var(--radius-pill);
+      padding: 3px;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 11px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: var(--transition-smooth);
+    }
+
+    .lang-btn.active {
+      background-color: var(--accent-primary);
+      color: var(--text-primary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-tech);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION (Video aéreo urbano + Estructura solicitada por Vero)
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      min-height: 84vh;
+      display: flex;
+      align-items: center;
+      background-color: var(--text-primary);
+      overflow: hidden;
+      color: #FAFAFA;
+    }
+
+    /* Simulación de Video de Fondo Urbano CDMX / LATAM de noche en bucle */
+    .hero-video-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: 
+        linear-gradient(90deg, rgba(17, 19, 21, 0.88) 0%, rgba(17, 19, 21, 0.68) 55%, rgba(17, 19, 21, 0.82) 100%),
+        url('https://images.unsplash.com/photo-1518659526054-190340b32735?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat;
+      transform: scale(1.03);
+      animation: subtleZoom 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes subtleZoom {
+      0% { transform: scale(1.02); }
+      100% { transform: scale(1.08); }
+    }
+
+    /* Grilla arquitectónica sutil sobre el video */
+    .hero-grid-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      padding: 80px 24px;
+    }
+
+    .hero-composition {
+      max-width: 880px;
+      margin-left: auto;
+      text-align: right;
+      padding-right: 36px;
+      border-right: 2px solid var(--accent-primary);
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #E2E6E1;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .hero-kicker span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-primary);
+      box-shadow: 0 0 12px var(--accent-primary);
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 6vw, 4.75rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--accent-primary);
+      margin-bottom: 18px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+      color: #FAFAFA;
+      font-weight: 400;
+      max-width: 640px;
+      margin-left: auto;
+      margin-bottom: 36px;
+    }
+
+    .hero-meta-bar {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(226, 230, 225, 0.16);
+      display: flex;
+      justify-content: flex-end;
+      gap: 48px;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+
+    .hero-metric-item strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      color: var(--accent-primary);
+    }
+
+    .hero-metric-item span {
+      font-size: 0.82rem;
+      color: #E2E6E1;
+    }
+
+    /* ==========================================================================
+       5. SECCIÓN 1: A QUÉ NOS DEDICAMOS (Ecosistema Tecnológico)
+       ========================================================================== */
+    .section-about-ecosystem {
+      padding: 110px 0 90px;
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid var(--border-tech);
+    }
+
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .section-heading-lg {
+      font-family: var(--font-heading);
+      font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+      font-weight: 800;
+      line-height: 1.22;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+
+    .section-lead {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .kpi-mini-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-tech);
+    }
+
+    .kpi-mini-card {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border-tech);
+      padding: 18px 20px;
+      border-radius: var(--radius-sm);
+    }
+
+    .kpi-mini-card strong {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .kpi-mini-card strong em {
+      color: var(--accent-primary);
+      font-style: normal;
+    }
+
+    .kpi-mini-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Visual Ilustrativo del Ecosistema Tecnológico (Inspirado en Media Kit Meta/Canales) */
+    .ecosystem-visual-card {
+      background-color: var(--surface-elevated);
+      border: 1px solid var(--border-tech);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      position: relative;
+      box-shadow: 0 20px 45px rgba(17, 19, 21, 0.04);
+      overflow: hidden;
+    }
+
+    .ecosystem-visual-card::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(136,194,78,0.22) 0%, rgba(136,194,78,0) 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hub-diagram {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .phone-hub {
+      width: 210px;
+      background-color: var(--text-primary);
+      color: #FFFFFF;
+      border-radius: 28px;
+      padding: 18px 16px;
+      border: 4px solid #2A2E37;
+      box-shadow: 0 16px 36px rgba(17, 19, 21, 0.16);
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .phone-notch {
+      width: 64px;
+      height: 12px;
+      background-color: #000;
+      border-radius: 99px;
+      margin: 0 auto 16px;
+    }
+
+    .phone-screen {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      border-radius: 18px;
+      padding: 22px 12px;
+    }
+
+    .phone-screen .hub-badge {
+      display: inline-block;
+      background-color: var(--accent-primary);
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 99px;
+      margin-bottom: 10px;
+    }
+
+    .phone-screen h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .phone-screen p {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .orbit-nodes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .channel-node {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-tech);
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      transition: var(--transition-smooth);
+    }
+
+    .channel-node:hover {
+      background-color: var(--accent-hover-bg);
+      border-color: var(--accent-primary);
+      transform: translateY(-2px);
+    }
+
+    .channel-node i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-primary);
+      display: inline-block;
+    }
+
+    /* ==========================================================================
+       6. SECCIÓN 2: VIDEO SHOWCASE (Gran formato + Red de Canales)
+       ========================================================================== */
+    .section-video-showcase {
+      padding: 100px 0;
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-tech);
+    }
+
+    .video-header-block {
+      max-width: 820px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+
+    .video-stage-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background-color: var(--text-primary);
+      border: 1px solid var(--border-tech);
+      box-shadow: 0 28px 60px rgba(17, 19, 21, 0.12);
+      aspect-ratio: 16 / 8.2;
+      display: flex;
+      align-items: center;
+      padding: 48px;
+    }
+
+    .video-stage-grid {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .video-stage-copy h3 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .video-stage-copy p {
+      color: #E2E6E1;
+      font-size: 0.98rem;
+      margin-bottom: 28px;
+    }
+
+    .constellation-svg {
+      width: 100%;
+      max-height: 360px;
+    }
+
+    .video-controls-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 54px;
+      background: rgba(17, 19, 21, 0.9);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      gap: 16px;
+      z-index: 3;
+    }
+
+    .play-toggle-btn {
+      background: var(--accent-primary);
+      color: var(--text-primary);
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-timeline {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 99px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-timeline-progress {
+      width: 45%;
+      height: 100%;
+      background-color: var(--accent-primary);
+    }
+
+    .video-time-badge {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    /* ==========================================================================
+       7. SECCIÓN 3: CÓMO TRABAJAMOS (Co-creación junto al equipo del cliente)
+       ========================================================================== */
+    .section-how-we-work {
+      padding: 100px 0;
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid var(--border-tech);
+    }
+
+    .editorial-co-work-card {
+      background-color: var(--surface-elevated);
+      border: 1px solid var(--border-tech);
+      border-left: 6px solid var(--accent-primary);
+      border-radius: var(--radius-md);
+      padding: 56px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 48px;
+      align-items: center;
+      box-shadow: 0 12px 32px rgba(17, 19, 21, 0.03);
+    }
+
+    .co-work-quote {
+      font-family: var(--font-heading);
+      font-size: clamp(1.45rem, 2.5vw, 2.05rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+      margin-bottom: 24px;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .pillar-box {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-tech);
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-smooth);
+    }
+
+    .pillar-box:hover {
+      background-color: var(--accent-hover-bg);
+      border-color: var(--accent-primary);
+    }
+
+    .pillar-box span {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .pillar-box strong {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--text-primary);
+    }
+
+    /* ==========================================================================
+       8. SECCIÓN 4: CÓMO BENEFICIAMOS A NUESTROS CLIENTES (3 Recuadros de Vero)
+       ========================================================================== */
+    .section-benefits {
+      padding: 110px 0;
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-tech);
+    }
+
+    .benefits-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 56px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .benefits-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .benefit-card {
+      background-color: var(--surface-elevated);
+      border: 1px solid var(--border-tech);
+      border-radius: var(--radius-lg);
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card:hover {
+      background-color: var(--accent-hover-bg);
+      border-color: var(--accent-primary);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(17, 19, 21, 0.06);
+    }
+
+    .benefit-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background-color: var(--accent-primary);
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .benefit-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .benefit-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+    }
+
+    /* Mockup de dispositivo interno en cada tarjeta (inspirado en la referencia de 3 recuadros) */
+    .device-preview {
+      background-color: var(--text-primary);
+      color: #FFFFFF;
+      border-radius: 18px;
+      padding: 18px;
+      border: 3px solid #2C313A;
+      margin-top: auto;
+    }
+
+    .device-preview-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: #9CA3AF;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .device-metric-highlight {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--accent-primary);
+      margin-bottom: 4px;
+    }
+
+    .device-preview-sub {
+      font-size: 0.78rem;
+      color: #E2E6E1;
+    }
+
+    /* ==========================================================================
+       9. SECCIÓN 5: CTA 1 - ECOSISTEMA DE CANALES Y ALCANCE
+       ========================================================================== */
+    .section-channels-cta {
+      padding: 110px 0;
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid var(--border-tech);
+    }
+
+    .channels-cta-box {
+      background-color: var(--surface-elevated);
+      border: 1px solid var(--border-tech);
+      border-radius: var(--radius-lg);
+      padding: 64px 56px;
+      text-align: center;
+      max-width: 1040px;
+      margin: 0 auto;
+      box-shadow: 0 18px 45px rgba(17, 19, 21, 0.04);
+    }
+
+    .channels-pill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 32px 0 40px;
+    }
+
+    .tech-channel-chip {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-tech);
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      transition: var(--transition-smooth);
+    }
+
+    .tech-channel-chip:hover {
+      background-color: var(--accent-hover-bg);
+      border-color: var(--accent-primary);
+    }
+
+    /* ==========================================================================
+       10. SECCIÓN 6: CARRUSEL AUTOMÁTICO DE PARTNERS (10 Logos Genéricos)
+       ========================================================================== */
+    .section-partners {
+      padding: 80px 0;
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-tech);
+      overflow: hidden;
+    }
+
+    .partners-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 36px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-tech);
+    }
+
+    .partners-header h2 {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .partners-header span {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .marquee-viewport {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      gap: 24px;
+      animation: scrollPartners 32s linear infinite;
+    }
+
+    .marquee-viewport:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes scrollPartners {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .partner-logo-card {
+      width: 200px;
+      height: 84px;
+      background-color: var(--surface-elevated);
+      border: 1px solid var(--border-tech);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      transition: var(--transition-smooth);
+      user-select: none;
+    }
+
+    .partner-logo-card:hover {
+      color: var(--text-primary);
+      border-color: var(--accent-primary);
+      background-color: var(--accent-hover-bg);
+    }
+
+    .partner-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      background-color: var(--accent-primary);
+    }
+
+    /* ==========================================================================
+       11. SECCIÓN 7: CTA 2 BANNER EJECUTIVO (Google Meet / Media Kit)
+       ========================================================================== */
+    .section-final-cta {
+      padding: 110px 0;
+      background-color: var(--bg-primary);
+    }
+
+    .executive-cta-banner {
+      background: 
+        radial-gradient(circle at 88% 50%, rgba(136, 194, 78, 0.28) 0%, rgba(17, 19, 21, 0) 55%),
+        var(--text-primary);
+      color: #FAFAFA;
+      border-radius: var(--radius-lg);
+      padding: 64px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      border: 1px solid #2A2E37;
+      box-shadow: 0 28px 60px rgba(17, 19, 21, 0.14);
+    }
+
+    .executive-cta-copy {
+      max-width: 700px;
+    }
+
+    .executive-cta-copy h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.65rem, 2.8vw, 2.35rem);
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .executive-cta-copy p {
+      color: #E2E6E1;
+      font-size: 1rem;
+    }
+
+    .executive-cta-action {
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .meet-note {
+      display: block;
+      font-size: 0.78rem;
+      color: #E2E6E1;
+      margin-top: 10px;
+    }
+
+    /* ==========================================================================
+       12. PIE DE PÁGINA (Idéntico en todas las páginas - Negro Tinta #111315)
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--text-primary);
+      color: #FAFAFA;
+      padding: 72px 0 40px;
+      border-top: 1px solid #262930;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 0.8fr;
+      gap: 40px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(226, 230, 225, 0.14);
+    }
+
+    .footer-brand p {
+      color: #9CA3AF;
+      font-size: 0.92rem;
+      margin-top: 14px;
+      max-width: 300px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-primary);
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col a {
+      color: #E2E6E1;
+      font-size: 0.92rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent-primary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #FAFAFA;
+      transition: var(--transition-smooth);
+    }
+
+    .social-btn:hover {
+      background-color: var(--accent-primary);
+      color: var(--text-primary);
+      border-color: var(--accent-primary);
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: #9CA3AF;
+    }
+
+    /* ==========================================================================
+       13. MODAL INTERACTIVO DE DIAGNÓSTICO / GOOGLE MEET
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 19, 21, 0.72);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border-tech);
+      border-radius: var(--radius-lg);
+      max-width: 520px;
+      width: 100%;
+      padding: 40px 36px;
+      position: relative;
+      box-shadow: 0 24px 60px rgba(17, 19, 21, 0.25);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-tech);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-primary);
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-tech);
+      background-color: var(--bg-primary);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================================================
+       14. RESPONSIVE DESIGN (Mobile & Tablet)
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .ecosystem-grid,
+      .video-stage-grid,
+      .editorial-co-work-card,
+      .benefits-cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .executive-cta-banner {
+        flex-direction: column;
+        text-align: left;
+        align-items: flex-start;
+      }
+
+      .executive-cta-action {
+        text-align: left;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background-color: var(--surface-elevated);
+        flex-direction: column;
+        padding: 24px;
+        border-bottom: 1px solid var(--border-tech);
+        gap: 18px;
+      }
+
+      .nav-links.mobile-open {
+        display: flex;
+      }
+
+      .mobile-menu-btn {
+        display: inline-block;
+      }
+
+      .hero-composition {
+        text-align: left;
+        padding-right: 0;
+        padding-left: 20px;
+        border-right: none;
+        border-left: 2px solid var(--accent-primary);
+      }
+
+      .hero-meta-bar {
+        justify-content: flex-start;
+      }
+
+      .editorial-co-work-card,
+      .channels-cta-box,
+      .executive-cta-banner {
+        padding: 36px 24px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       BARRA DE NAVEGACIÓN (Idéntica en todas las páginas del sitio)
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <!-- Logo HUVYTAS redirige al Home -->
+      <a href="#home" class="brand-logo" aria-label="Huvytas Advertising Home">
+        <div class="logo-mark"><span></span></div>
+        HUVYTAS
+      </a>
+
+      <!-- Menú Principal: Brands, Channels, About, Contact -->
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#brands" title="Persuadir a marcas para contratar nuestros servicios">Brands</a></li>
+          <li><a href="#channels" title="Presentar nuestros canales y Media Kits">Channels</a></li>
+          <li><a href="#about" title="Contar nuestra historia y evolución">About</a></li>
+          <li><a href="#contact" onclick="openDiagnosticModal(event)" title="Formulario ejecutivo de contacto">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Selector de Idioma [Español / Inglés] + Botón móvil -->
+      <div class="nav-actions">
+        <div class="lang-switcher" role="group" aria-label="Selector de idioma">
+          <button class="lang-btn active" id="btnEs" onclick="setLanguage('es')">ES</button>
+          <button class="lang-btn" id="btnEn" onclick="setLanguage('en')">EN</button>
+        </div>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- ======================================================================
+         HERO SECTION (Video de fondo + Título, Subtítulo y CTA Comenzar ahora)
+         ====================================================================== -->
+    <section class="hero-section">
+      <div class="hero-video-bg" aria-hidden="true"></div>
+      <div class="hero-grid-overlay" aria-hidden="true"></div>
+
+      <div class="container hero-container">
+        <div class="hero-composition">
+          <div class="hero-kicker">
+            <span></span> Ecosistema AdTech &amp; MarTech · México y LATAM
+          </div>
+          <!-- Estructura exacta solicitada por Vero -->
+          <h1 class="hero-title" data-i18n="heroTitle">Huvytas Advertising</h1>
+          <p class="hero-subtitle" data-i18n="heroSubtitle">
+            La mejor forma de conectar con la audiencia adecuada.
+          </p>
+          <div>
+            <a href="#seccion-1" class="btn-primary on-dark">
+              <span data-i18n="heroCta">Comenzar ahora</span>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <!-- Indicadores ejecutivos para CMOs y Directores de Marketing -->
+          <div class="hero-meta-bar">
+            <div class="hero-metric-item">
+              <strong>+15 Canales</strong>
+              <span>Mobile, RCS, Push, AdTech &amp; OOH</span>
+            </div>
+            <div class="hero-metric-item">
+              <strong>100% Medible</strong>
+              <span>Enfoque en ROI, conversión y atribución</span>
+            </div>
+            <div class="hero-metric-item">
+              <strong>Alcance Regional</strong>
+              <span>Cobertura nacional en México y LATAM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECCIÓN 1: A QUÉ NOS DEDICAMOS (Texto obligatorio + Ecosistema)
+         ====================================================================== -->
+    <section class="section-about-ecosystem" id="seccion-1">
+      <div class="container ecosystem-grid">
+        <div>
+          <span class="tag-pill">01 · A qué nos dedicamos</span>
+          <!-- Copy obligatorio de la Presentación Home -->
+          <h2 class="section-heading-lg">
+            Distribuimos y gestionamos <span class="editorial-highlight">múltiples canales digitales</span> conectando a grandes marcas con audiencias a través de un ecosistema tecnológico.
+          </h2>
+          <p class="section-lead">
+            Transformamos tensión cultural y datos de comportamiento en participación de mercado. Centraliza tu inversión de medios en una arquitectura diseñada para directores de marketing que exigen escalabilidad y resultados verificables.
+          </p>
+
+          <div class="kpi-mini-row">
+            <div class="kpi-mini-card">
+              <strong>+42% <em>ROI</em></strong>
+              <p>Optimización promedio en costos de adquisición multi-canal.</p>
+            </div>
+            <div class="kpi-mini-card">
+              <strong>Single <em>Partner</em></strong>
+              <p>Integración tecnológica directa sin fricción operativa.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ilustración interactiva del Ecosistema Tecnológico (Referencia Media Kit) -->
+        <div class="ecosystem-visual-card" aria-label="Diagrama de Ecosistema Tecnológico Huvytas">
+          <div class="hub-diagram">
+            <div class="orbit-nodes">
+              <span class="channel-node"><i></i> Mobile Marketing</span>
+              <span class="channel-node"><i></i> RCS Business</span>
+              <span class="channel-node"><i></i> Push Notifications</span>
+            </div>
+
+            <div class="phone-hub">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <span class="hub-badge">CORE ENGINE</span>
+                <h4>Huvytas Hub</h4>
+                <p>Data · Audiencias · Performance en tiempo real</p>
+              </div>
+            </div>
+
+            <div class="orbit-nodes">
+              <span class="channel-node"><i></i> Programmatic AdTech</span>
+              <span class="channel-node"><i></i> MarTech Data</span>
+              <span class="channel-node"><i></i> Social &amp; Video Networks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conector visual verde inspirado en la presentación -->
+    <div class="connector-line" aria-hidden="true">
+      <svg class="connector-svg" viewBox="0 0 120 48">
+        <path d="M10 4 H60 V44 H110" />
+      </svg>
+    </div>
+
+    <!-- ======================================================================
+         SECCIÓN 2: MOSTRAR VIDEO DE ALCANCE (Gran formato + Texto obligatorio)
+         ====================================================================== -->
+    <section class="section-video-showcase" id="brands">
+      <div class="container">
+        <div class="video-header-block">
+          <span class="tag-pill">02 · Nuestro Alcance en Acción</span>
+          <!-- Copy obligatorio de la Presentación Home -->
+          <h2 class="section-heading-lg">
+            Llevamos las marcas de nuestros clientes a las <span class="editorial-highlight">audiencias correctas</span> mediante canales digitales, Mobile Marketing y medios de alto alcance.
+          </h2>
+        </div>
+
+        <!-- Reproductor de Video de Gran Formato (12-15s Showreel / Video actual de Huvytas) -->
+        <div class="video-stage-wrapper">
+          <div class="video-stage-grid">
+            <div class="video-stage-copy">
+              <span class="tag-pill" style="background: rgba(136,194,78,0.18); color: #88C24E;">Huvytas Showreel</span>
+              <h3>GESTIONAMOS DIVERSOS CANALES DIGITALES</h3>
+              <p>
+                Visualiza cómo sincronizamos nodos de audiencia, plataformas móviles y formatos de alto impacto en México y Latinoamérica.
+              </p>
+              <button class="btn-primary on-dark" onclick="toggleShowreel(this)">
+                <span>Reproducir Showreel (01:05)</span>
+                <span class="arrow">▶</span>
+              </button>
+            </div>
+
+            <!-- Red de nodos inspirada directamente en el frame del video de Huvytas -->
+            <div>
+              <svg class="constellation-svg" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Líneas de red -->
+                <g stroke="rgba(255,255,255,0.22)" stroke-width="1.5">
+                  <line x1="250" y1="150" x2="130" y2="75" />
+                  <line x1="250" y1="150" x2="370" y2="70" />
+                  <line x1="250" y1="150" x2="110" y2="210" />
+                  <line x1="250" y1="150" x2="390" y2="220" />
+                  <line x1="250" y1="150" x2="250" y2="45" />
+                  <line x1="130" y1="75" x2="250" y2="45" />
+                  <line x1="370" y1="70" x2="250" y2="45" />
+                  <line x1="130" y1="75" x2="110" y2="210" />
+                  <line x1="370" y1="70" x2="390" y2="220" />
+                  <line x1="110" y1="210" x2="250" y2="260" />
+                  <line x1="390" y1="220" x2="250" y2="260" />
+                  <line x1="250" y1="150" x2="250" y2="260" />
+                </g>
+                <!-- Nodos verdes de pulso -->
+                <circle cx="190" cy="112" r="5" fill="#88C24E" />
+                <circle cx="310" cy="110" r="5" fill="#88C24E" />
+                <circle cx="180" cy="180" r="5" fill="#88C24E" />
+                <circle cx="320" cy="185" r="5" fill="#88C24E" />
+
+                <!-- Nodo Central Huvytas -->
+                <circle cx="250" cy="150" r="38" fill="#111315" stroke="#88C24E" stroke-width="3" />
+                <circle cx="250" cy="150" r="14" fill="#88C24E" />
+
+                <!-- Nodos Satélite de Canales -->
+                <g fill="#111315" stroke="#FFFFFF" stroke-width="2">
+                  <circle cx="130" cy="75" r="22" />
+                  <circle cx="370" cy="70" r="22" />
+                  <circle cx="110" cy="210" r="22" />
+                  <circle cx="390" cy="220" r="22" />
+                  <circle cx="250" cy="45" r="18" />
+                  <circle cx="250" cy="260" r="18" />
+                </g>
+                <g fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" text-anchor="middle">
+                  <text x="130" y="79">RCS</text>
+                  <text x="370" y="74">PUSH</text>
+                  <text x="110" y="214">VEVO</text>
+                  <text x="390" y="224">META</text>
+                  <text x="250" y="49">DSP</text>
+                  <text x="250" y="264">OOH</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Barra inferior del reproductor -->
+          <div class="video-controls-bar">
+            <button class="play-toggle-btn" aria-label="Reproducir" onclick="toggleShowreel(this)">▶</button>
+            <span class="video-time-badge" id="videoStatusText">01:05 · HD 60FPS</span>
+            <div class="video-timeline">
+              <div class="video-timeline-progress" id="videoProgress"></div>
+            </div>
+            <span style="color:#9CA3AF; font-size:0.8rem; font-weight:600;">HUVYTAS MEDIA NETWORK</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECCIÓN 3: CÓMO TRABAJAMOS (Texto obligatorio + Diseño Editorial)
+         ====================================================================== -->
+    <section class="section-how-we-work" id="about">
+      <div class="container">
+        <div class="editorial-co-work-card">
+          <div>
+            <span class="tag-pill">03 · Cómo trabajamos</span>
+            <!-- Copy obligatorio de la Presentación Home -->
+            <p class="co-work-quote">
+              “Trabajamos junto a tu equipo de <span class="editorial-highlight">Marketing, Medios y Publicidad</span> para diseñar y ejecutar estrategias que combinan audiencias, tecnología, datos y diferentes canales de comunicación, adaptándonos a los objetivos de tu campaña.”
+            </p>
+            <p style="color: var(--text-secondary); font-size: 0.98rem;">
+              Nos integramos de igual a igual con tu dirección de marca: sin procesos burocráticos, con transparencia de datos y foco total en mover tus indicadores de negocio.
+            </p>
+          </div>
+
+          <div class="pillars-grid">
+            <div class="pillar-box">
+              <span>Pilar 01</span>
+              <strong>Audiencias Perfiladas</strong>
+            </div>
+            <div class="pillar-box">
+              <span>Pilar 02</span>
+              <strong>Tecnología Propia</strong>
+            </div>
+            <div class="pillar-box">
+              <span>Pilar 03</span>
+              <strong>Data &amp; Insights</strong>
+            </div>
+            <div class="pillar-box">
+              <span>Pilar 04</span>
+              <strong>Ejecución Multicanal</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECCIÓN 4: CÓMO BENEFICIAMOS A NUESTROS CLIENTES (3 Recuadros de Vero)
+         ====================================================================== -->
+    <section class="section-benefits">
+      <div class="container">
+        <div class="benefits-header">
+          <div>
+            <span class="tag-pill">04 · Valor Ejecutivo para tu Marca</span>
+            <h2 class="section-heading-lg" style="margin-bottom: 0;">
+              Cómo beneficiamos a <span class="editorial-highlight">nuestros clientes</span>
+            </h2>
+          </div>
+          <p style="color: var(--text-secondary); max-width: 440px; font-size: 0.98rem;">
+            Tres pilares operativos diseñados para que los tomadores de decisiones maximicen el retorno de cada campaña.
+          </p>
+        </div>
+
+        <!-- Diseño de 3 recuadros inspirado en la referencia de Vero adaptado a Light Mode Editorial -->
+        <div class="benefits-cards-grid">
+          <!-- Recuadro 1 -->
+          <article class="benefit-card">
+            <div>
+              <span class="benefit-badge">Beneficio 01</span>
+              <h3>Precisión de Audiencia y Data First</h3>
+              <p>
+                Identificamos y activamos segmentos de alta intención de compra en México y LATAM, reduciendo el desperdicio publicitario.
+              </p>
+            </div>
+            <div class="device-preview">
+              <div class="device-preview-top">
+                <span>Segmentación Activa</span>
+                <span style="color: var(--accent-primary);">● LIVE</span>
+              </div>
+              <div class="device-metric-highlight">94.8% Match Rate</div>
+              <div class="device-preview-sub">Perfilamiento demográfico y comportamental en tiempo real.</div>
+            </div>
+          </article>
+
+          <!-- Recuadro 2 -->
+          <article class="benefit-card">
+            <div>
+              <span class="benefit-badge">Beneficio 02</span>
+              <h3>Orquestación desde un Solo Partner</h3>
+              <p>
+                Olvídate de coordinar múltiples proveedores dispersos. Centralizamos Mobile, RCS, Push, AdTech y MarTech en una sola operación.
+              </p>
+            </div>
+            <div class="device-preview">
+              <div class="device-preview-top">
+                <span>Consola Multicanal</span>
+                <span style="color: var(--accent-primary);">● SYNC</span>
+              </div>
+              <div class="device-metric-highlight">-35% Tiempos Operativos</div>
+              <div class="device-preview-sub">Lanzamiento ágil de campañas nacionales y regionales.</div>
+            </div>
+          </article>
+
+          <!-- Recuadro 3 -->
+          <article class="benefit-card">
+            <div>
+              <span class="benefit-badge">Beneficio 03</span>
+              <h3>Performance y Resultados Medibles</h3>
+              <p>
+                Reportes ejecutivos transparentes enfocados en los KPIs que exige tu comité directivo: conversión, retención, tráfico y ROI.
+              </p>
+            </div>
+            <div class="device-preview">
+              <div class="device-preview-top">
+                <span>Impacto de Negocio</span>
+                <span style="color: var(--accent-primary);">+ROI</span>
+              </div>
+              <div class="device-metric-highlight">+3.4x Conversión</div>
+              <div class="device-preview-sub">Atribución clara por canal, formato y audiencia.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECCIÓN 5: CTA 1 - CONOCE TODOS NUESTROS CANALES (Texto obligatorio)
+         ====================================================================== -->
+    <section class="section-channels-cta" id="channels">
+      <div class="container">
+        <div class="channels-cta-box">
+          <span class="tag-pill">05 · Ecosistema Integral</span>
+          <!-- Copy obligatorio de la Presentación Home -->
+          <h2 class="section-heading-lg">
+            Ponemos a disposición de las marcas un ecosistema que incluye <span class="editorial-highlight">Mobile Marketing, RCS, Push Notifications, AdTech, MarTech</span>, entre otros, para crear campañas de alcance nacional e internacional desde un solo partner.
+          </h2>
+
+          <div class="channels-pill-cloud">
+            <span class="tech-channel-chip">Mobile Marketing</span>
+            <span class="tech-channel-chip">RCS Mensajería Enriquecida</span>
+            <span class="tech-channel-chip">Push Notifications</span>
+            <span class="tech-channel-chip">Programmatic AdTech</span>
+            <span class="tech-channel-chip">Soluciones MarTech</span>
+            <span class="tech-channel-chip">Video &amp; Connected TV</span>
+            <span class="tech-channel-chip">Performance Media</span>
+          </div>
+
+          <!-- Botón obligatorio: Conoce todos nuestros canales -->
+          <a href="#contacto-ejecutivo" onclick="openDiagnosticModal(event)" class="btn-primary">
+            <span>Conoce todos nuestros canales</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECCIÓN 6: CARRUSEL AUTOMÁTICO DE PARTNERS (10 Logos Genéricos)
+         ====================================================================== -->
+    <section class="section-partners" aria-label="Nuestros Partners">
+      <div class="container">
+        <div class="partners-header">
+          <h2>Nuestros Partners</h2>
+          <span>Ecosistema tecnológico verificado · Movimiento continuo</span>
+        </div>
+      </div>
+
+      <!-- Carrusel horizontal en movimiento automático con los 10 logos genéricos solicitados -->
+      <div class="marquee-viewport">
+        <div class="marquee-track">
+          <!-- Set 1: 10 Partners Genéricos -->
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 01 · ADTECH</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 02 · MOBILE</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 03 · RCS HUB</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 04 · DATA CLOUD</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 05 · MARTECH</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 06 · BILLING TECH</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 07 · PUSH NET</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 08 · MEDIA DSP</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 09 · TELCO LATAM</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 10 · ANALYTICS</div>
+
+          <!-- Set 2 duplicado para bucle infinito fluido -->
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 01 · ADTECH</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 02 · MOBILE</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 03 · RCS HUB</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 04 · DATA CLOUD</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 05 · MARTECH</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 06 · BILLING TECH</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 07 · PUSH NET</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 08 · MEDIA DSP</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 09 · TELCO LATAM</div>
+          <div class="partner-logo-card"><span class="partner-dot"></span> PARTNER 10 · ANALYTICS</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECCIÓN 7: CTA 2 FINAL (Agendar Google Meet para presentar Media Kit)
+         ====================================================================== -->
+    <section class="section-final-cta" id="contact">
+      <div class="container">
+        <div class="executive-cta-banner">
+          <div class="executive-cta-copy">
+            <span class="tag-pill" style="background: rgba(136,194,78,0.18); color: #88C24E;">07 · Diagnóstico y Media Kit</span>
+            <!-- Copy obligatorio de la Presentación Home -->
+            <h2>
+              No se trata solo de comprar medios. Se trata de encontrar la forma correcta de conectar cada marca con las personas que quiere alcanzar.
+            </h2>
+            <p>
+              Agenda una sesión ejecutiva por Google Meet con nuestro equipo senior para explorar nuestro Media Kit y diseñar tu próxima estrategia en México y LATAM.
+            </p>
+          </div>
+
+          <div class="executive-cta-action">
+            <!-- Texto exacto del botón solicitado en Sección 7 -->
+            <button class="btn-primary on-dark" onclick="openDiagnosticModal(event)">
+              <span>Conoce nuestros canales y soluciones</span>
+              <span class="arrow">→</span>
+            </button>
+            <span class="meet-note">⚡ Reunión ejecutiva vía Google Meet · Presentación de Media Kit</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       PIE DE PÁGINA (Idéntico en todas las páginas del sitio web)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Columna 1: Logo HUVYTAS que redirige al Home -->
+        <div class="footer-brand">
+          <a href="#home" class="brand-logo" style="color: #FAFAFA;">
+            <div class="logo-mark" style="background-color: #262930;"><span></span></div>
+            HUVYTAS
+          </a>
+          <p>
+            Conectamos grandes marcas con audiencias estratégicas en México y Latinoamérica mediante tecnología, datos y múltiples canales digitales.
+          </p>
+        </div>
+
+        <!-- Columna 2: Mención de páginas del sitio web -->
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#brands">Brands</a></li>
+            <li><a href="#channels">Channels</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact" onclick="openDiagnosticModal(event)">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Legales obligatorios -->
+        <div class="footer-col">
+          <h4>Legales</h4>
+          <ul>
+            <li><a href="#privacidad">Política de privacidad</a></li>
+            <li><a href="#terminos">Términos y condiciones</a></li>
+            <li><a href="#cookies">Política de cookies</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Social Media [Exclusivamente Instagram y LinkedIn] -->
+        <div class="footer-col">
+          <h4>Social Media</h4>
+          <div class="social-links">
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram de Huvytas">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn de Huvytas">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Texto de derechos reservados exacto -->
+      <div class="footer-bottom">
+        <span>© 2026 Huvytas Advertising. Todos los derechos reservados.</span>
+        <span>México · LATAM</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL INTERACTIVO PARA AGENDAR GOOGLE MEET / MEDIA KIT
+       ======================================================================== -->
+  <div class="modal-backdrop" id="diagnosticModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeDiagnosticModal()" aria-label="Cerrar">✕</button>
+      <span class="tag-pill">Sesión Ejecutiva · Google Meet</span>
+      <h3 id="modalTitle" style="font-family: var(--font-heading); font-size: 1.45rem; margin-bottom: 8px;">
+        Explora nuestros canales y Media Kit
+      </h3>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 20px;">
+        Déjanos tus datos corporativos para agendar una presentación personalizada con un especialista senior de Huvytas.
+      </p>
+
+      <form onsubmit="submitDiagnosticForm(event)">
+        <div class="form-group">
+          <label for="execName">Nombre y Cargo</label>
+          <input type="text" id="execName" placeholder="Ej. Ana Sofía Méndez · CMO / Brand Manager" required />
+        </div>
+        <div class="form-group">
+          <label for="execEmail">Correo Corporativo</label>
+          <input type="email" id="execEmail" placeholder="nombre@empresa.com" required />
+        </div>
+        <div class="form-group">
+          <label for="execInterest">Canales de Interés Principal</label>
+          <select id="execInterest">
+            <option>Ecosistema Completo (Media Kit General)</option>
+            <option>Mobile Marketing &amp; RCS</option>
+            <option>Push Notifications &amp; Performance</option>
+            <option>Soluciones AdTech / MarTech</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 8px;">
+          <span>Agendar sesión por Google Meet</span>
+          <span class="arrow">→</span>
+        </button>
+      </form>
+      <p id="formFeedback" style="display:none; margin-top:14px; font-weight:600; color:#111315; background:#EBF5DF; padding:10px; border-radius:8px; text-align:center;">
+        ¡Solicitud recibida! Un ejecutivo senior te enviará la invitación de Google Meet en breve.
+      </p>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       JAVASCRIPT INTERACTIVO (Idioma, Menú Móvil, Reproductor y Modal)
+       ======================================================================== -->
+  <script>
+    // 1. Menú móvil
+    function toggleMobileMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('mobile-open');
+    }
+
+    // 2. Selector de idioma [ES / EN]
+    const translations = {
+      es: {
+        heroTitle: 'Huvytas Advertising',
+        heroSubtitle: 'La mejor forma de conectar con la audiencia adecuada.',
+        heroCta: 'Comenzar ahora'
+      },
+      en: {
+        heroTitle: 'Huvytas Advertising',
+        heroSubtitle: 'The smartest way to connect with the right audience.',
+        heroCta: 'Start now'
+      }
+    };
+
+    function setLanguage(lang) {
+      document.getElementById('btnEs').classList.toggle('active', lang === 'es');
+      document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    }
+
+    // 3. Simulación de Reproductor de Video en Sección 2
+    let playing = false;
+    function toggleShowreel(btn) {
+      playing = !playing;
+      const status = document.getElementById('videoStatusText');
+      const progress = document.getElementById('videoProgress');
+      if (playing) {
+        status.textContent = 'REPRODUCIENDO · 01:05';
+        progress.style.width = '85%';
+        progress.style.transition = 'width 6s linear';
+      } else {
+        status.textContent = 'PAUSADO · 01:05';
+        progress.style.transition = 'none';
+      }
+    }
+
+    // 4. Modal de Diagnóstico / Google Meet
+    function openDiagnosticModal(e) {
+      if (e) e.preventDefault();
+      document.getElementById('diagnosticModal').classList.add('open');
+    }
+
+    function closeDiagnosticModal() {
+      document.getElementById('diagnosticModal').classList.remove('open');
+    }
+
+    function submitDiagnosticForm(e) {
+      e.preventDefault();
+      document.getElementById('formFeedback').style.display = 'block';
+      setTimeout(() => {
+        closeDiagnosticModal();
+        document.getElementById('formFeedback').style.display = 'none';
+        e.target.reset();
+      }, 2400);
+    }
+  </script>
+</body>
+</html> 
