@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Huvytas Advertising — Maqueta UI/UX Oficial (Home)</title>
-
+  <title>Huvytas Advertising | Ecosistema Digital en México y LATAM</title>
+  
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts: Plus Jakarta Sans (Headings) & Inter (Body/UI) -->
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            gallery: '#FAFAFA',      /* Blanco Galería - Fondo Primario 60% */
-            stone: '#F2F4F2',        /* Gris Piedra Suave - Fondo Secundario */
-            pure: '#FFFFFF',         /* Blanco Puro - Superficies Elevadas */
-            pulse: '#88C24E',        /* Verde Pulso - Acento Obligatorio 10% */
-            sage: '#EBF5DF',         /* Verde Salvia Claro - Hover suave y Tags */
-            ink: '#111315',          /* Negro Tinta - Texto Principal, Botones y Footer 30% */
-            slateText: '#525866',    /* Gris Pizarra - Texto Secundario */
-            techBorder: '#E2E6E1',   /* Gris Técnico - Líneas divisorias 1px */
+            'bg-primary': '#FAFAFA',
+            'bg-secondary': '#F2F4F2',
+            'surface-elevated': '#FFFFFF',
+            'accent-green': '#88C24E',
+            'accent-hover': '#EBF5DF',
+            'ink-black': '#111315',
+            'slate-gray': '#525866',
+            'border-tech': '#E2E6E1'
           },
           fontFamily: {
             heading: ['"Plus Jakarta Sans"', 'sans-serif'],
-            body: ['"Inter"', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
           }
         }
       }
@@ -37,1343 +37,626 @@
   </script>
 
   <style>
-    /* ==========================================================================
-       SISTEMA DE DISEÑO HUVYTAS — EDICIÓN LIGHT MODE EDITORIAL (60-30-10)
-       ========================================================================== */
-    :root {
-      --bg-primary: #FAFAFA;
-      --bg-secondary: #F2F4F2;
-      --surface-elevated: #FFFFFF;
-      --accent-primary: #88C24E;
-      --accent-soft: #EBF5DF;
-      --text-primary: #111315;
-      --text-secondary: #525866;
-      --border-tech: #E2E6E1;
+    /* Transición suave para el cambio de fondo del Navbar */
+    #mainNavbar {
+      transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     }
 
-    body {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+    /* Estado 1: Transparente sobre el Hero */
+    .nav-transparent {
+      background-color: transparent !important;
+      border-bottom-color: transparent !important;
+      box-shadow: none !important;
+    }
+    .nav-transparent .nav-logo {
+      color: #FFFFFF !important;
+    }
+    .nav-transparent .nav-link {
+      color: #E2E6E1 !important;
+    }
+    .nav-transparent .nav-link:hover {
+      color: #88C24E !important;
+    }
+    .nav-transparent .lang-wrapper {
+      background-color: rgba(255, 255, 255, 0.12) !important;
+      border-color: rgba(255, 255, 255, 0.25) !important;
+    }
+    .nav-transparent .lang-btn-inactive {
+      color: #E2E6E1 !important;
+    }
+    .nav-transparent .mobile-burger {
+      color: #FFFFFF !important;
+      border-color: rgba(255, 255, 255, 0.3) !important;
     }
 
-    /* Regla Estricta del Manual:
-       Botón Principal con Fondo Verde Pulso (#88C24E) y Texto Negro Tinta (#111315).
-       En Hover: Fondo Negro Tinta (#111315) y Texto Verde Pulso (#88C24E) + micro-animación de flecha (→) */
+    /* Estado 2: Fondo Blanco tras hacer scroll */
+    .nav-scrolled {
+      background-color: rgba(255, 255, 255, 0.96) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: #E2E6E1 !important;
+      box-shadow: 0 4px 20px rgba(17, 19, 21, 0.05) !important;
+    }
+    .nav-scrolled .nav-logo {
+      color: #111315 !important;
+    }
+    .nav-scrolled .nav-link {
+      color: #525866 !important;
+    }
+    .nav-scrolled .nav-link:hover {
+      color: #111315 !important;
+    }
+    .nav-scrolled .lang-wrapper {
+      background-color: #F2F4F2 !important;
+      border-color: #E2E6E1 !important;
+    }
+    .nav-scrolled .lang-btn-inactive {
+      color: #525866 !important;
+    }
+    .nav-scrolled .mobile-burger {
+      color: #111315 !important;
+      border-color: #E2E6E1 !important;
+    }
+
+    /* Estilo de botones redondeados con regla estricta de contraste */
     .btn-huvytas {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.65rem;
       background-color: #88C24E;
       color: #111315;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 0.95rem 1.75rem;
-      border-radius: 8px;
+      font-weight: 700;
       border: 2px solid #88C24E;
-      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      cursor: pointer;
+      border-radius: 9999px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
-    .btn-huvytas .arrow-icon {
-      display: inline-block;
-      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      font-weight: 800;
-    }
-
     .btn-huvytas:hover {
       background-color: #111315;
       color: #88C24E;
       border-color: #111315;
     }
-
-    .btn-huvytas.on-dark-surface:hover {
+    .btn-huvytas:hover .arrow-icon {
+      transform: translateX(4px);
+    }
+    .btn-huvytas.on-dark:hover {
       border-color: #88C24E;
     }
 
-    .btn-huvytas:hover .arrow-icon {
-      transform: translateX(5px);
+    /* Animación continua del carrusel de partners */
+    @keyframes scrollLogos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: scrollLogos 28s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
     }
 
-    /* Subrayado Editorial Geométrico en Titulares (#88C24E) */
-    .editorial-mark {
+    /* Resalte editorial */
+    .highlight-editorial {
       position: relative;
       display: inline-block;
       z-index: 1;
     }
-
-    .editorial-mark::after {
+    .highlight-editorial::after {
       content: "";
       position: absolute;
-      left: -3px;
-      right: -3px;
-      bottom: 3px;
+      left: -2px;
+      right: -2px;
+      bottom: 2px;
       height: 32%;
       background-color: #88C24E;
       z-index: -1;
-      border-radius: 2px;
-      transition: height 0.25s ease;
-    }
-
-    .editorial-mark:hover::after {
-      height: 44%;
-    }
-
-    /* Etiquetas / Pills con Verde Salvia Claro (#EBF5DF) */
-    .editorial-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background-color: #EBF5DF;
-      color: #111315;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 0.38rem 0.9rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(136, 194, 78, 0.4);
-    }
-
-    .editorial-pill::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 9999px;
-      background-color: #88C24E;
-    }
-
-    /* Simulación de Video Urbano Nocturno CDMX (Torre Latinoamericana / Vista aérea) */
-    .hero-night-video {
-      background:
-        linear-gradient(90deg, rgba(17, 19, 21, 0.55) 0%, rgba(17, 19, 21, 0.72) 55%, rgba(17, 19, 21, 0.90) 100%),
-        url('https://images.unsplash.com/photo-1518659526054-190340b32735?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat;
-      animation: cinemaPan 22s ease-in-out infinite alternate;
-    }
-
-    @keyframes cinemaPan {
-      0% { transform: scale(1.02) translate(0, 0); }
-      100% { transform: scale(1.08) translate(-1%, -1%); }
-    }
-
-    /* Animaciones de órbita del ecosistema tecnológico (Sección 1) */
-    @keyframes floatSlow {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
-    }
-
-    .orbit-badge {
-      animation: floatSlow 4s ease-in-out infinite;
-    }
-
-    /* Carrusel horizontal continuo de 10 Partners (Sección 6) */
-    @keyframes marqueeScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    .partners-track {
-      display: flex;
-      width: max-content;
-      gap: 1.25rem;
-      animation: marqueeScroll 30s linear infinite;
-    }
-
-    .partners-viewport:hover .partners-track {
-      animation-play-state: paused;
-    }
-
-    /* Modo Presentación Artboard (Behance / Dribbble Studio Frame) */
-    body.artboard-mode {
-      background-color: #E4E7E4;
-      background-image: radial-gradient(#C8CEC8 1px, transparent 1px);
-      background-size: 24px 24px;
-      padding-bottom: 4rem;
-    }
-
-    body.artboard-mode #mockupCanvasWrapper {
-      max-width: 1280px;
-      margin: 2rem auto;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 35px 90px -15px rgba(17, 19, 21, 0.28), 0 0 0 1px #E2E6E1;
-      border: 6px solid #FFFFFF;
-    }
-
-    /* Indicadores de Especificación del Manual / Wireframe */
-    .spec-annotation {
-      display: none;
-    }
-    body.show-specs .spec-annotation {
-      display: inline-flex;
     }
   </style>
 </head>
-<body class="show-specs">
+<body class="bg-bg-primary text-ink-black font-body antialiased selection:bg-accent-green selection:text-ink-black overflow-x-hidden">
 
-  <!-- ========================================================================
-       BARRA SUPERIOR DE CONTROL DEL MOCKUP (UI/UX STUDIO INSPECTOR)
-       Permite alternar entre Vista Web Full-Bleed, Vista Artboard y Notas del Manual
-       ======================================================================== -->
-  <div class="bg-ink text-gallery border-b border-white/10 px-4 py-2.5 text-xs font-body relative z-50">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-      <div class="flex items-center gap-2.5">
-        <span class="inline-block w-2.5 h-2.5 rounded-full bg-pulse animate-pulse"></span>
-        <span class="font-heading font-bold tracking-wide uppercase text-pulse">LILA STUDIO / HUVYTAS UI MOCKUP</span>
-        <span class="hidden md:inline text-white/60">|</span>
-        <span class="hidden md:inline text-white/80">Manual v1.0 (Light Mode Editorial 60-30-10) + Estructura Home</span>
+  <!-- ==========================================
+       BARRA DE NAVEGACIÓN DINÁMICA
+       ========================================== -->
+  <header id="mainNavbar" class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center border-b border-transparent nav-transparent">
+    <div class="max-w-[1240px] w-full mx-auto px-6 flex items-center justify-between">
+      
+      <!-- Logo HUVYTAS -->
+      <a href="#home" class="nav-logo flex items-center gap-2.5 font-heading font-extrabold text-2xl tracking-tight transition-colors">
+        <span class="w-8 h-8 rounded-lg bg-ink-black flex items-center justify-center border border-white/20">
+          <span class="w-3.5 h-3.5 bg-accent-green rounded-sm"></span>
+        </span>
+        HUVYTAS
+      </a>
+
+      <!-- Menú Central: Brands, Channels, About -->
+      <nav class="hidden md:flex items-center gap-9">
+        <a href="#brands" class="nav-link text-sm font-medium transition-colors">Brands</a>
+        <a href="#channels" class="nav-link text-sm font-medium transition-colors">Channels</a>
+        <a href="#about" class="nav-link text-sm font-medium transition-colors">About</a>
+      </nav>
+
+      <!-- Zona Derecha: Switch de Idioma + Menú Móvil -->
+      <div class="flex items-center gap-4">
+        <!-- Switch de idioma [ES / EN] (Visible siempre) -->
+        <div class="lang-wrapper inline-flex items-center border rounded-full p-1 text-xs font-heading font-bold transition-all">
+          <button id="btnEs" onclick="changeLang('es')" class="px-2.5 py-1 rounded-full bg-accent-green text-ink-black transition-all">ES</button>
+          <button id="btnEn" onclick="changeLang('en')" class="lang-btn-inactive px-2.5 py-1 rounded-full transition-all">EN</button>
+        </div>
+
+        <!-- Botón CTA Contacto (Oculto en móvil, visible en escritorio md+) -->
+        <button onclick="openModal()" class="hidden md:inline-flex btn-huvytas text-xs uppercase tracking-wider px-5 py-2.5 items-center gap-1.5 shadow-sm">
+          <span id="navContactText">Contacto</span>
+          <span class="arrow-icon transition-transform">→</span>
+        </button>
+
+        <!-- Botón menú móvil -->
+        <button onclick="toggleMobileNav()" class="mobile-burger md:hidden p-2 rounded-lg border transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
       </div>
 
-      <!-- Controles de vista de maqueta -->
-      <div class="flex items-center gap-2 flex-wrap">
-        <button id="btnViewWeb" onclick="setPresentationMode('web')" class="px-3 py-1 rounded bg-pulse text-ink font-heading font-bold transition">
-          Vista Web Interactiva
-        </button>
-        <button id="btnViewArtboard" onclick="setPresentationMode('artboard')" class="px-3 py-1 rounded bg-white/10 text-white hover:bg-white/20 font-heading font-semibold transition">
-          Modo Artboard (Maqueta)
-        </button>
-        <button id="btnToggleSpecs" onclick="toggleSpecBadges()" class="px-3 py-1 rounded border border-pulse/50 text-pulse hover:bg-pulse/10 font-heading font-semibold transition">
-          Guías de Estructura: ON
-        </button>
-      </div>
     </div>
-  </div>
 
-  <!-- CONTENEDOR PRINCIPAL DE LA MAQUETA -->
-  <div id="mockupCanvasWrapper" class="bg-gallery transition-all duration-300">
+    <!-- Menú desplegable Móvil -->
+    <div id="mobileMenu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white border-b border-border-tech p-6 flex flex-col gap-4 shadow-lg">
+      <a href="#brands" onclick="toggleMobileNav()" class="text-base font-semibold text-ink-black">Brands</a>
+      <a href="#channels" onclick="toggleMobileNav()" class="text-base font-semibold text-ink-black">Channels</a>
+      <a href="#about" onclick="toggleMobileNav()" class="text-base font-semibold text-ink-black">About</a>
+      
+      <!-- Botón CTA Contacto integrado al menú móvil -->
+      <button onclick="openModal(); toggleMobileNav();" class="btn-huvytas text-sm uppercase tracking-wider px-5 py-3 mt-4 inline-flex items-center justify-center gap-2 shadow-sm w-full">
+        <span id="navContactTextMobile">Contacto</span>
+        <span class="arrow-icon transition-transform">→</span>
+      </button>
+    </div>
+  </header>
 
-    <!-- ======================================================================
-         BARRA DE NAVEGACIÓN (Idéntica en todas las páginas del sitio web)
-         Superficie Elevada: Blanco Puro (#FFFFFF) + Línea Gris Técnico (#E2E6E1)
-         ====================================================================== -->
-    <header class="sticky top-0 z-40 bg-pure/95 backdrop-blur-md border-b border-techBorder h-20 flex items-center">
-      <div class="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
-        
-        <!-- Logo HUVYTAS que redirige al Home -->
-        <a href="#hero" class="flex items-center gap-3 group" title="Redirige al Home del sitio web">
-          <div class="w-10 h-10 rounded-lg bg-ink flex items-center justify-center border border-techBorder group-hover:border-pulse transition">
-            <!-- Ícono inspirado en el nodo racimo verde de Huvytas del video -->
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
-              <path d="M12 4C13.5 4 14.5 5 14.5 6.5H9.5C9.5 5 10.5 4 12 4Z" fill="#88C24E"/>
-              <circle cx="9.5" cy="10" r="2" fill="#88C24E"/>
-              <circle cx="14.5" cy="10" r="2" fill="#88C24E"/>
-              <circle cx="7.5" cy="14" r="1.8" fill="#88C24E"/>
-              <circle cx="12" cy="14" r="2" fill="#88C24E"/>
-              <circle cx="16.5" cy="14" r="1.8" fill="#88C24E"/>
-              <circle cx="10" cy="18" r="1.7" fill="#88C24E"/>
-              <circle cx="14" cy="18" r="1.7" fill="#88C24E"/>
-            </svg>
-          </div>
-          <div class="flex flex-col">
-            <span class="font-heading font-extrabold text-xl tracking-tight text-ink leading-none">HUVYTAS</span>
-            <span class="text-[10px] font-heading font-bold tracking-[0.22em] text-slateText uppercase mt-0.5">Advertising</span>
-          </div>
-        </a>
+  <main id="home">
+    <!-- ==========================================
+         HERO SECTION (Alineado a la izquierda)
+         ========================================== -->
+    <section id="heroSection" class="relative min-h-[100vh] flex items-center bg-ink-black text-white overflow-hidden pt-20">
+      <!-- Fondo CDMX Nocturno -->
+      <div class="absolute inset-0 z-0 bg-cover bg-center opacity-40 scale-105" style="background-image: url('https://images.unsplash.com/photo-1518659526054-190340b32735?auto=format&fit=crop&w=1920&q=85');"></div>
+      
+      <!-- Overlay degradado para legibilidad -->
+      <div class="absolute inset-0 z-1 bg-gradient-to-r from-ink-black via-ink-black/85 to-transparent"></div>
 
-        <!-- Menú de Páginas: Brands, Channels, About, Contact -->
-        <nav class="hidden md:flex items-center gap-9" aria-label="Navegación Principal">
-          <a href="#seccion-video" class="group relative py-2 text-sm font-medium text-slateText hover:text-ink transition">
-            <span>Brands</span>
-            <span class="block h-0.5 w-0 group-hover:w-full bg-pulse transition-all duration-300 mt-0.5"></span>
-            <span class="spec-annotation absolute -bottom-5 left-0 text-[10px] text-pulse font-mono whitespace-nowrap">Persuadir marcas</span>
+      <!-- Contenido Hero: Únicamente Título, Eslogan y CTA -->
+      <div class="relative z-10 max-w-[1240px] w-full mx-auto px-6 py-20 flex flex-col items-start justify-center text-left">
+        <h1 id="heroTitle" class="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl text-accent-green tracking-tight leading-tight mb-3">
+          Huvytas Advertising
+        </h1>
+        <p id="heroSubtitle" class="font-body text-base sm:text-lg text-gray-200 max-w-xl font-normal mb-8">
+          La mejor forma de conectar con la audiencia adecuada.
+        </p>
+        <div>
+          <a href="#seccion-1" class="btn-huvytas on-dark px-8 py-3.5 text-sm sm:text-base inline-flex items-center gap-3">
+            <span id="heroCtaText">Comenzar ahora</span>
+            <span class="arrow-icon transition-transform font-bold text-lg">→</span>
           </a>
-          <a href="#seccion-cta1" class="group relative py-2 text-sm font-medium text-slateText hover:text-ink transition">
-            <span>Channels</span>
-            <span class="block h-0.5 w-0 group-hover:w-full bg-pulse transition-all duration-300 mt-0.5"></span>
-            <span class="spec-annotation absolute -bottom-5 left-0 text-[10px] text-pulse font-mono whitespace-nowrap">Media Kits breves</span>
-          </a>
-          <a href="#seccion-como-trabajamos" class="group relative py-2 text-sm font-medium text-slateText hover:text-ink transition">
-            <span>About</span>
-            <span class="block h-0.5 w-0 group-hover:w-full bg-pulse transition-all duration-300 mt-0.5"></span>
-            <span class="spec-annotation absolute -bottom-5 left-0 text-[10px] text-pulse font-mono whitespace-nowrap">Nuestra historia</span>
-          </a>
-          <a href="#seccion-cta2" onclick="openMeetModal(event)" class="group relative py-2 text-sm font-medium text-slateText hover:text-ink transition">
-            <span>Contact</span>
-            <span class="block h-0.5 w-0 group-hover:w-full bg-pulse transition-all duration-300 mt-0.5"></span>
-            <span class="spec-annotation absolute -bottom-5 left-0 text-[10px] text-pulse font-mono whitespace-nowrap">Formulario ejecutivo</span>
-          </a>
-        </nav>
-
-        <!-- Selector de Idioma [Español / Inglés] + CTA Rápido -->
-        <div class="flex items-center gap-3">
-          <div class="inline-flex items-center bg-stone border border-techBorder rounded-full p-1" role="group" aria-label="Selector de idioma">
-            <button id="langEs" onclick="switchLang('es')" class="px-3 py-1 rounded-full text-xs font-heading font-extrabold bg-pulse text-ink transition">
-              ES
-            </button>
-            <button id="langEn" onclick="switchLang('en')" class="px-3 py-1 rounded-full text-xs font-heading font-bold text-slateText hover:text-ink transition">
-              EN
-            </button>
-          </div>
-
-          <button onclick="toggleMobileNav()" class="md:hidden p-2 rounded-lg border border-techBorder text-ink font-bold" aria-label="Abrir menú móvil">
-            ☰
-          </button>
-        </div>
-      </div>
-
-      <!-- Menú Desplegable Móvil -->
-      <div id="mobileNavDrawer" class="hidden absolute top-20 left-0 right-0 bg-pure border-b border-techBorder p-6 md:hidden shadow-xl">
-        <ul class="flex flex-col gap-4 font-heading font-bold text-ink">
-          <li><a href="#seccion-video" onclick="toggleMobileNav()">Brands — Persuadir marcas</a></li>
-          <li><a href="#seccion-cta1" onclick="toggleMobileNav()">Channels — Media Kits y Canales</a></li>
-          <li><a href="#seccion-como-trabajamos" onclick="toggleMobileNav()">About — Nuestra historia</a></li>
-          <li><a href="#seccion-cta2" onclick="toggleMobileNav(); openMeetModal(event)">Contact — Formulario ejecutivo</a></li>
-        </ul>
-      </div>
-    </header>
-
-    <!-- ======================================================================
-         HERO SECTION (A petición de Vero: Video nocturno CDMX + Título, Subtítulo y CTA)
-         Diseño y composición editorial con línea vertical derecha y acento #88C24E
-         ====================================================================== -->
-    <section id="hero" class="relative min-h-[82vh] flex items-center bg-ink text-gallery overflow-hidden">
-      <!-- Fondo de video urbano nocturno (Torre Latinoamericana / CDMX de noche) -->
-      <div class="hero-night-video absolute inset-0 z-0" aria-hidden="true"></div>
-
-      <!-- Sutil retícula editorial sobre el video -->
-      <div class="absolute inset-0 z-10 opacity-15 pointer-events-none"
-           style="background-image: linear-gradient(to right, rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.12) 1px, transparent 1px); background-size: 96px 96px;">
-      </div>
-
-      <div class="relative z-20 max-w-7xl mx-auto w-full px-6 py-24">
-        <!-- Etiqueta de especificación del documento -->
-        <div class="mb-6 flex justify-end">
-          <span class="spec-annotation items-center gap-2 bg-ink/80 border border-pulse/60 text-pulse text-xs font-mono px-3 py-1 rounded-full">
-            ● HERO · Video de fondo intacto + Estructura de Vero (Título, Subtítulo y CTA)
-          </span>
-        </div>
-
-        <!-- Composición alineada a la derecha con barra vertical como en la captura de referencia -->
-        <div class="max-w-3xl ml-auto text-right pr-6 md:pr-10 border-r-2 border-pulse">
-          <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 px-3.5 py-1.5 rounded-full text-xs font-heading font-semibold uppercase tracking-widest text-gallery mb-5">
-            <span class="w-2 h-2 rounded-full bg-pulse"></span>
-            <span data-i18n="heroBadge">Ecosistema Publicitario · México &amp; LATAM</span>
-          </div>
-
-          <!-- Título obligatorio -->
-          <h1 class="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl text-pulse tracking-tight leading-[1.04] mb-4" data-i18n="heroTitle">
-            Huvytas Advertising
-          </h1>
-
-          <!-- Subtítulo obligatorio -->
-          <p class="font-body text-lg sm:text-2xl text-gallery/95 font-normal max-w-2xl ml-auto mb-9 leading-relaxed" data-i18n="heroSubtitle">
-            La mejor forma de conectar con la audiencia adecuada.
-          </p>
-
-          <!-- Botón CTA obligatorio ("Comenzar ahora") cumpliendo regla de accesibilidad #88C24E + #111315 -->
-          <div class="flex justify-end items-center gap-4 flex-wrap">
-            <a href="#seccion-1" class="btn-huvytas on-dark-surface">
-              <span data-i18n="heroBtn">Comenzar ahora</span>
-              <span class="arrow-icon">→</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Barra inferior de credenciales ejecutivas para CMOs (30-48 años) -->
-        <div class="mt-20 pt-8 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left max-w-4xl ml-auto">
-          <div class="bg-ink/65 backdrop-blur-md border border-white/10 rounded-xl p-4">
-            <span class="text-xs uppercase tracking-wider text-white/60 font-heading font-bold">Alcance Estratégico</span>
-            <p class="font-heading font-extrabold text-xl text-pulse mt-0.5">México &amp; LATAM</p>
-            <p class="text-xs text-white/80 mt-1">Campañas nacionales y regionales desde un solo partner.</p>
-          </div>
-          <div class="bg-ink/65 backdrop-blur-md border border-white/10 rounded-xl p-4">
-            <span class="text-xs uppercase tracking-wider text-white/60 font-heading font-bold">Arquitectura</span>
-            <p class="font-heading font-extrabold text-xl text-pulse mt-0.5">AdTech + MarTech</p>
-            <p class="text-xs text-white/80 mt-1">Mobile Marketing, RCS, Push Notifications y medios de alto impacto.</p>
-          </div>
-          <div class="bg-ink/65 backdrop-blur-md border border-white/10 rounded-xl p-4">
-            <span class="text-xs uppercase tracking-wider text-white/60 font-heading font-bold">Enfoque de Negocio</span>
-            <p class="font-heading font-extrabold text-xl text-pulse mt-0.5">100% Orientado a ROI</p>
-            <p class="text-xs text-white/80 mt-1">Audiencias perfiladas con resultados medibles para tomadores de decisión.</p>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- Conector ortogonal verde de la presentación -->
-    <div class="bg-gallery flex justify-center py-2" aria-hidden="true">
-      <svg class="w-28 h-12 stroke-pulse" viewBox="0 0 120 48" fill="none" stroke-width="3">
-        <path d="M60 0 V24 H60 V48" />
-        <circle cx="60" cy="24" r="4" fill="#88C24E" />
-      </svg>
-    </div>
-
-    <!-- ======================================================================
+    <!-- ==========================================
          SECCIÓN 1: A QUÉ NOS DEDICAMOS
-         Fondo: Blanco Galería (#FAFAFA) | Texto obligatorio + Imagen Ecosistema Tecnológico
-         ====================================================================== -->
-    <section id="seccion-1" class="py-20 lg:py-24 bg-gallery border-b border-techBorder">
-      <div class="max-w-7xl mx-auto px-6">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <!-- Columna Izquierda: Copy Obligatorio + Tono Audacia Estratégica -->
-          <div class="lg:col-span-6">
-            <div class="flex items-center gap-3 mb-4 flex-wrap">
-              <span class="editorial-pill">Sección 01 · A qué nos dedicamos</span>
-              <span class="spec-annotation text-xs font-mono text-slateText bg-stone px-2.5 py-1 rounded border border-techBorder">
-                Objetivo: Explicar qué hacemos a clientes fríos
-              </span>
-            </div>
-
-            <!-- Texto exacto obligatorio de la Presentación Home -->
-            <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.55rem] text-ink leading-[1.18] tracking-tight mb-6" data-i18n="sec1Title">
-              Distribuimos y gestionamos <span class="editorial-mark">múltiples canales digitales</span> conectando a grandes marcas con audiencias a través de un ecosistema tecnológico.
-            </h2>
-
-            <p class="text-slateText text-base sm:text-lg leading-relaxed mb-8" data-i18n="sec1Lead">
-              Transformamos datos de audiencia y tensión cultural en crecimiento medible. Integramos tecnología publicitaria de vanguardia para que directores de marketing y líderes de marca escalen su posicionamiento sin fricción operativa.
-            </p>
-
-            <!-- Puntos clave estilo consultora ejecutiva -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-techBorder">
-              <div class="bg-pure p-5 rounded-xl border border-techBorder shadow-sm">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="font-heading font-extrabold text-sm uppercase tracking-wider text-ink">Cobertura Integral</span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-pulse"></span>
-                </div>
-                <p class="text-sm text-slateText">Activación sincronizada en plataformas sociales, mensajería enriquecida y red móvil.</p>
-              </div>
-              <div class="bg-pure p-5 rounded-xl border border-techBorder shadow-sm">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="font-heading font-extrabold text-sm uppercase tracking-wider text-ink">Precisión de Data</span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-pulse"></span>
-                </div>
-                <p class="text-sm text-slateText">Segmentación por intención, demografía e insights regionales en México y LATAM.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Ilustración del Ecosistema Tecnológico (Inspirada en las 2 imágenes del Media Kit actual: Smartphone + Órbita de Canales) -->
-          <div class="lg:col-span-6">
-            <div class="bg-pure border border-techBorder rounded-2xl p-6 sm:p-10 shadow-[0_24px_60px_rgba(17,19,21,0.05)] relative overflow-hidden">
-              
-              <!-- Halo sutil verde detrás del dispositivo -->
-              <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div class="w-80 h-80 rounded-full bg-pulse/15 blur-2xl"></div>
-              </div>
-
-              <div class="relative z-10 flex flex-col items-center">
-                <div class="w-full flex items-center justify-between text-xs font-mono text-slateText mb-4 pb-3 border-b border-techBorder">
-                  <span>HUVYTAS TECH ECOSYSTEM</span>
-                  <span class="text-ink font-bold flex items-center gap-1.5"><i class="w-2 h-2 rounded-full bg-pulse inline-block"></i> MULTI-CHANNEL HUB</span>
-                </div>
-
-                <!-- Composición visual: Smartphone central + Arco orbital de canales (Meta, Facebook, Instagram, WhatsApp, Messenger, RCS, Push) -->
-                <div class="relative w-full max-w-md py-6 flex flex-col sm:flex-row items-center justify-center gap-8">
-                  
-                  <!-- Smartphone Mockup Físico en Perspectiva -->
-                  <div class="w-52 bg-ink rounded-[34px] p-3 border-[4px] border-[#2A2F37] shadow-2xl relative z-20">
-                    <!-- Dynamic Island / Notch -->
-                    <div class="w-16 h-3.5 bg-black rounded-full mx-auto mb-2.5"></div>
-                    <!-- Pantalla blanca tipo galería -->
-                    <div class="bg-gallery rounded-[24px] p-5 text-center border border-techBorder">
-                      <span class="inline-block bg-sage text-ink font-heading font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-pulse/40 mb-3">
-                        ECOSISTEMA ACTIVO
-                      </span>
-                      <!-- Símbolo de conexión infinita / Meta & Omnicanal -->
-                      <div class="w-16 h-16 rounded-2xl bg-ink text-pulse mx-auto flex items-center justify-center mb-3 shadow-md">
-                        <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="#88C24E" stroke-width="2.2">
-                          <path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/>
-                        </svg>
-                      </div>
-                      <h3 class="font-heading font-extrabold text-base text-ink leading-tight">Huvytas Core</h3>
-                      <p class="text-[11px] text-slateText mt-1 mb-4">Orquestación de Audiencias &amp; Medios</p>
-
-                      <!-- Mini barras de rendimiento -->
-                      <div class="bg-stone rounded-lg p-2.5 text-left space-y-2 border border-techBorder">
-                        <div>
-                          <div class="flex justify-between text-[10px] font-heading font-bold text-ink">
-                            <span>Alcance Digital</span>
-                            <span class="text-pulse">98.4%</span>
-                          </div>
-                          <div class="w-full h-1.5 bg-techBorder rounded-full overflow-hidden mt-1">
-                            <div class="w-[94%] h-full bg-pulse"></div>
-                          </div>
-                        </div>
-                        <div>
-                          <div class="flex justify-between text-[10px] font-heading font-bold text-ink">
-                            <span>Conversión Multicanal</span>
-                            <span>+3.8x ROI</span>
-                          </div>
-                          <div class="w-full h-1.5 bg-techBorder rounded-full overflow-hidden mt-1">
-                            <div class="w-[82%] h-full bg-ink"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Arco de Nodos de Canales Conectados (Referencia Media Kit) -->
-                  <div class="flex sm:flex-col gap-3 flex-wrap justify-center relative z-20">
-                    <div class="orbit-badge flex items-center gap-2.5 bg-stone hover:bg-sage border border-techBorder hover:border-pulse px-3.5 py-2 rounded-full transition shadow-sm">
-                      <span class="w-7 h-7 rounded-full bg-[#1877F2] text-white font-heading font-extrabold text-xs flex items-center justify-center">f</span>
-                      <span class="font-heading font-bold text-xs text-ink">Social Media Ads</span>
-                    </div>
-                    <div class="orbit-badge flex items-center gap-2.5 bg-stone hover:bg-sage border border-techBorder hover:border-pulse px-3.5 py-2 rounded-full transition shadow-sm" style="animation-delay: 0.4s;">
-                      <span class="w-7 h-7 rounded-full bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white font-heading font-extrabold text-xs flex items-center justify-center">IG</span>
-                      <span class="font-heading font-bold text-xs text-ink">Rich Media &amp; Video</span>
-                    </div>
-                    <div class="orbit-badge flex items-center gap-2.5 bg-stone hover:bg-sage border border-techBorder hover:border-pulse px-3.5 py-2 rounded-full transition shadow-sm" style="animation-delay: 0.8s;">
-                      <span class="w-7 h-7 rounded-full bg-[#25D366] text-ink font-heading font-extrabold text-xs flex items-center justify-center">WA</span>
-                      <span class="font-heading font-bold text-xs text-ink">WhatsApp &amp; RCS</span>
-                    </div>
-                    <div class="orbit-badge flex items-center gap-2.5 bg-stone hover:bg-sage border border-techBorder hover:border-pulse px-3.5 py-2 rounded-full transition shadow-sm" style="animation-delay: 1.2s;">
-                      <span class="w-7 h-7 rounded-full bg-ink text-pulse font-heading font-extrabold text-xs flex items-center justify-center">⚡</span>
-                      <span class="font-heading font-bold text-xs text-ink">Push &amp; Mobile DSP</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="w-full mt-4 pt-3 border-t border-techBorder flex items-center justify-between text-xs text-slateText">
-                  <span>Referencia visual: Media Kit Huvytas</span>
-                  <span class="font-heading font-bold text-ink">Integración 100% API &amp; Data</span>
-                </div>
-              </div>
-            </div>
-          </div>
+         ========================================== -->
+    <section class="py-24 bg-bg-primary border-b border-border-tech" id="seccion-1">
+      <div class="max-w-[1240px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div class="lg:col-span-7">
+          <span class="inline-flex items-center gap-2 bg-accent-hover text-ink-black font-heading font-bold text-xs uppercase px-3.5 py-1.5 rounded-full border border-accent-green/30 mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent-green"></span> 01 · A qué nos dedicamos
+          </span>
+          <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-ink-black leading-snug mb-6">
+            Distribuimos y gestionamos <span class="highlight-editorial">múltiples canales digitales</span> conectando a grandes marcas con audiencias a través de un ecosistema tecnológico.
+          </h2>
+          <p class="text-slate-gray text-base sm:text-lg leading-relaxed mb-8">
+            Centralizamos soluciones avanzadas de distribución publicitaria móvil, programática y mensajería enriquecida para garantizar que cada impresión se traduzca en engagement real y retorno tangible.
+          </p>
         </div>
 
+        <!-- Tarjeta de Ecosistema Tecnológico -->
+        <div class="lg:col-span-5 bg-surface-elevated border border-border-tech rounded-3xl p-8 shadow-sm flex flex-col items-center justify-center relative overflow-hidden">
+          <div class="w-full flex justify-center gap-2 mb-4">
+            <span class="bg-bg-secondary text-ink-black text-xs font-bold px-3 py-1 rounded-full border border-border-tech">RCS Business</span>
+            <span class="bg-bg-secondary text-ink-black text-xs font-bold px-3 py-1 rounded-full border border-border-tech">Mobile Push</span>
+          </div>
+          <div class="w-48 bg-ink-black text-white rounded-[2rem] p-4 border-4 border-gray-800 shadow-xl my-2 text-center">
+            <div class="w-16 h-2 bg-black rounded-full mx-auto mb-4"></div>
+            <div class="bg-bg-primary text-ink-black rounded-xl p-4">
+              <span class="text-[10px] font-extrabold bg-accent-green text-ink-black px-2 py-0.5 rounded-full">CORE</span>
+              <h4 class="font-heading font-bold text-sm mt-2">Huvytas Hub</h4>
+              <p class="text-[11px] text-slate-gray mt-1">Data &amp; Audiencias</p>
+            </div>
+          </div>
+          <div class="w-full flex justify-center gap-2 mt-4">
+            <span class="bg-bg-secondary text-ink-black text-xs font-bold px-3 py-1 rounded-full border border-border-tech">AdTech</span>
+            <span class="bg-bg-secondary text-ink-black text-xs font-bold px-3 py-1 rounded-full border border-border-tech">MarTech</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Conector escalonado verde como en el diagrama de la Presentación Home -->
-    <div class="bg-gallery flex justify-center py-1" aria-hidden="true">
-      <svg class="w-40 h-14 stroke-pulse" viewBox="0 0 160 56" fill="none" stroke-width="3">
-        <path d="M20 4 H80 V52 H140" />
-        <circle cx="20" cy="4" r="4" fill="#88C24E" />
-        <circle cx="140" cy="52" r="4" fill="#88C24E" />
-      </svg>
-    </div>
-
-    <!-- ======================================================================
-         SECCIÓN 2: MOSTRAR VIDEO DE HUVYTAS (ALCANCE)
-         Fondo Secundario: Gris Piedra Suave (#F2F4F2) | Texto obligatorio + Video actual (01:05)
-         ====================================================================== -->
-    <section id="seccion-video" class="py-20 lg:py-24 bg-stone border-b border-techBorder">
-      <div class="max-w-7xl mx-auto px-6">
-        
-        <!-- Encabezado y Texto Obligatorio de la Sección 2 -->
-        <div class="max-w-4xl mx-auto text-center mb-12">
-          <div class="inline-flex items-center gap-3 mb-4 flex-wrap justify-center">
-            <span class="editorial-pill">Sección 02 · Mostrar Video de Alcance</span>
-            <span class="spec-annotation text-xs font-mono text-slateText bg-pure px-2.5 py-1 rounded border border-techBorder">
-              Video actual del sitio (01:05) en gran tamaño
-            </span>
-          </div>
-
-          <h2 class="font-heading font-extrabold text-2xl sm:text-4xl lg:text-[2.45rem] text-ink leading-[1.2] tracking-tight" data-i18n="sec2Title">
-            Llevamos las marcas de nuestros clientes a las <span class="editorial-mark">audiencias correctas</span> mediante canales digitales, Mobile Marketing y medios de alto alcance.
+    <!-- ==========================================
+         SECCIÓN 2: MOSTRAR VIDEO
+         ========================================== -->
+    <section class="py-24 bg-bg-secondary border-b border-border-tech" id="brands">
+      <div class="max-w-[1240px] mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="inline-flex items-center gap-2 bg-accent-hover text-ink-black font-heading font-bold text-xs uppercase px-3.5 py-1.5 rounded-full border border-accent-green/30 mb-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent-green"></span> 02 · Nuestro Alcance
+          </span>
+          <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-ink-black leading-snug">
+            Llevamos las marcas de nuestros clientes a las <span class="highlight-editorial">audiencias correctas</span> mediante canales digitales, Mobile Marketing y medios de alto alcance.
           </h2>
         </div>
 
-        <!-- Reproductor de Video de Gran Formato (Recreación Fiel del Frame "GESTIONAMOS DIVERSOS CANALES DIGITALES" + Constelación de Nodos) -->
-        <div class="bg-ink rounded-2xl border border-techBorder shadow-[0_30px_70px_rgba(17,19,21,0.16)] overflow-hidden relative">
-          
-          <!-- Iconos laterales superiores estilo Vimeo (como en la referencia) -->
-          <div class="absolute top-5 right-5 z-20 flex flex-col gap-2.5 text-white/70">
-            <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs hover:text-pulse cursor-pointer" title="Favorito">♡</span>
-            <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs hover:text-pulse cursor-pointer" title="Ver más tarde">◷</span>
-            <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs hover:text-pulse cursor-pointer" title="Compartir">➤</span>
-          </div>
-
-          <!-- Lienzo del Video -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 items-center p-8 sm:p-14 lg:p-16 gap-8 min-h-[440px] relative">
-            
-            <!-- Texto izquierdo del video -->
-            <div class="lg:col-span-5 z-10">
-              <span class="inline-block text-xs font-mono uppercase tracking-widest text-pulse mb-3">● HUVYTAS NETWORK SHOWREEL</span>
-              <h3 class="font-heading font-bold text-2xl sm:text-4xl text-white tracking-wider uppercase leading-tight mb-6">
-                GESTIONAMOS DIVERSOS<br/>CANALES DIGITALES
-              </h3>
-              <p class="text-white/75 text-sm sm:text-base mb-8 leading-relaxed">
-                Descubre en 65 segundos cómo conectamos nodos de audiencia calificada con las plataformas de mayor conversión en México y Latinoamérica.
-              </p>
-              <button onclick="toggleVideoPlayback()" id="mainVideoBtn" class="btn-huvytas on-dark-surface">
-                <span id="mainVideoBtnText">Reproducir Video de Alcance</span>
+        <div class="bg-ink-black rounded-3xl overflow-hidden border border-border-tech shadow-xl relative aspect-video md:aspect-[21/9] flex items-center p-8 sm:p-12">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full z-10">
+            <div>
+              <span class="text-accent-green font-heading text-xs font-bold tracking-widest uppercase">Video Corporativo</span>
+              <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-white mt-2 mb-4">GESTIONAMOS DIVERSOS CANALES DIGITALES</h3>
+              <p class="text-gray-300 text-sm mb-6">Conexión directa con audiencias activas a través de formatos interactivos y de alto impacto.</p>
+              <button onclick="playShowreel(this)" class="btn-huvytas on-dark px-6 py-2.5 text-xs uppercase tracking-wider inline-flex items-center gap-2">
+                <span>Reproducir Showreel</span>
                 <span class="arrow-icon">▶</span>
               </button>
             </div>
-
-            <!-- Gráfico de Constelación de Canales Digitales (Derecha - Fiel al screenshot del documento) -->
-            <div class="lg:col-span-7 z-10">
-              <svg id="constellationSvg" class="w-full h-auto max-h-[380px]" viewBox="0 0 600 360" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Red de líneas blancas y grises -->
-                <g stroke="rgba(255,255,255,0.26)" stroke-width="1.4">
-                  <line x1="360" y1="200" x2="260" y2="155" stroke-width="2.5" stroke="rgba(255,255,255,0.75)"/>
-                  <line x1="360" y1="200" x2="465" y2="130" stroke-width="2.5" stroke="rgba(255,255,255,0.75)"/>
-                  <line x1="360" y1="200" x2="380" y2="305" stroke-width="2.5" stroke="rgba(255,255,255,0.75)"/>
-                  <line x1="260" y1="155" x2="210" y2="105" />
-                  <line x1="260" y1="155" x2="120" y2="140" />
-                  <line x1="260" y1="155" x2="230" y2="275" />
-                  <line x1="210" y1="105" x2="310" y2="65" />
-                  <line x1="310" y1="65" x2="385" y2="55" />
-                  <line x1="385" y1="55" x2="430" y2="85" />
-                  <line x1="430" y1="85" x2="465" y2="130" />
-                  <line x1="465" y1="130" x2="540" y2="170" />
-                  <line x1="465" y1="130" x2="490" y2="255" />
-                  <line x1="360" y1="200" x2="490" y2="255" />
-                  <line x1="120" y1="140" x2="110" y2="245" />
-                  <line x1="110" y1="245" x2="230" y2="275" />
-                  <line x1="230" y1="275" x2="380" y2="305" />
-                  <line x1="380" y1="305" x2="555" y2="300" />
-                  <line x1="490" y1="255" x2="555" y2="300" />
-                  <line x1="360" y1="200" x2="345" y2="105" />
-                  <line x1="345" y1="105" x2="310" y2="65" />
-                  <line x1="345" y1="105" x2="430" y2="85" />
-                </g>
-
-                <!-- Puntos de intersección verdes brillantes (#88C24E) -->
-                <g fill="#88C24E">
-                  <circle cx="250" cy="55" r="4.5" />
-                  <circle cx="345" cy="105" r="5.5" />
-                  <circle cx="185" cy="170" r="5" />
-                  <circle cx="320" cy="255" r="6" />
-                  <circle cx="445" cy="215" r="5.5" />
-                  <circle cx="545" cy="85" r="6" />
-                </g>
-
-                <!-- NODO CENTRAL: Ícono Huvytas (Racimo verde en círculo doble) -->
-                <g transform="translate(360, 200)">
-                  <circle cx="0" cy="0" r="34" fill="#111315" stroke="#FFFFFF" stroke-width="3" />
-                  <circle cx="0" cy="0" r="28" fill="#1A1D24" stroke="#88C24E" stroke-width="1.5" />
-                  <!-- Racimo Huvytas en #88C24E -->
-                  <path d="M-4 -14 Q0 -18 5 -14" stroke="#88C24E" stroke-width="2" fill="none"/>
-                  <circle cx="-5" cy="-6" r="3.2" fill="#88C24E"/>
-                  <circle cx="5" cy="-6" r="3.2" fill="#88C24E"/>
-                  <circle cx="-9" cy="1" r="3.2" fill="#88C24E"/>
-                  <circle cx="0" cy="1" r="3.2" fill="#88C24E"/>
-                  <circle cx="9" cy="1" r="3.2" fill="#88C24E"/>
-                  <circle cx="-5" cy="8" r="3.2" fill="#88C24E"/>
-                  <circle cx="5" cy="8" r="3.2" fill="#88C24E"/>
-                  <circle cx="0" cy="14" r="3.2" fill="#88C24E"/>
-                </g>
-
-                <!-- Nodos Satélite de Canales Digitales -->
-                <g fill="#111315" stroke="#FFFFFF" stroke-width="2">
-                  <circle cx="260" cy="155" r="24" />
-                  <circle cx="465" cy="130" r="26" />
-                  <circle cx="310" cy="65" r="18" />
-                  <circle cx="385" cy="55" r="16" />
-                  <circle cx="430" cy="85" r="15" />
-                  <circle cx="540" cy="170" r="18" />
-                  <circle cx="380" cy="305" r="20" />
-                  <circle cx="230" cy="275" r="20" />
-                  <circle cx="110" cy="245" r="17" />
-                  <circle cx="120" cy="140" r="15" />
-                  <circle cx="210" cy="105" r="14" />
-                  <circle cx="555" cy="300" r="16" />
-                </g>
-
-                <!-- Etiquetas / Iconos dentro de los Nodos Satélite -->
-                <g fill="#FFFFFF" font-family="Plus Jakarta Sans" font-weight="800" font-size="9" text-anchor="middle">
-                  <text x="260" y="158">PUSH</text>
-                  <text x="465" y="133">ADTECH</text>
-                  <text x="310" y="68">WA</text>
-                  <text x="385" y="58">📱</text>
-                  <text x="430" y="88">📊</text>
-                  <text x="540" y="174">f</text>
-                  <text x="380" y="308">ADS</text>
-                  <text x="230" y="278">RCS</text>
-                  <text x="110" y="248">vevo</text>
-                  <text x="120" y="143">★</text>
-                  <text x="210" y="108">💻</text>
-                  <text x="555" y="303">TV</text>
-                </g>
-              </svg>
+            <div class="hidden md:flex justify-center">
+              <div class="relative w-64 h-64 border border-dashed border-gray-700 rounded-full flex items-center justify-center">
+                <div class="w-20 h-20 rounded-full bg-accent-green text-ink-black font-heading font-extrabold flex items-center justify-center text-xs shadow-lg">HUVYTAS</div>
+                <span class="absolute top-2 left-6 bg-white text-ink-black text-[10px] font-bold px-2.5 py-1 rounded-full shadow">RCS</span>
+                <span class="absolute bottom-4 right-4 bg-white text-ink-black text-[10px] font-bold px-2.5 py-1 rounded-full shadow">Push</span>
+                <span class="absolute top-10 right-2 bg-white text-ink-black text-[10px] font-bold px-2.5 py-1 rounded-full shadow">Meta</span>
+                <span class="absolute bottom-8 left-2 bg-white text-ink-black text-[10px] font-bold px-2.5 py-1 rounded-full shadow">Vevo</span>
+              </div>
             </div>
           </div>
-
-          <!-- Barra de reproducción inferior estilo Vimeo (01:05 como en el screenshot) -->
-          <div class="bg-black/80 border-t border-white/10 px-6 py-3.5 flex items-center gap-4">
-            <button onclick="toggleVideoPlayback()" class="w-8 h-8 rounded-full bg-pulse text-ink flex items-center justify-center font-bold text-xs hover:scale-105 transition" aria-label="Play/Pause">
-              <span id="playBarIcon">▶</span>
-            </button>
-            <span id="videoTimeLabel" class="bg-white text-ink font-mono font-bold text-[11px] px-2 py-0.5 rounded">01:05</span>
-            <div class="flex-1 h-1.5 bg-white/20 rounded-full overflow-hidden cursor-pointer">
-              <div id="videoProgressBar" class="w-1/3 h-full bg-pulse transition-all duration-500"></div>
-            </div>
-            <div class="hidden sm:flex items-center gap-3 text-white/70 text-xs font-mono">
-              <span>HD</span>
-              <span>⚙</span>
-              <span>⛶</span>
-              <span class="font-heading font-extrabold text-white tracking-tight">vimeo</span>
-            </div>
+          <div class="absolute bottom-0 left-0 right-0 h-12 bg-black/80 px-6 flex items-center justify-between text-xs text-gray-400">
+            <span id="videoStatus">01:05 · HD 60FPS</span>
+            <span>Huvytas Player</span>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- ======================================================================
+    <!-- ==========================================
          SECCIÓN 3: CÓMO TRABAJAMOS
-         Fondo Primario: Blanco Galería (#FAFAFA) | Texto obligatorio de Co-creación
-         ====================================================================== -->
-    <section id="seccion-como-trabajamos" class="py-20 lg:py-24 bg-gallery border-b border-techBorder">
-      <div class="max-w-7xl mx-auto px-6">
-        
-        <div class="bg-pure border border-techBorder border-l-[6px] border-l-pulse rounded-2xl p-8 sm:p-12 lg:p-16 shadow-sm">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            <!-- Bloque de declaración principal -->
-            <div class="lg:col-span-7">
-              <div class="flex items-center gap-3 mb-4 flex-wrap">
-                <span class="editorial-pill">Sección 03 · Cómo trabajamos</span>
-                <span class="spec-annotation text-xs font-mono text-slateText bg-stone px-2.5 py-1 rounded border border-techBorder">
-                  Co-creación estratégica con el cliente
-                </span>
-              </div>
-
-              <!-- Copy obligatorio de la Presentación Home -->
-              <h2 class="font-heading font-bold text-2xl sm:text-3xl lg:text-[2.1rem] text-ink leading-[1.3] tracking-tight mb-6" data-i18n="sec3Title">
-                “Trabajamos junto a tu equipo de <span class="editorial-mark">Marketing, Medios y Publicidad</span> para diseñar y ejecutar estrategias que combinan audiencias, tecnología, datos y diferentes canales de comunicación, adaptándonos a los objetivos de tu campaña.”
-              </h2>
-
-              <p class="text-slateText text-base leading-relaxed">
-                Hablamos el idioma de tu comité directivo: nos integramos como un socio estratégico de igual a igual para transformar objetivos de posicionamiento y conversión en ejecuciones impecables.
-              </p>
-            </div>
-
-            <!-- 4 Bloques de Metodología (Audiencias + Tecnología + Datos + Canales) -->
-            <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="bg-stone hover:bg-sage border border-techBorder hover:border-pulse rounded-xl p-5 transition">
-                <span class="text-xs font-mono font-bold text-slateText uppercase">01 / INPUT</span>
-                <h3 class="font-heading font-extrabold text-lg text-ink mt-1">Audiencias</h3>
-                <p class="text-xs text-slateText mt-1">Segmentación de alta intención en México y LATAM.</p>
-              </div>
-              <div class="bg-stone hover:bg-sage border border-techBorder hover:border-pulse rounded-xl p-5 transition">
-                <span class="text-xs font-mono font-bold text-slateText uppercase">02 / ENGINE</span>
-                <h3 class="font-heading font-extrabold text-lg text-ink mt-1">Tecnología</h3>
-                <p class="text-xs text-slateText mt-1">Ecosistema AdTech y MarTech de última generación.</p>
-              </div>
-              <div class="bg-stone hover:bg-sage border border-techBorder hover:border-pulse rounded-xl p-5 transition">
-                <span class="text-xs font-mono font-bold text-slateText uppercase">03 / INTEL</span>
-                <h3 class="font-heading font-extrabold text-lg text-ink mt-1">Datos</h3>
-                <p class="text-xs text-slateText mt-1">Optimización continua en tiempo real orientada a KPIs.</p>
-              </div>
-              <div class="bg-stone hover:bg-sage border border-techBorder hover:border-pulse rounded-xl p-5 transition">
-                <span class="text-xs font-mono font-bold text-slateText uppercase">04 / REACH</span>
-                <h3 class="font-heading font-extrabold text-lg text-ink mt-1">Canales</h3>
-                <p class="text-xs text-slateText mt-1">Activación multicanal desde un solo partner.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         SECCIÓN 4: CÓMO BENEFICIAMOS A NUESTROS CLIENTES (3 Recuadros de Vero)
-         Referencia directa: 3 tarjetas verticales con badge superior, titular y mockup de smartphone
-         ====================================================================== -->
-    <section id="seccion-beneficios" class="py-20 lg:py-24 bg-stone border-b border-techBorder">
-      <div class="max-w-7xl mx-auto px-6">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
-          <div>
-            <div class="flex items-center gap-3 mb-4 flex-wrap">
-              <span class="editorial-pill">Sección 04 · Cómo beneficiamos a nuestros clientes</span>
-              <span class="spec-annotation text-xs font-mono text-slateText bg-pure px-2.5 py-1 rounded border border-techBorder">
-                Diseño de 3 recuadros (Referencia seleccionada por Vero)
-              </span>
-            </div>
-            <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-ink tracking-tight">
-              Impacto tangible para <span class="editorial-mark">grandes marcas</span>
-            </h2>
-          </div>
-          <p class="text-slateText text-sm sm:text-base max-w-md">
-            Tres ventajas competitivas diseñadas para simplificar tu operación de medios y multiplicar el retorno publicitario.
-          </p>
-        </div>
-
-        <!-- Grid de 3 Recuadros Verticales con Mockups Móviles inferiores (Fiel a la imagen de referencia de la Sección 4) -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
-          <!-- RECUADRO 1 -->
-          <article class="group bg-pure hover:bg-sage border border-techBorder hover:border-pulse rounded-3xl p-8 pb-0 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl overflow-hidden">
-            <div>
-              <span class="inline-block bg-pulse text-ink font-heading font-extrabold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-5">
-                Precisión de Audiencia
-              </span>
-              <h3 class="font-heading font-extrabold text-2xl text-ink leading-snug mb-3">
-                Conecta con perfiles de alta intención sin desperdicio de presupuesto
-              </h3>
-              <p class="text-slateText text-sm leading-relaxed mb-8">
-                Activamos data demográfica, geográfica y comportamental para impactar exactamente al decisor o consumidor final que tu marca necesita.
-              </p>
-            </div>
-
-            <!-- Mockup Smartphone Inferior recortado al borde de la tarjeta (como en la referencia de Vero) -->
-            <div class="w-full max-w-[250px] mx-auto bg-ink text-white rounded-t-[28px] p-4 pb-6 border-t-4 border-x-4 border-[#2B303A] shadow-lg group-hover:translate-y-[-4px] transition-transform">
-              <div class="w-12 h-2 bg-white/20 rounded-full mx-auto mb-3"></div>
-              <div class="flex items-center justify-between text-[11px] text-white/60 pb-2 border-b border-white/10">
-                <span>Audience Match</span>
-                <span class="text-pulse font-bold">● ACTIVO</span>
-              </div>
-              <div class="mt-3">
-                <span class="font-heading font-extrabold text-2xl text-pulse">94.8%</span>
-                <p class="text-xs text-white/90 font-medium mt-0.5">Afinidad de perfilamiento en campañas Mobile &amp; RCS</p>
-              </div>
-            </div>
-          </article>
-
-          <!-- RECUADRO 2 -->
-          <article class="group bg-pure hover:bg-sage border border-techBorder hover:border-pulse rounded-3xl p-8 pb-0 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl overflow-hidden">
-            <div>
-              <span class="inline-block bg-pulse text-ink font-heading font-extrabold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-5">
-                Un Solo Partner
-              </span>
-              <h3 class="font-heading font-extrabold text-2xl text-ink leading-snug mb-3">
-                Centraliza múltiples canales digitales en una sola operación ágil
-              </h3>
-              <p class="text-slateText text-sm leading-relaxed mb-8">
-                Olvídate de gestionar decenas de proveedores aislados. Integramos Mobile Marketing, Push, RCS, AdTech y MarTech bajo una misma dirección.
-              </p>
-            </div>
-
-            <!-- Mockup Smartphone Inferior -->
-            <div class="w-full max-w-[250px] mx-auto bg-ink text-white rounded-t-[28px] p-4 pb-6 border-t-4 border-x-4 border-[#2B303A] shadow-lg group-hover:translate-y-[-4px] transition-transform">
-              <div class="w-12 h-2 bg-white/20 rounded-full mx-auto mb-3"></div>
-              <div class="flex items-center justify-between text-[11px] text-white/60 pb-2 border-b border-white/10">
-                <span>Omnichannel Hub</span>
-                <span class="text-pulse font-bold">● SYNC</span>
-              </div>
-              <div class="mt-3">
-                <span class="font-heading font-extrabold text-2xl text-pulse">+15 Canales</span>
-                <p class="text-xs text-white/90 font-medium mt-0.5">Ejecución nacional e internacional sin fricción operativa</p>
-              </div>
-            </div>
-          </article>
-
-          <!-- RECUADRO 3 -->
-          <article class="group bg-pure hover:bg-sage border border-techBorder hover:border-pulse rounded-3xl p-8 pb-0 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl overflow-hidden">
-            <div>
-              <span class="inline-block bg-pulse text-ink font-heading font-extrabold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-5">
-                Performance &amp; ROI
-              </span>
-              <h3 class="font-heading font-extrabold text-2xl text-ink leading-snug mb-3">
-                Métricas claras que respaldan tus decisiones ante dirección
-              </h3>
-              <p class="text-slateText text-sm leading-relaxed mb-8">
-                Monitoreo transparente de alcance, interacción, tráfico calificado y conversión para maximizar cada peso o dólar invertido.
-              </p>
-            </div>
-
-            <!-- Mockup Smartphone Inferior -->
-            <div class="w-full max-w-[250px] mx-auto bg-ink text-white rounded-t-[28px] p-4 pb-6 border-t-4 border-x-4 border-[#2B303A] shadow-lg group-hover:translate-y-[-4px] transition-transform">
-              <div class="w-12 h-2 bg-white/20 rounded-full mx-auto mb-3"></div>
-              <div class="flex items-center justify-between text-[11px] text-white/60 pb-2 border-b border-white/10">
-                <span>Campaign ROI</span>
-                <span class="text-pulse font-bold">+3.4x</span>
-              </div>
-              <div class="mt-3">
-                <span class="font-heading font-extrabold text-2xl text-pulse">100% Medible</span>
-                <p class="text-xs text-white/90 font-medium mt-0.5">Reportes ejecutivos de atribución y performance en tiempo real</p>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         SECCIÓN 5: CTA 1 — INCENTIVAR A CONOCER NUESTROS CANALES Y ALCANCE
-         Texto obligatorio + Chips interactivos de canales + Botón "Conoce todos nuestros canales"
-         ====================================================================== -->
-    <section id="seccion-cta1" class="py-20 lg:py-24 bg-gallery border-b border-techBorder">
-      <div class="max-w-6xl mx-auto px-6">
-        
-        <div class="bg-pure border border-techBorder rounded-3xl p-8 sm:p-14 lg:p-16 text-center shadow-[0_20px_50px_rgba(17,19,21,0.04)] relative overflow-hidden">
-          <!-- Decoración geométrica de esquina -->
-          <div class="w-24 h-24 bg-sage rounded-bl-full absolute top-0 right-0 pointer-events-none"></div>
-
-          <div class="inline-flex items-center gap-3 mb-5 flex-wrap justify-center">
-            <span class="editorial-pill">Sección 05 · CTA 1 — Ecosistema de Canales</span>
-            <span class="spec-annotation text-xs font-mono text-slateText bg-stone px-2.5 py-1 rounded border border-techBorder">
-              Incentivar visita a página Channels
-            </span>
-          </div>
-
-          <!-- Texto obligatorio exacto de la Sección 5 -->
-          <h2 class="font-heading font-extrabold text-2xl sm:text-4xl lg:text-[2.35rem] text-ink leading-[1.24] tracking-tight max-w-4xl mx-auto mb-8" data-i18n="sec5Title">
-            Ponemos a disposición de las marcas un ecosistema que incluye <span class="editorial-mark">Mobile Marketing, RCS, Push Notifications, AdTech, MarTech</span>, entre otros, para crear campañas de alcance nacional e internacional desde un solo partner.
-          </h2>
-
-          <!-- Píldoras visuales de canales para reforzar el alcance tecnológico -->
-          <div class="flex flex-wrap justify-center gap-2.5 max-w-3xl mx-auto mb-10">
-            <span class="px-4 py-2 rounded-full bg-stone hover:bg-sage border border-techBorder hover:border-pulse font-heading font-bold text-xs sm:text-sm text-ink transition">
-              📱 Mobile Marketing
-            </span>
-            <span class="px-4 py-2 rounded-full bg-stone hover:bg-sage border border-techBorder hover:border-pulse font-heading font-bold text-xs sm:text-sm text-ink transition">
-              💬 RCS Business Messaging
-            </span>
-            <span class="px-4 py-2 rounded-full bg-stone hover:bg-sage border border-techBorder hover:border-pulse font-heading font-bold text-xs sm:text-sm text-ink transition">
-              🔔 Push Notifications
-            </span>
-            <span class="px-4 py-2 rounded-full bg-stone hover:bg-sage border border-techBorder hover:border-pulse font-heading font-bold text-xs sm:text-sm text-ink transition">
-              🎯 Programmatic AdTech
-            </span>
-            <span class="px-4 py-2 rounded-full bg-stone hover:bg-sage border border-techBorder hover:border-pulse font-heading font-bold text-xs sm:text-sm text-ink transition">
-              ⚙️ Soluciones MarTech
-            </span>
-            <span class="px-4 py-2 rounded-full bg-stone hover:bg-sage border border-techBorder hover:border-pulse font-heading font-bold text-xs sm:text-sm text-ink transition">
-              🌎 Alcance Nacional e Internacional
-            </span>
-          </div>
-
-          <!-- Botón obligatorio de la Sección 5 -->
-          <div>
-            <a href="#seccion-cta2" onclick="openMeetModal(event)" class="btn-huvytas">
-              <span data-i18n="sec5Btn">Conoce todos nuestros canales</span>
-              <span class="arrow-icon">→</span>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         SECCIÓN 6: CARRUSEL DE PARTNERS (10 Logos Genéricos en Movimiento Automático)
-         Objetivo: Generar confianza y demostrar nuestro gran ecosistema
-         ====================================================================== -->
-    <section id="seccion-partners" class="py-16 lg:py-20 bg-stone border-b border-techBorder overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 mb-8">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-techBorder">
-          <div class="flex items-center gap-3 flex-wrap">
-            <h2 class="font-heading font-extrabold text-xl sm:text-2xl text-ink">Nuestros Partners</h2>
-            <span class="spec-annotation text-xs font-mono text-slateText bg-pure px-2.5 py-1 rounded border border-techBorder">
-              Sección 06 · 10 Logos Genéricos en carrusel automático
-            </span>
-          </div>
-          <span class="text-xs font-mono text-slateText uppercase tracking-wider">
-            Ecosistema verificado · Pasa el cursor para pausar
-          </span>
-        </div>
-      </div>
-
-      <!-- Carrusel horizontal automático con los 10 logos genéricos solicitados -->
-      <div class="partners-viewport w-full overflow-hidden">
-        <div class="partners-track px-6">
-          <!-- Set Original de 10 Partners Genéricos -->
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-sm bg-pulse"></span> PARTNER 01 · MOBILE
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-full bg-ink"></span> PARTNER 02 · IVR TECH
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-sm bg-pulse"></span> PARTNER 03 · ADTECH
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-full bg-ink"></span> PARTNER 04 · BILLING
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-sm bg-pulse"></span> PARTNER 05 · RCS HUB
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-full bg-ink"></span> PARTNER 06 · BROADCAST
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-sm bg-pulse"></span> PARTNER 07 · PROMO NET
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-full bg-ink"></span> PARTNER 08 · MARTECH
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-sm bg-pulse"></span> PARTNER 09 · TELCO DATA
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-full bg-ink"></span> PARTNER 10 · DSP MEDIA
-          </div>
-
-          <!-- Set Duplicado para Loop Infinito Perfecto -->
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-sm bg-pulse"></span> PARTNER 01 · MOBILE
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-full bg-ink"></span> PARTNER 02 · IVR TECH
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-sm bg-pulse"></span> PARTNER 03 · ADTECH
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-full bg-ink"></span> PARTNER 04 · BILLING
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-sm bg-pulse"></span> PARTNER 05 · RCS HUB
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-full bg-ink"></span> PARTNER 06 · BROADCAST
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-sm bg-pulse"></span> PARTNER 07 · PROMO NET
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-full bg-ink"></span> PARTNER 08 · MARTECH
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-sm bg-pulse"></span> PARTNER 09 · TELCO DATA
-          </div>
-          <div class="w-48 h-20 bg-pure border border-techBorder hover:border-pulse hover:bg-sage rounded-xl flex items-center justify-center gap-2.5 font-heading font-extrabold text-sm text-slateText hover:text-ink transition shrink-0 shadow-sm">
-            <span class="w-3 h-3 rounded-full bg-ink"></span> PARTNER 10 · DSP MEDIA
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         SECCIÓN 7: CTA 2 — AGENDAR REUNIÓN POR GOOGLE MEET PARA PRESENTAR MEDIA KIT
-         Referencia visual: Banner horizontal con degradado de acento + Botón a la derecha
-         ====================================================================== -->
-    <section id="seccion-cta2" class="py-20 lg:py-24 bg-gallery">
-      <div class="max-w-7xl mx-auto px-6">
-        
-        <div class="mb-4 flex items-center justify-between flex-wrap gap-2">
-          <span class="spec-annotation text-xs font-mono text-slateText bg-stone px-3 py-1 rounded border border-techBorder">
-            Sección 07 · CTA 2: Agendar reunión vía Google Meet con un ejecutivo para presentar el Media Kit
-          </span>
-        </div>
-
-        <!-- Banner horizontal inspirado en la referencia "Turn high-intent traffic..." adaptado a la paleta Huvytas (#111315 + #88C24E) -->
-        <div class="rounded-3xl p-8 sm:p-14 lg:p-16 text-gallery shadow-2xl border border-ink relative overflow-hidden"
-             style="background: radial-gradient(circle at 88% 50%, rgba(136, 194, 78, 0.35) 0%, rgba(30, 51, 35, 0.65) 38%, #111315 75%);">
-          
-          <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
-            
-            <div class="max-w-2xl">
-              <div class="inline-flex items-center gap-2 bg-white/10 border border-white/15 px-3.5 py-1 rounded-full text-xs font-heading font-bold text-pulse uppercase tracking-wider mb-5">
-                <span>⚡ Sesión Ejecutiva · Google Meet</span>
-              </div>
-
-              <!-- Texto obligatorio exacto de la Sección 7 -->
-              <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-white leading-[1.22] tracking-tight mb-4" data-i18n="sec7Title">
-                No se trata solo de comprar medios. Se trata de encontrar la forma correcta de conectar cada marca con las personas que quiere alcanzar.
-              </h2>
-
-              <p class="text-white/80 text-sm sm:text-base">
-                Agenda una videollamada de diagnóstico por <strong class="text-pulse font-semibold">Google Meet</strong> con un ejecutivo senior para presentar nuestro Media Kit y diseñar tu próxima estrategia.
-              </p>
-            </div>
-
-            <!-- Botón obligatorio de la Sección 7 -->
-            <div class="shrink-0 flex flex-col items-start lg:items-end">
-              <button onclick="openMeetModal(event)" class="btn-huvytas on-dark-surface text-base px-8 py-4 shadow-lg">
-                <span data-i18n="sec7Btn">Conoce nuestros canales y soluciones</span>
-                <span class="arrow-icon">→</span>
-              </button>
-              <span class="text-xs text-white/70 font-mono mt-3">
-                ● Presentación personalizada de Media Kit (25 min)
-              </span>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         PIE DE PÁGINA (FOOTER) — Idéntico en todas las páginas del sitio web
-         Fondo: Negro Tinta (#111315) | Logo HUVYTAS, Páginas, Legales, Política de Cookies,
-         Social Media (exclusivamente Instagram y LinkedIn) y Derechos Reservados 2026
-         ====================================================================== -->
-    <footer class="bg-ink text-gallery pt-16 pb-12 border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-6">
-        
-        <div class="mb-6">
-          <span class="spec-annotation text-xs font-mono text-pulse bg-white/5 px-3 py-1 rounded border border-pulse/40">
-            Pie de página estándar global · Idéntico en Channels, Brands, About, Contact y Legales
-          </span>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/15">
-          
-          <!-- Columna 1 (4 cols): Logo HUVYTAS que redirige al Home -->
-          <div class="lg:col-span-4">
-            <a href="#hero" class="inline-flex items-center gap-3 group mb-4">
-              <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center border border-white/15 group-hover:border-pulse transition">
-                <span class="w-4 h-4 rounded-sm bg-pulse block"></span>
-              </div>
-              <span class="font-heading font-extrabold text-2xl tracking-tight text-white">HUVYTAS</span>
-            </a>
-            <p class="text-white/70 text-sm leading-relaxed max-w-sm">
-              Ecosistema tecnológico de medios digitales, Mobile Marketing, RCS, Push Notifications, AdTech y MarTech para grandes marcas en México y LATAM.
+         ========================================== -->
+    <section class="py-24 bg-bg-primary border-b border-border-tech" id="about">
+      <div class="max-w-[1240px] mx-auto px-6">
+        <div class="bg-surface-elevated border border-border-tech border-l-8 border-l-accent-green rounded-2xl p-8 sm:p-14 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-8">
+            <span class="text-xs uppercase font-heading font-bold text-slate-gray tracking-wider mb-2 block">03 · Metodología Colaborativa</span>
+            <p class="font-heading font-bold text-xl sm:text-2xl text-ink-black leading-relaxed">
+              “Trabajamos junto a tu equipo de <span class="highlight-editorial">Marketing, Medios y Publicidad</span> para diseñar y ejecutar estrategias que combinan audiencias, tecnología, datos y diferentes canales de comunicación, adaptándonos a los objetivos de tu campaña.”
             </p>
           </div>
-
-          <!-- Columna 2 (3 cols): Mención de páginas del sitio web -->
-          <div class="lg:col-span-3">
-            <h3 class="font-heading font-extrabold text-xs uppercase tracking-widest text-pulse mb-4">
-              Sitio Web
-            </h3>
-            <ul class="space-y-2.5 text-sm text-white/85">
-              <li><a href="#seccion-video" class="hover:text-pulse transition">Brands</a></li>
-              <li><a href="#seccion-cta1" class="hover:text-pulse transition">Channels</a></li>
-              <li><a href="#seccion-como-trabajamos" class="hover:text-pulse transition">About</a></li>
-              <li><a href="#seccion-cta2" onclick="openMeetModal(event)" class="hover:text-pulse transition">Contact</a></li>
-            </ul>
+          <div class="lg:col-span-4 grid grid-cols-2 gap-3">
+            <div class="bg-bg-secondary p-4 rounded-xl border border-border-tech">
+              <span class="text-[10px] uppercase font-bold text-slate-gray">01</span>
+              <h5 class="font-heading font-bold text-sm text-ink-black mt-1">Audiencias</h5>
+            </div>
+            <div class="bg-bg-secondary p-4 rounded-xl border border-border-tech">
+              <span class="text-[10px] uppercase font-bold text-slate-gray">02</span>
+              <h5 class="font-heading font-bold text-sm text-ink-black mt-1">Tecnología</h5>
+            </div>
+            <div class="bg-bg-secondary p-4 rounded-xl border border-border-tech">
+              <span class="text-[10px] uppercase font-bold text-slate-gray">03</span>
+              <h5 class="font-heading font-bold text-sm text-ink-black mt-1">Data &amp; BI</h5>
+            </div>
+            <div class="bg-bg-secondary p-4 rounded-xl border border-border-tech">
+              <span class="text-[10px] uppercase font-bold text-slate-gray">04</span>
+              <h5 class="font-heading font-bold text-sm text-ink-black mt-1">Multicanal</h5>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- Columna 3 (3 cols): Legales + Política de cookies -->
-          <div class="lg:col-span-3">
-            <h3 class="font-heading font-extrabold text-xs uppercase tracking-widest text-pulse mb-4">
-              Legales
-            </h3>
-            <ul class="space-y-2.5 text-sm text-white/85">
-              <li><a href="#privacidad" onclick="openLegalToast('Política de privacidad')" class="hover:text-pulse transition">Política de privacidad</a></li>
-              <li><a href="#terminos" onclick="openLegalToast('Términos y condiciones')" class="hover:text-pulse transition">Términos y condiciones</a></li>
-              <li><a href="#cookies" onclick="openLegalToast('Política de cookies')" class="hover:text-pulse transition">Política de cookies</a></li>
-            </ul>
-          </div>
+    <!-- ==========================================
+         SECCIÓN 4: CÓMO BENEFICIAMOS (3 RECUADROS)
+         ========================================== -->
+    <section class="py-24 bg-bg-secondary border-b border-border-tech">
+      <div class="max-w-[1240px] mx-auto px-6">
+        <div class="mb-14">
+          <span class="inline-flex items-center gap-2 bg-accent-hover text-ink-black font-heading font-bold text-xs uppercase px-3.5 py-1.5 rounded-full border border-accent-green/30 mb-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent-green"></span> 04 · Ventajas Clave
+          </span>
+          <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-ink-black">
+            Cómo beneficiamos a <span class="highlight-editorial">nuestros clientes</span>
+          </h2>
+        </div>
 
-          <!-- Columna 4 (2 cols): Social Media [Exclusivamente Instagram y LinkedIn] -->
-          <div class="lg:col-span-2">
-            <h3 class="font-heading font-extrabold text-xs uppercase tracking-widest text-pulse mb-4">
-              Social Media
-            </h3>
-            <div class="flex items-center gap-3">
-              <!-- Instagram -->
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-                 aria-label="Instagram Oficial de Huvytas"
-                 class="w-11 h-11 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white hover:bg-pulse hover:text-ink hover:border-pulse transition">
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </a>
-              <!-- LinkedIn -->
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
-                 aria-label="LinkedIn Oficial de Huvytas"
-                 class="w-11 h-11 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white hover:bg-pulse hover:text-ink hover:border-pulse transition">
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-              </a>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Recuadro 1 -->
+          <div class="bg-surface-elevated border border-border-tech rounded-2xl p-8 flex flex-col justify-between hover:border-accent-green transition-all shadow-sm">
+            <div>
+              <span class="bg-accent-green text-ink-black font-heading font-extrabold text-[11px] uppercase px-3 py-1 rounded-full inline-block mb-4">Beneficio 01</span>
+              <h3 class="font-heading font-bold text-xl text-ink-black mb-3">Audiencias Precisas</h3>
+              <p class="text-slate-gray text-sm leading-relaxed mb-6">Activación de segmentos específicos con alta intención de compra, evitando el desperdicio publicitario.</p>
+            </div>
+            <div class="bg-ink-black text-white p-4 rounded-xl text-xs">
+              <div class="text-accent-green font-bold text-base mb-1">94.8% Match</div>
+              <span class="text-gray-400">Perfilamiento en tiempo real</span>
             </div>
           </div>
 
-        </div>
+          <!-- Recuadro 2 -->
+          <div class="bg-surface-elevated border border-border-tech rounded-2xl p-8 flex flex-col justify-between hover:border-accent-green transition-all shadow-sm">
+            <div>
+              <span class="bg-accent-green text-ink-black font-heading font-extrabold text-[11px] uppercase px-3 py-1 rounded-full inline-block mb-4">Beneficio 02</span>
+              <h3 class="font-heading font-bold text-xl text-ink-black mb-3">Un Solo Partner</h3>
+              <p class="text-slate-gray text-sm leading-relaxed mb-6">Integración completa: Mobile, RCS, Push, MarTech y AdTech unificados sin fricciones operativas.</p>
+            </div>
+            <div class="bg-ink-black text-white p-4 rounded-xl text-xs">
+              <div class="text-accent-green font-bold text-base mb-1">-35% Tiempo</div>
+              <span class="text-gray-400">Eficiencia en despliegue de campaña</span>
+            </div>
+          </div>
 
-        <!-- Texto de Derechos Reservados exacto de la presentación -->
-        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
-          <p>© 2026 Huvytas Advertising. Todos los derechos reservados.</p>
-          <p class="font-mono">Edición Light Mode Editorial · #FAFAFA / #88C24E / #111315</p>
+          <!-- Recuadro 3 -->
+          <div class="bg-surface-elevated border border-border-tech rounded-2xl p-8 flex flex-col justify-between hover:border-accent-green transition-all shadow-sm">
+            <div>
+              <span class="bg-accent-green text-ink-black font-heading font-extrabold text-[11px] uppercase px-3 py-1 rounded-full inline-block mb-4">Beneficio 03</span>
+              <h3 class="font-heading font-bold text-xl text-ink-black mb-3">Resultados Medibles</h3>
+              <p class="text-slate-gray text-sm leading-relaxed mb-6">Reportes ejecutivos transparentes con atribución precisa enfocada en ROI, conversión y ventas.</p>
+            </div>
+            <div class="bg-ink-black text-white p-4 rounded-xl text-xs">
+              <div class="text-accent-green font-bold text-base mb-1">+3.4x Conversión</div>
+              <span class="text-gray-400">Atribución multicanal verificada</span>
+            </div>
+          </div>
         </div>
-
       </div>
-    </footer>
+    </section>
 
-  </div>
+    <!-- ==========================================
+         SECCIÓN 5: CTA 1 - CANALES
+         ========================================== -->
+    <section class="py-24 bg-bg-primary border-b border-border-tech" id="channels">
+      <div class="max-w-[1040px] mx-auto px-6 text-center">
+        <span class="inline-flex items-center gap-2 bg-accent-hover text-ink-black font-heading font-bold text-xs uppercase px-3.5 py-1.5 rounded-full border border-accent-green/30 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent-green"></span> 05 · Ecosistema Integral
+        </span>
+        <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-ink-black leading-snug mb-8">
+          Ponemos a disposición de las marcas un ecosistema que incluye <span class="highlight-editorial">Mobile Marketing, RCS, Push Notifications, AdTech, MarTech</span>, entre otros, para crear campañas de alcance nacional e internacional desde un solo partner.
+        </h2>
+        <div class="flex flex-wrap justify-center gap-3 mb-10">
+          <span class="bg-bg-secondary border border-border-tech px-4 py-2 rounded-full text-xs sm:text-sm font-semibold">Mobile Marketing</span>
+          <span class="bg-bg-secondary border border-border-tech px-4 py-2 rounded-full text-xs sm:text-sm font-semibold">RCS Enriquecido</span>
+          <span class="bg-bg-secondary border border-border-tech px-4 py-2 rounded-full text-xs sm:text-sm font-semibold">Push Notifications</span>
+          <span class="bg-bg-secondary border border-border-tech px-4 py-2 rounded-full text-xs sm:text-sm font-semibold">Programmatic AdTech</span>
+          <span class="bg-bg-secondary border border-border-tech px-4 py-2 rounded-full text-xs sm:text-sm font-semibold">MarTech &amp; Data</span>
+        </div>
+        <button onclick="openModal()" class="btn-huvytas px-8 py-3.5 text-sm sm:text-base inline-flex items-center gap-3 shadow-md">
+          <span>Conoce todos nuestros canales</span>
+          <span class="arrow-icon transition-transform font-bold text-lg">→</span>
+        </button>
+      </div>
+    </section>
 
-  <!-- ========================================================================
-       MODAL INTERACTIVO DE GOOGLE MEET / MEDIA KIT (Para probar los CTAs)
-       ======================================================================== -->
-  <div id="meetModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-ink/75 backdrop-blur-sm p-4">
-    <div class="bg-pure border border-techBorder rounded-2xl max-w-lg w-full p-8 relative shadow-2xl">
-      <button onclick="closeMeetModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-stone border border-techBorder flex items-center justify-center font-bold text-ink hover:bg-sage">
-        ✕
-      </button>
+    <!-- ==========================================
+         SECCIÓN 6: CARRUSEL DE PARTNERS (10 Logos)
+         ========================================== -->
+    <section class="py-16 bg-bg-secondary border-b border-border-tech overflow-hidden">
+      <div class="max-w-[1240px] mx-auto px-6 mb-8 flex justify-between items-center">
+        <h2 class="font-heading font-extrabold text-lg text-ink-black">Nuestros Partners</h2>
+        <span class="text-xs text-slate-gray">Ecosistema verificado</span>
+      </div>
 
-      <span class="editorial-pill mb-3">Google Meet · Presentación de Media Kit</span>
-      <h3 class="font-heading font-extrabold text-2xl text-ink mb-2">
-        Agenda una sesión con un ejecutivo de Huvytas
-      </h3>
-      <p class="text-sm text-slateText mb-6">
-        Conoce a detalle nuestros canales digitales, alcance en México y LATAM y casos de rendimiento para tu marca.
-      </p>
+      <div class="w-full overflow-hidden">
+        <div class="animate-marquee gap-6">
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 01</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 02</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 03</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 04</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 05</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 06</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 07</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 08</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 09</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 10</div>
+          
+          <!-- Duplicado para loop infinito -->
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 01</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 02</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 03</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 04</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 05</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 06</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 07</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 08</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 09</div>
+          <div class="w-48 h-20 bg-surface-elevated border border-border-tech rounded-xl flex items-center justify-center font-heading font-extrabold text-sm text-slate-gray"><span class="w-2.5 h-2.5 bg-accent-green rounded-sm mr-2"></span> PARTNER 10</div>
+        </div>
+      </div>
+    </section>
 
-      <form onsubmit="handleMeetSubmit(event)" class="space-y-4">
+    <!-- ==========================================
+         SECCIÓN 7: CTA 2 - MEET & MEDIA KIT
+         ========================================== -->
+    <section class="py-24 bg-bg-primary" id="contacto">
+      <div class="max-w-[1240px] mx-auto px-6">
+        <div class="bg-ink-black text-white rounded-3xl p-8 sm:p-14 border border-gray-800 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-xl">
+          <div class="max-w-2xl">
+            <span class="text-accent-green text-xs font-bold uppercase tracking-wider block mb-3">07 · Media Kit &amp; Sesión Ejecutiva</span>
+            <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl leading-tight mb-4">
+              No se trata solo de comprar medios. Se trata de encontrar la forma correcta de conectar cada marca con las personas que quiere alcanzar.
+            </h2>
+            <p class="text-gray-300 text-sm sm:text-base">
+              Agenda una sesión ejecutiva vía Google Meet para presentarte nuestro Media Kit completo adaptado a tus metas.
+            </p>
+          </div>
+          <div class="flex-shrink-0 text-left lg:text-right w-full lg:w-auto">
+            <button onclick="openModal()" class="btn-huvytas on-dark px-8 py-3.5 text-sm sm:text-base inline-flex items-center gap-3">
+              <span>Conoce nuestros canales y soluciones</span>
+              <span class="arrow-icon transition-transform font-bold text-lg">→</span>
+            </button>
+            <span class="block text-gray-400 text-xs mt-3">⚡ Agendamiento directo por Google Meet</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       PIE DE PÁGINA
+       ========================================== -->
+  <footer class="bg-ink-black text-white pt-20 pb-12 border-t border-gray-800">
+    <div class="max-w-[1240px] mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 pb-16 border-b border-gray-800">
         <div>
-          <label class="block font-heading font-bold text-xs uppercase text-ink mb-1">Nombre y Cargo</label>
-          <input type="text" required placeholder="Ej. Alejandro Torres · Director de Marketing (CMO)"
-                 class="w-full px-4 py-3 rounded-lg bg-gallery border border-techBorder text-sm text-ink focus:outline-none focus:border-pulse" />
+          <a href="#home" class="flex items-center gap-2 font-heading font-extrabold text-xl text-white mb-4">
+            <span class="w-7 h-7 rounded bg-gray-800 flex items-center justify-center">
+              <span class="w-3 h-3 bg-accent-green rounded-sm"></span>
+            </span>
+            HUVYTAS
+          </a>
+          <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Conectando grandes marcas con audiencias estratégicas en México y LATAM.</p>
         </div>
         <div>
-          <label class="block font-heading font-bold text-xs uppercase text-ink mb-1">Correo Corporativo</label>
-          <input type="email" required placeholder="nombre@tuempresa.com"
-                 class="w-full px-4 py-3 rounded-lg bg-gallery border border-techBorder text-sm text-ink focus:outline-none focus:border-pulse" />
+          <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-accent-green mb-4">Navegación</h4>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><a href="#brands" class="hover:text-accent-green transition-colors">Brands</a></li>
+            <li><a href="#channels" class="hover:text-accent-green transition-colors">Channels</a></li>
+            <li><a href="#about" class="hover:text-accent-green transition-colors">About</a></li>
+            <li><a href="#contacto" onclick="openModal()" class="hover:text-accent-green transition-colors">Contact</a></li>
+          </ul>
         </div>
         <div>
-          <label class="block font-heading font-bold text-xs uppercase text-ink mb-1">Soluciones de Interés</label>
-          <select class="w-full px-4 py-3 rounded-lg bg-gallery border border-techBorder text-sm text-ink focus:outline-none focus:border-pulse">
-            <option>Presentación de Media Kit Completo (Todos los canales)</option>
-            <option>Mobile Marketing, RCS &amp; Push Notifications</option>
-            <option>Ecosistema AdTech &amp; MarTech</option>
-            <option>Campaña Nacional / Regional LATAM</option>
-          </select>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-accent-green mb-4">Legales</h4>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><a href="#" class="hover:text-accent-green transition-colors">Política de privacidad</a></li>
+            <li><a href="#" class="hover:text-accent-green transition-colors">Términos y condiciones</a></li>
+            <li><a href="#" class="hover:text-accent-green transition-colors">Política de cookies</a></li>
+          </ul>
         </div>
-        <button type="submit" class="btn-huvytas w-full mt-2">
-          <span>Confirmar solicitud por Google Meet</span>
-          <span class="arrow-icon">→</span>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-accent-green mb-4">Social Media</h4>
+          <div class="flex gap-3">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-gray-900 border border-gray-700 flex items-center justify-center text-gray-300 hover:bg-accent-green hover:text-ink-black hover:border-accent-green transition-all" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-gray-900 border border-gray-700 flex items-center justify-center text-gray-300 hover:bg-accent-green hover:text-ink-black hover:border-accent-green transition-all" aria-label="LinkedIn">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+        <span>© 2026 Huvytas Advertising. Todos los derechos reservados.</span>
+        <span>México · LATAM</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Interactivo Google Meet -->
+  <div id="contactModal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-surface-elevated border border-border-tech rounded-3xl max-w-md w-full p-8 relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-gray hover:text-ink-black font-bold text-lg">✕</button>
+      <span class="bg-accent-hover text-ink-black text-xs font-bold px-3 py-1 rounded-full uppercase">Google Meet</span>
+      <h3 class="font-heading font-extrabold text-xl text-ink-black mt-3 mb-2">Agendar sesión ejecutiva</h3>
+      <p class="text-slate-gray text-xs mb-6">Conecta con un especialista senior para conocer nuestro Media Kit.</p>
+      
+      <form onsubmit="handleForm(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-ink-black mb-1">Nombre y Cargo</label>
+          <input type="text" required placeholder="Ej. Ana Morales · Brand Manager" class="w-full px-4 py-2.5 rounded-lg border border-border-tech text-sm bg-bg-primary outline-none focus:border-accent-green">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-ink-black mb-1">Email Corporativo</label>
+          <input type="email" required placeholder="nombre@empresa.com" class="w-full px-4 py-2.5 rounded-lg border border-border-tech text-sm bg-bg-primary outline-none focus:border-accent-green">
+        </div>
+        <button type="submit" class="btn-huvytas w-full py-3 text-sm font-bold mt-2">
+          Confirmar y Recibir Invitación
         </button>
       </form>
-
-      <div id="meetSuccessMsg" class="hidden mt-4 p-3 rounded-lg bg-sage border border-pulse text-ink text-xs font-heading font-bold text-center">
-        ✓ ¡Solicitud lista! Un ejecutivo de Huvytas te enviará el enlace de Google Meet y el Media Kit.
+      <div id="modalSuccess" class="hidden mt-4 p-3 bg-accent-hover text-ink-black rounded-lg text-xs font-semibold text-center">
+        ¡Enlace generado! Un ejecutivo se pondrá en contacto enseguida.
       </div>
     </div>
   </div>
 
-  <!-- Toast no intrusivo para enlaces legales -->
-  <div id="legalToast" class="fixed bottom-5 right-5 z-50 hidden bg-ink text-gallery border border-pulse px-4 py-3 rounded-xl shadow-xl text-xs font-heading font-semibold">
-    Vista previa de enlace legal: <span id="legalToastName" class="text-pulse font-bold"></span>
-  </div>
-
-  <!-- ========================================================================
-       LÓGICA INTERACTIVA DE LA MAQUETA (JS)
-       ======================================================================== -->
   <script>
-    // 1. Alternar modo de visualización (Vista Web vs Modo Artboard Maqueta)
-    function setPresentationMode(mode) {
-      const body = document.body;
-      const btnWeb = document.getElementById('btnViewWeb');
-      const btnArt = document.getElementById('btnViewArtboard');
+    // Detector de Scroll para alternar Navbar transparente en Hero / Blanco en otras secciones
+    const navbar = document.getElementById('mainNavbar');
+    const heroSection = document.getElementById('heroSection');
 
-      if (mode === 'artboard') {
-        body.classList.add('artboard-mode');
-        btnArt.className = 'px-3 py-1 rounded bg-pulse text-ink font-heading font-bold transition';
-        btnWeb.className = 'px-3 py-1 rounded bg-white/10 text-white hover:bg-white/20 font-heading font-semibold transition';
+    function checkNavbarScroll() {
+      const heroThreshold = heroSection.offsetHeight - 80;
+      
+      if (window.scrollY > heroThreshold) {
+        navbar.classList.remove('nav-transparent');
+        navbar.classList.add('nav-scrolled');
       } else {
-        body.classList.remove('artboard-mode');
-        btnWeb.className = 'px-3 py-1 rounded bg-pulse text-ink font-heading font-bold transition';
-        btnArt.className = 'px-3 py-1 rounded bg-white/10 text-white hover:bg-white/20 font-heading font-semibold transition';
+        navbar.classList.remove('nav-scrolled');
+        navbar.classList.add('nav-transparent');
       }
     }
 
-    // 2. Mostrar/Ocultar etiquetas de estructura del documento "Presentación Home"
-    function toggleSpecBadges() {
-      const body = document.body;
-      const btn = document.getElementById('btnToggleSpecs');
-      body.classList.toggle('show-specs');
-      const isShowing = body.classList.contains('show-specs');
-      btn.textContent = isShowing ? 'Guías de Estructura: ON' : 'Guías de Estructura: OFF';
-    }
+    window.addEventListener('scroll', checkNavbarScroll);
+    window.addEventListener('DOMContentLoaded', checkNavbarScroll);
 
-    // 3. Menú móvil
     function toggleMobileNav() {
-      const drawer = document.getElementById('mobileNavDrawer');
-      drawer.classList.toggle('hidden');
+      document.getElementById('mobileMenu').classList.toggle('hidden');
     }
 
-    // 4. Selector Bilingüe [ES / EN] requerido en la Barra de Navegación
-    const i18nDict = {
+    function openModal() {
+      document.getElementById('contactModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('contactModal').classList.add('hidden');
+    }
+
+    function handleForm(e) {
+      e.preventDefault();
+      document.getElementById('modalSuccess').classList.remove('hidden');
+      setTimeout(() => {
+        closeModal();
+        document.getElementById('modalSuccess').classList.add('hidden');
+        e.target.reset();
+      }, 2000);
+    }
+
+    function playShowreel(btn) {
+      const status = document.getElementById('videoStatus');
+      status.innerText = "REPRODUCIENDO · 01:05";
+      btn.innerText = "Pausar Showreel";
+    }
+
+    const dict = {
       es: {
-        heroBadge: 'Ecosistema Publicitario · México & LATAM',
-        heroTitle: 'Huvytas Advertising',
-        heroSubtitle: 'La mejor forma de conectar con la audiencia adecuada.',
-        heroBtn: 'Comenzar ahora',
-        sec1Title: 'Distribuimos y gestionamos <span class="editorial-mark">múltiples canales digitales</span> conectando a grandes marcas con audiencias a través de un ecosistema tecnológico.',
-        sec1Lead: 'Transformamos datos de audiencia y tensión cultural en crecimiento medible. Integramos tecnología publicitaria de vanguardia para que directores de marketing y líderes de marca escalen su posicionamiento sin fricción operativa.',
-        sec2Title: 'Llevamos las marcas de nuestros clientes a las <span class="editorial-mark">audiencias correctas</span> mediante canales digitales, Mobile Marketing y medios de alto alcance.',
-        sec3Title: '“Trabajamos junto a tu equipo de <span class="editorial-mark">Marketing, Medios y Publicidad</span> para diseñar y ejecutar estrategias que combinan audiencias, tecnología, datos y diferentes canales de comunicación, adaptándonos a los objetivos de tu campaña.”',
-        sec5Title: 'Ponemos a disposición de las marcas un ecosistema que incluye <span class="editorial-mark">Mobile Marketing, RCS, Push Notifications, AdTech, MarTech</span>, entre otros, para crear campañas de alcance nacional e internacional desde un solo partner.',
-        sec5Btn: 'Conoce todos nuestros canales',
-        sec7Title: 'No se trata solo de comprar medios. Se trata de encontrar la forma correcta de conectar cada marca con las personas que quiere alcanzar.',
-        sec7Btn: 'Conoce nuestros canales y soluciones'
+        title: "Huvytas Advertising",
+        subtitle: "La mejor forma de conectar con la audiencia adecuada.",
+        heroCta: "Comenzar ahora",
+        navContact: "Contacto"
       },
       en: {
-        heroBadge: 'AdTech & MarTech Ecosystem · Mexico & LATAM',
-        heroTitle: 'Huvytas Advertising',
-        heroSubtitle: 'The smartest way to connect with the right audience.',
-        heroBtn: 'Start now',
-        sec1Title: 'We distribute and manage <span class="editorial-mark">multiple digital channels</span> connecting major brands with audiences through a technological ecosystem.',
-        sec1Lead: 'We turn audience data and cultural tension into measurable growth. We integrate cutting-edge advertising technology so CMOs and brand leaders scale their positioning without operational friction.',
-        sec2Title: 'We bring our clients’ brands to the <span class="editorial-mark">right audiences</span> through digital channels, Mobile Marketing, and high-reach media.',
-        sec3Title: '“We work alongside your <span class="editorial-mark">Marketing, Media, and Advertising</span> team to design and execute strategies combining audiences, technology, data, and communication channels tailored to your campaign goals.”',
-        sec5Title: 'We provide brands with an ecosystem including <span class="editorial-mark">Mobile Marketing, RCS, Push Notifications, AdTech, MarTech</span>, and more, to launch national and international campaigns from a single partner.',
-        sec5Btn: 'Explore all our channels',
-        sec7Title: 'It is not just about buying media. It is about finding the right way to connect each brand with the people it wants to reach.',
-        sec7Btn: 'Discover our channels and solutions'
+        title: "Huvytas Advertising",
+        subtitle: "The smartest way to connect with the right audience.",
+        heroCta: "Start now",
+        navContact: "Contact"
       }
     };
 
-    function switchLang(lang) {
-      const btnEs = document.getElementById('langEs');
-      const btnEn = document.getElementById('langEn');
-
-      if (lang === 'es') {
-        btnEs.className = 'px-3 py-1 rounded-full text-xs font-heading font-extrabold bg-pulse text-ink transition';
-        btnEn.className = 'px-3 py-1 rounded-full text-xs font-heading font-bold text-slateText hover:text-ink transition';
-      } else {
-        btnEn.className = 'px-3 py-1 rounded-full text-xs font-heading font-extrabold bg-pulse text-ink transition';
-        btnEs.className = 'px-3 py-1 rounded-full text-xs font-heading font-bold text-slateText hover:text-ink transition';
-      }
-
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (i18nDict[lang][key]) {
-          el.innerHTML = i18nDict[lang][key];
-        }
-      });
-    }
-
-    // 5. Simulación interactiva del Reproductor de Video (Sección 2)
-    let isVideoPlaying = false;
-    function toggleVideoPlayback() {
-      isVideoPlaying = !isVideoPlaying;
-      const btnText = document.getElementById('mainVideoBtnText');
-      const playIcon = document.getElementById('playBarIcon');
-      const progressBar = document.getElementById('videoProgressBar');
-      const timeLabel = document.getElementById('videoTimeLabel');
-
-      if (isVideoPlaying) {
-        btnText.textContent = 'Reproduciendo Showreel (01:05)';
-        playIcon.textContent = '❚❚';
-        progressBar.style.width = '92%';
-        timeLabel.textContent = 'PLAY · 01:05';
-      } else {
-        btnText.textContent = 'Reproducir Video de Alcance';
-        playIcon.textContent = '▶';
-        progressBar.style.width = '35%';
-        timeLabel.textContent = '01:05';
-      }
-    }
-
-    // 6. Modal para Agendar Google Meet / Media Kit
-    function openMeetModal(e) {
-      if (e) e.preventDefault();
-      const modal = document.getElementById('meetModal');
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-
-    function closeMeetModal() {
-      const modal = document.getElementById('meetModal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    function handleMeetSubmit(e) {
-      e.preventDefault();
-      const msg = document.getElementById('meetSuccessMsg');
-      msg.classList.remove('hidden');
-      setTimeout(() => {
-        msg.classList.add('hidden');
-        closeMeetModal();
-        e.target.reset();
-      }, 2400);
-    }
-
-    // 7. Toast informativo para enlaces legales
-    function openLegalToast(name) {
-      const toast = document.getElementById('legalToast');
-      const label = document.getElementById('legalToastName');
-      label.textContent = name;
-      toast.classList.remove('hidden');
-      setTimeout(() => {
-        toast.classList.add('hidden');
-      }, 2500);
+    function changeLang(lang) {
+      document.getElementById('btnEs').className = lang === 'es' 
+        ? "px-2.5 py-1 rounded-full bg-accent-green text-ink-black transition-all" 
+        : "lang-btn-inactive px-2.5 py-1 rounded-full transition-all";
+      document.getElementById('btnEn').className = lang === 'en' 
+        ? "px-2.5 py-1 rounded-full bg-accent-green text-ink-black transition-all" 
+        : "lang-btn-inactive px-2.5 py-1 rounded-full transition-all";
+      
+      document.getElementById('heroTitle').innerText = dict[lang].title;
+      document.getElementById('heroSubtitle').innerText = dict[lang].subtitle;
+      document.getElementById('heroCtaText').innerText = dict[lang].heroCta;
+      
+      // Actualiza texto de botón de contacto en Escritorio y Móvil
+      document.getElementById('navContactText').innerText = dict[lang].navContact;
+      document.getElementById('navContactTextMobile').innerText = dict[lang].navContact;
     }
   </script>
 </body>
