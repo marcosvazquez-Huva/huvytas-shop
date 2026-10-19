@@ -1,0 +1,94 @@
+/* Transición de Navbar dinámico */
+#mainNavbar {
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Estado 1: Transparente sobre el Hero */
+.nav-transparent {
+  background-color: transparent !important;
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+.nav-transparent .nav-link {
+  color: #E2E6E1 !important;
+}
+.nav-transparent .nav-link:hover {
+  color: #88C24E !important;
+}
+.nav-transparent .lang-wrapper {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+.nav-transparent .lang-btn-inactive {
+  color: #E2E6E1 !important;
+}
+.nav-transparent .mobile-burger {
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Estado 2: Fondo blanco con scroll o en páginas interiores */
+.nav-scrolled {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: #E2E6E1 !important;
+  box-shadow: 0 4px 20px rgba(17, 19, 21, 0.05) !important;
+}
+.nav-scrolled .nav-link {
+  color: #525866 !important;
+}
+.nav-scrolled .nav-link:hover {
+  color: #111315 !important;
+}
+.nav-scrolled .lang-wrapper {
+  background-color: #F2F4F2 !important;
+  border-color: #E2E6E1 !important;
+}
+.nav-scrolled .lang-btn-inactive {
+  color: #525866 !important;
+}
+.nav-scrolled .mobile-burger {
+  color: #111315 !important;
+  border-color: #E2E6E1 !important;
+}
+
+/* Animación del Menú Móvil más lenta, orgánica y suave */
+#mobileMenu {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-16px);
+  overflow: hidden;
+  pointer-events: none;
+  transition: max-height 0.75s cubic-bezier(0.22, 1, 0.36, 1), 
+              opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), 
+              transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#mobileMenu.menu-active {
+  max-height: 440px;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Botones de acción redondeados (Se extrae para uso global en Navbar) */
+.btn-huvytas {
+  background-color: #88C24E;
+  color: #111315;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  border: 2px solid #88C24E;
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-huvytas:hover {
+  background-color: #111315;
+  color: #88C24E;
+  border-color: #111315;
+}
+.btn-huvytas:hover .arrow-icon {
+  transform: translateX(4px);
+}
+.btn-huvytas.on-dark:hover {
+  border-color: #88C24E;
+}
