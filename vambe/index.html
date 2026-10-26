@@ -152,92 +152,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </nav>
 
-    <section class="relative pt-28 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-slate-50">
-        <!-- Carrusel de fondo con overlay -->
-        <div class="absolute inset-0 z-0">
-            <!-- Contenedor de Slides -->
-            <div id="hero-carousel" class="relative w-full h-full">
-                <!-- Slide 1 (Activo por defecto) -->
-                <img src="/vambe/img/banner-1-carrusel.jpg" alt="Fondo 1" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-20 transition-opacity duration-1000 ease-in-out object-center">
+    <section class="relative w-full h-[50vh] min-h-[400px] md:h-[70vh] lg:h-[80vh] mt-16 md:mt-[72px] overflow-hidden bg-slate-100">
+        <!-- Contenedor de Slides -->
+        <div id="hero-carousel" class="relative w-full h-full overflow-hidden">
+            <div id="carousel-inner" class="flex w-full h-full transition-transform duration-1000 ease-in-out" style="transform: translateX(0%);">
+                <!-- Slide 1 -->
+                <img src="/vambe/img/banner-1-carrusel.jpg" alt="Banner Vambe 1" class="carousel-slide w-full h-full object-cover flex-shrink-0 object-center">
                 <!-- Slide 2 -->
-                <img src="/vambe/img/banner-2-carrusel.jpg" alt="Fondo 2" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 ease-in-out object-center">
+                <img src="/vambe/img/banner-2-carrusel.jpg" alt="Banner Vambe 2" class="carousel-slide w-full h-full object-cover flex-shrink-0 object-center">
                 <!-- Slide 3 -->
-                <img src="/vambe/img/banner-3-carrusel.jpg" alt="Fondo 3" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 ease-in-out object-center">
+                <img src="/vambe/img/banner-3-carrusel.jpg" alt="Banner Vambe 3" class="carousel-slide w-full h-full object-cover flex-shrink-0 object-center">
                 <!-- Slide 4 -->
-                <img src="/vambe/img/banner-4-carrusel.jpg" alt="Fondo 4" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 ease-in-out object-center">
-            </div>
-
-            <!-- Overlay degradado -->
-            <div class="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-slate-50 pointer-events-none"></div>
-            
-            <!-- Indicadores (Circulitos) -->
-            <div class="absolute bottom-4 left-0 right-0 flex justify-center items-center gap-2 z-20 pb-4 md:pb-0">
-                <button class="carousel-dot w-8 h-2 rounded-full bg-brand-500 transition-all duration-300"></button>
-                <button class="carousel-dot w-2 h-2 rounded-full bg-brand-300 hover:bg-brand-400 transition-all duration-300"></button>
-                <button class="carousel-dot w-2 h-2 rounded-full bg-brand-300 hover:bg-brand-400 transition-all duration-300"></button>
-                <button class="carousel-dot w-2 h-2 rounded-full bg-brand-300 hover:bg-brand-400 transition-all duration-300"></button>
+                <img src="/vambe/img/banner-4-carrusel.jpg" alt="Banner Vambe 4" class="carousel-slide w-full h-full object-cover flex-shrink-0 object-center">
             </div>
         </div>
 
-        <!-- Fondos visuales abstractos -->
-        <div class="blob bg-brand-300 w-[300px] h-[300px] md:w-[500px] md:h-[500px] top-0 left-[-100px] mix-blend-multiply"></div>
-        <div class="blob bg-blue-200 w-[250px] h-[250px] md:w-[400px] md:h-[400px] bottom-0 right-[-50px] mix-blend-multiply"></div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-                
-                <!-- Columna de Texto -->
-                <div class="text-center lg:text-left">
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-4 md:mb-6 leading-tight">
-                        Convierte más conversaciones en <span class="bg-gradient-to-r from-brand-600 to-blue-500 gradient-text">ventas con IA</span>
-                    </h1>
-                    <p class="mt-4 text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed mb-6 md:mb-8">
-                        Vambe responde, califica y da seguimiento a tus clientes 24/7 para que tu equipo pueda enfocarse en las oportunidades que realmente importan.
-                    </p>
-                    <div class="hidden md:flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
-                        <a href="#agenda" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-xl shadow-brand-500/30 text-lg flex items-center justify-center gap-2 hover:-translate-y-1">
-                            Agenda una asesoría gratuita
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Columna Visual (Mockups de Chat) -->
-                <div class="relative h-[380px] sm:h-[450px] w-full max-w-md mx-auto lg:max-w-full mt-8 md:mt-0">
-                    <div class="absolute inset-0 bg-grid opacity-40 rounded-3xl"></div>
-                    
-                    <!-- Chat del cliente -->
-                    <div class="absolute top-0 left-0 w-[90%] md:w-[85%] glass-card p-3 md:p-4 rounded-2xl rounded-tl-sm shadow-lg animate-float">
-                        <div class="flex gap-3">
-                            <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-200 flex-shrink-0 flex items-center justify-center text-slate-500">
-                                <i class="fa-solid fa-user text-xs md:text-base"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs md:text-sm font-medium text-slate-900">Cliente</p>
-                                <p class="text-xs md:text-sm text-slate-600 mt-1">Hola, me interesa automatizar mis ventas. ¿Tienen disponibilidad?</p>
-                                <p class="text-[9px] md:text-[10px] text-slate-400 mt-1">23:45 PM</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Chat de Vambe -->
-                    <div class="absolute top-24 md:top-36 right-0 w-[90%] md:w-[85%] bg-white border border-slate-100 p-3 md:p-4 rounded-2xl rounded-tr-sm shadow-xl animate-float-delayed">
-                        <div class="flex gap-3 flex-row-reverse">
-                            <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-600 flex-shrink-0 flex items-center justify-center text-white overflow-hidden">
-                                <img src="/vambe/img/favicon-vambe.png" alt="Vambe Logo" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/40x40/3b82f6/ffffff?text=V';">
-                            </div>
-                            <div class="text-right">
-                                <p class="text-xs md:text-sm font-medium text-brand-700">Vambe IA</p>
-                                <p class="text-xs md:text-sm text-slate-600 mt-1">¡Hola! Claro que sí. Trabajamos 24/7. ¿Te gustaría agendar una reunión mañana para evaluar tu proceso?</p>
-                                <div class="mt-2 md:mt-3 bg-brand-50 border border-brand-100 p-1.5 md:p-2 rounded-lg inline-flex items-center gap-1.5 md:gap-2">
-                                    <i class="fa-regular fa-calendar-check text-brand-600 text-xs md:text-base"></i>
-                                    <span class="text-[10px] md:text-xs font-semibold text-brand-800">Cita propuesta: Mañana 10:00 AM</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <!-- Indicadores (Circulitos) -->
+        <div class="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 flex items-center gap-2 z-20 bg-white/70 backdrop-blur-md px-4 py-2 rounded-full shadow-sm">
+            <button class="carousel-dot w-8 h-2 rounded-full bg-brand-500 transition-all duration-300"></button>
+            <button class="carousel-dot w-2 h-2 rounded-full bg-brand-300 hover:bg-brand-400 transition-all duration-300"></button>
+            <button class="carousel-dot w-2 h-2 rounded-full bg-brand-300 hover:bg-brand-400 transition-all duration-300"></button>
+            <button class="carousel-dot w-2 h-2 rounded-full bg-brand-300 hover:bg-brand-400 transition-all duration-300"></button>
         </div>
     </section>
 
@@ -571,22 +506,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
 
         // Hero Carousel Logic
+        const carouselInner = document.getElementById('carousel-inner');
         const slides = document.querySelectorAll('.carousel-slide');
         const dots = document.querySelectorAll('.carousel-dot');
         let currentSlide = 0;
         let slideInterval;
 
         function showSlide(index) {
-            // Actualizar imágenes
-            slides.forEach((slide, i) => {
-                if (i === index) {
-                    slide.classList.remove('opacity-0');
-                    slide.classList.add('opacity-20'); // Mantiene la opacidad original del diseño
-                } else {
-                    slide.classList.remove('opacity-20');
-                    slide.classList.add('opacity-0');
-                }
-            });
+            // Desplazamiento horizontal
+            const offset = index * -100;
+            carouselInner.style.transform = `translateX(${offset}%)`;
             
             // Actualizar puntos
             dots.forEach((dot, i) => {
