@@ -137,7 +137,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </a>
     </div>
 
-    <nav class="fixed w-full z-40 glass-nav transition-all duration-300 py-3 md:py-4">
+    <nav class="fixed top-0 left-0 right-0 w-full z-50 glass-nav transition-all duration-300 py-3 md:py-4 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <a href="#" class="flex items-center gap-2">
@@ -152,7 +152,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </nav>
 
-    <section class="relative w-full h-[50vh] min-h-[400px] md:h-[70vh] lg:h-[80vh] mt-16 md:mt-[72px] overflow-hidden bg-slate-100">
+    <section class="relative w-full h-[50vh] min-h-[400px] md:h-[70vh] lg:h-[80vh] mt-14 md:mt-[68px] overflow-hidden bg-slate-100">
         <!-- Contenedor de Slides -->
         <div id="hero-carousel" class="relative w-full h-full overflow-hidden">
             <div id="carousel-inner" class="flex w-full h-full transition-transform duration-1000 ease-in-out" style="transform: translateX(0%);">
@@ -167,12 +167,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
 
-        <!-- Indicadores (Circulitos) -->
-        <div class="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 flex items-center gap-2 z-20 bg-white/70 backdrop-blur-md px-4 py-2 rounded-full shadow-sm">
-            <button class="carousel-dot w-8 h-2 rounded-full bg-brand-500 transition-all duration-300"></button>
-            <button class="carousel-dot w-2 h-2 rounded-full bg-brand-300 hover:bg-brand-400 transition-all duration-300"></button>
-            <button class="carousel-dot w-2 h-2 rounded-full bg-brand-300 hover:bg-brand-400 transition-all duration-300"></button>
-            <button class="carousel-dot w-2 h-2 rounded-full bg-brand-300 hover:bg-brand-400 transition-all duration-300"></button>
+        <!-- Indicadores (Circulitos destacados y claros) -->
+        <div class="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 flex items-center gap-3 z-20 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full shadow-lg border border-slate-200/80">
+            <button class="carousel-dot w-7 h-2.5 rounded-full bg-brand-600 transition-all duration-300" aria-label="Slide 1"></button>
+            <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300" aria-label="Slide 2"></button>
+            <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300" aria-label="Slide 3"></button>
+            <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300" aria-label="Slide 4"></button>
         </div>
     </section>
 
@@ -517,14 +517,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             const offset = index * -100;
             carouselInner.style.transform = `translateX(${offset}%)`;
             
-            // Actualizar puntos
+            // Actualizar puntos con contraste evidente
             dots.forEach((dot, i) => {
                 if (i === index) {
-                    dot.classList.remove('w-2', 'bg-brand-300');
-                    dot.classList.add('w-8', 'bg-brand-500'); // Estilo píldora activa
+                    dot.classList.remove('w-2.5', 'bg-slate-300');
+                    dot.classList.add('w-7', 'bg-brand-600'); // Píldora activa destacada
                 } else {
-                    dot.classList.remove('w-8', 'bg-brand-500');
-                    dot.classList.add('w-2', 'bg-brand-300'); // Estilo círculo inactivo
+                    dot.classList.remove('w-7', 'bg-brand-600');
+                    dot.classList.add('w-2.5', 'bg-slate-300'); // Círculos inactivos bien visibles
                 }
             });
             
