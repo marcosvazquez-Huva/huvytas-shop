@@ -152,18 +152,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </nav>
 
-    <section class="relative w-full mt-14 md:mt-[68px] overflow-hidden bg-slate-100 aspect-[1920/820]">
+    <section class="relative w-full mt-14 md:mt-[68px] overflow-hidden bg-slate-100 aspect-[1080/1440] md:aspect-[1920/820]">
         <!-- Contenedor de Slides -->
         <div id="hero-carousel" class="relative w-full h-full overflow-hidden">
             <div id="carousel-inner" class="flex w-full h-full transition-transform duration-1000 ease-in-out" style="transform: translateX(0%);">
                 <!-- Slide 1 -->
-                <img src="/vambe/img/banner-1-carrusel.jpg" alt="Banner Vambe 1" class="carousel-slide w-full h-full object-cover flex-shrink-0 object-center">
+                <picture class="carousel-slide w-full h-full flex-shrink-0">
+                    <source media="(min-width: 768px)" srcset="/vambe/img/banner-1-carrusel.jpg">
+                    <img src="/vambe/img/banner-1-carrusel-v.jpg" alt="Banner Vambe 1" class="w-full h-full object-cover object-center">
+                </picture>
                 <!-- Slide 2 -->
-                <img src="/vambe/img/banner-2-carrusel.jpg" alt="Banner Vambe 2" class="carousel-slide w-full h-full object-cover flex-shrink-0 object-center">
+                <picture class="carousel-slide w-full h-full flex-shrink-0">
+                    <source media="(min-width: 768px)" srcset="/vambe/img/banner-2-carrusel.jpg">
+                    <img src="/vambe/img/banner-2-carrusel-v.jpg" alt="Banner Vambe 2" class="w-full h-full object-cover object-center">
+                </picture>
                 <!-- Slide 3 -->
-                <img src="/vambe/img/banner-3-carrusel.jpg" alt="Banner Vambe 3" class="carousel-slide w-full h-full object-cover flex-shrink-0 object-center">
+                <picture class="carousel-slide w-full h-full flex-shrink-0">
+                    <source media="(min-width: 768px)" srcset="/vambe/img/banner-3-carrusel.jpg">
+                    <img src="/vambe/img/banner-3-carrusel-v.jpg" alt="Banner Vambe 3" class="w-full h-full object-cover object-center">
+                </picture>
                 <!-- Slide 4 -->
-                <img src="/vambe/img/banner-4-carrusel.jpg" alt="Banner Vambe 4" class="carousel-slide w-full h-full object-cover flex-shrink-0 object-center">
+                <picture class="carousel-slide w-full h-full flex-shrink-0">
+                    <source media="(min-width: 768px)" srcset="/vambe/img/banner-4-carrusel.jpg">
+                    <img src="/vambe/img/banner-4-carrusel-v.jpg" alt="Banner Vambe 4" class="w-full h-full object-cover object-center">
+                </picture>
             </div>
         </div>
 
