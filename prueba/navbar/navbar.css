@@ -15,13 +15,6 @@
 .nav-transparent .nav-link:hover {
   color: #88C24E !important;
 }
-.nav-transparent .lang-wrapper {
-  background-color: rgba(255, 255, 255, 0.12) !important;
-  border-color: rgba(255, 255, 255, 0.25) !important;
-}
-.nav-transparent .lang-btn-inactive {
-  color: #E2E6E1 !important;
-}
 .nav-transparent .mobile-burger {
   color: #FFFFFF !important;
   border-color: rgba(255, 255, 255, 0.3) !important;
@@ -40,13 +33,6 @@
 }
 .nav-scrolled .nav-link:hover {
   color: #111315 !important;
-}
-.nav-scrolled .lang-wrapper {
-  background-color: #F2F4F2 !important;
-  border-color: #E2E6E1 !important;
-}
-.nav-scrolled .lang-btn-inactive {
-  color: #525866 !important;
 }
 .nav-scrolled .mobile-burger {
   color: #111315 !important;
@@ -71,7 +57,7 @@
   pointer-events: auto;
 }
 
-/* Botones de acción redondeados (Se extrae para uso global en Navbar) */
+/* Botones de acción redondeados */
 .btn-huvytas {
   background-color: #88C24E;
   color: #111315;
