@@ -8,36 +8,36 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="grid grid-cols-1 md:grid-cols-4 gap-12 pb-16 border-b border-white/10">
             <!-- Columna 1: Marca y descripción -->
             <div>
-              <a href="index.html#home" class="flex items-center mb-4" data-i18n-title="navTitleBrands">
+              <a href="index.html#home" class="flex items-center mb-4">
                 <img src="https://via.placeholder.com/160x42/111315/88C24E?text=HUVYTAS" alt="Huvytas Footer" class="h-7 w-auto object-contain brightness-110"/>
               </a>
-              <p class="text-gray-400 text-xs sm:text-sm leading-relaxed" data-i18n="ftDesc">
+              <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
                 Conectamos grandes marcas con audiencias estratégicas en México y LATAM mediante tecnología, datos y múltiples canales digitales.
               </p>
             </div>
 
             <!-- Columna 2: Navegación -->
             <div>
-              <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-accent-green mb-4" data-i18n="ftNav">Navegación</h4>
+              <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-accent-green mb-4">Navegación</h4>
               <ul class="space-y-2 text-sm text-gray-300">
-                <li><a href="index.html#brands" class="hover:text-accent-green transition-colors" data-i18n="navBrands" data-i18n-title="navTitleBrands">Brands</a></li>
-                <li><a href="index.html#channels" class="hover:text-accent-green transition-colors" data-i18n="navChannels" data-i18n-title="navTitleChannels">Channels</a></li>
-                <li><a href="index.html#about" class="hover:text-accent-green transition-colors" data-i18n="navAbout" data-i18n-title="navTitleAbout">About</a></li>
-                <li><a href="contact.html" class="hover:text-accent-green transition-colors" data-i18n="navContact" data-i18n-title="navTitleContact">Contacto</a></li>
+                <li><a href="index.html#brands" class="hover:text-accent-green transition-colors">Brands</a></li>
+                <li><a href="index.html#channels" class="hover:text-accent-green transition-colors">Channels</a></li>
+                <li><a href="index.html#about" class="hover:text-accent-green transition-colors">About</a></li>
+                <li><a href="contact.html" class="hover:text-accent-green transition-colors">Contacto</a></li>
               </ul>
             </div>
 
             <!-- Columna 3: Legales -->
             <div>
-              <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-accent-green mb-4" data-i18n="ftLegal">Legales</h4>
+              <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-accent-green mb-4">Legales</h4>
               <ul class="space-y-2 text-sm text-gray-300">
-                <li><a href="#privacidad" class="hover:text-accent-green transition-colors" data-i18n="ftPriv">Política de privacidad</a></li>
-                <li><a href="#terminos" class="hover:text-accent-green transition-colors" data-i18n="ftTerm">Términos y condiciones</a></li>
-                <li><a href="#cookies" class="hover:text-accent-green transition-colors" data-i18n="ftCook">Política de cookies</a></li>
+                <li><a href="#privacidad" class="hover:text-accent-green transition-colors">Política de privacidad</a></li>
+                <li><a href="#terminos" class="hover:text-accent-green transition-colors">Términos y condiciones</a></li>
+                <li><a href="#cookies" class="hover:text-accent-green transition-colors">Política de cookies</a></li>
               </ul>
             </div>
 
-            <!-- Columna 4: Redes Sociales (Exclusivamente Instagram y LinkedIn) -->
+            <!-- Columna 4: Redes Sociales -->
             <div>
               <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-accent-green mb-4">Social Media</h4>
               <div class="flex gap-3">
@@ -52,17 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
 
           <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
-            <span data-i18n="ftCopy">© 2026 Huvytas Advertising. Todos los derechos reservados.</span>
-            <span data-i18n="ftLoc">México · LATAM</span>
+            <span>© 2026 Huvytas Advertising. Todos los derechos reservados.</span>
+            <span>México · LATAM</span>
           </div>
         </div>
       </footer>
     `;
-
-    // Aplica el idioma activo inmediatamente después de insertar el Footer en el DOM
-    const currentLang = localStorage.getItem('siteLang') || 'es';
-    if (typeof applyLanguage === 'function') {
-      applyLanguage(currentLang);
-    }
   }
 });
