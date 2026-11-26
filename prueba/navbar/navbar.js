@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
           
           <!-- Logo -->
           <a href="index.html#home" class="flex items-center">
-            <img id="navbarLogo" src="https://via.placeholder.com/160x42/111315/88C24E?text=HUVYTAS" alt="Logo Huvytas Advertising" class="h-8 sm:h-9 w-auto object-contain transition-opacity duration-300 hover:opacity-90"/>
+            <img id="navbarLogo" src="/prueba/img/Logo_G_2.png" alt="Logo Huvytas Advertising" class="h-8 sm:h-9 w-auto object-contain transition-opacity duration-300 hover:opacity-90"/>
           </a>
 
           <!-- Menú Central -->
