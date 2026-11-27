@@ -18,17 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="index.html#about" class="nav-link text-sm font-medium transition-colors" title="Contar nuestra historia y evolución">About</a>
           </nav>
 
-          <!-- Zona Derecha: Botón Contacto Desktop + Botón Hamburguesa Minimalista -->
+          <!-- Zona Derecha: Botón Contacto Desktop + Icono Hamburguesa Limpio (3 barras) -->
           <div class="flex items-center gap-4">
             <a href="contact.html" class="hidden md:inline-flex btn-huvytas text-xs uppercase tracking-wider px-5 py-2.5 items-center justify-center shadow-sm" title="Formulario ejecutivo de contacto">
               <span>Contacto</span>
             </a>
 
-            <button onclick="toggleMobileNav()" class="mobile-burger md:hidden w-11 h-11 rounded-xl border flex items-center justify-center transition-all" aria-label="Abrir menú">
-              <svg id="burgerIcon" class="w-5 h-5 transition-transform duration-500 ease-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                <line x1="6" y1="8" x2="18" y2="8" />
-                <line x1="6" y1="12" x2="18" y2="12" />
-                <line x1="13" y1="16" x2="18" y2="16" />
+            <button onclick="toggleMobileNav()" class="mobile-burger md:hidden p-2 flex items-center justify-center focus:outline-none transition-colors" aria-label="Abrir menú">
+              <svg id="burgerIcon" class="w-7 h-7 transition-transform duration-500 ease-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round">
+                <line x1="4" y1="6.5" x2="20" y2="6.5" />
+                <line x1="4" y1="12" x2="20" y2="12" />
+                <line x1="4" y1="17.5" x2="20" y2="17.5" />
               </svg>
             </button>
           </div>
