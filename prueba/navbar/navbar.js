@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
           
           <!-- Logo -->
           <a href="index.html#home" class="flex items-center">
-            <img id="navbarLogo" src="/prueba/img/Logo_G_2.png" alt="Logo Huvytas Advertising" class="h-8 sm:h-9 w-auto object-contain transition-opacity duration-300 hover:opacity-90"/>
+            <img id="navbarLogo" src="https://via.placeholder.com/160x42/111315/88C24E?text=HUVYTAS" alt="Logo Huvytas Advertising" class="h-8 sm:h-9 w-auto object-contain transition-opacity duration-300 hover:opacity-90"/>
           </a>
 
           <!-- Menú Central -->
@@ -18,15 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="index.html#about" class="nav-link text-sm font-medium transition-colors" title="Contar nuestra historia y evolución">About</a>
           </nav>
 
-          <!-- Zona Derecha: Botón Contacto Desktop + Menú Hamburguesa Móvil -->
+          <!-- Zona Derecha: Botón Contacto Desktop + Botón Hamburguesa Minimalista -->
           <div class="flex items-center gap-4">
             <a href="contact.html" class="hidden md:inline-flex btn-huvytas text-xs uppercase tracking-wider px-5 py-2.5 items-center justify-center shadow-sm" title="Formulario ejecutivo de contacto">
               <span>Contacto</span>
             </a>
 
-            <button onclick="toggleMobileNav()" class="mobile-burger md:hidden p-2 rounded-lg border transition-colors" aria-label="Abrir menú">
-              <svg id="burgerIcon" class="w-6 h-6 transition-transform duration-500 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            <button onclick="toggleMobileNav()" class="mobile-burger md:hidden w-11 h-11 rounded-xl border flex items-center justify-center transition-all" aria-label="Abrir menú">
+              <svg id="burgerIcon" class="w-5 h-5 transition-transform duration-500 ease-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                <line x1="6" y1="8" x2="18" y2="8" />
+                <line x1="6" y1="12" x2="18" y2="12" />
+                <line x1="13" y1="16" x2="18" y2="16" />
               </svg>
             </button>
           </div>
