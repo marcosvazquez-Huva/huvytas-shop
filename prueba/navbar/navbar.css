@@ -17,7 +17,8 @@
 }
 .nav-transparent .mobile-burger {
   color: #FFFFFF !important;
-  border-color: rgba(255, 255, 255, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
 }
 
 /* Estado 2: Fondo blanco con scroll o en páginas interiores */
@@ -36,7 +37,11 @@
 }
 .nav-scrolled .mobile-burger {
   color: #111315 !important;
+  background-color: #FFFFFF !important;
   border-color: #E2E6E1 !important;
+}
+.nav-scrolled .mobile-burger:hover {
+  background-color: #F2F4F2 !important;
 }
 
 /* Animación del Menú Móvil más lenta, orgánica y suave */
